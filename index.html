@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>l12388h.com - 手机版</title>
@@ -460,12 +459,12 @@
 <body>
 
   <!-- 登录弹窗 -->
-  <div class="login-modal" id="loginModal">
+  <div class="login-modal show" id="loginModal">
     <div class="login-box">
       <h3>🔐 管理登录</h3>
       <input type="password" id="passwordInput" placeholder="请输入管理密码">
       <button onclick="checkPassword()">确认</button>
-      <div class="login-error" id="loginError">密码错误，请重试</div>
+      <div class="login-error" id="loginError" style="display: none;">密码错误，请重试</div>
     </div>
   </div>
 
@@ -474,7 +473,7 @@
 
   <!-- 顶部黄色条 -->
   <div class="top-bar">
-    <span class="editable" data-field="date">2026年4月4日 星期六</span>
+    <span class="editable" data-field="date" contenteditable="false">2026年4月4日 星期六</span>
     <div>
       <a href="#">设为首页</a>
       <a href="#">收藏</a>
@@ -483,7 +482,7 @@
 
   <!-- Logo区域 -->
   <div class="logo-area">
-    <div class="logo editable" data-field="logo">l12388h<span>.com</span></div>
+    <div class="logo editable" data-field="logo" contenteditable="false">l12388h<span>.com</span></div>
     <div class="search-box">
       <input type="text" placeholder="搜索...">
       <button>搜索</button>
@@ -492,32 +491,30 @@
 
   <!-- 七格快捷入口 -->
   <div class="quick-grid">
-    <div class="quick-item editable" data-field="q1">
-      <div class="quick-icon">🏠</div>
-      <span>首页</span>
-    </div>
-    <div class="quick-item editable" data-field="q2">
-      <div class="quick-icon">📰</div>
-      <span>新闻</span>
-    </div>
-    <div class="quick-item editable" data-field="q3">
-      <div class="quick-icon">📦</div>
+    <div class="quick-item editable" data-field="q1" contenteditable="false">
+      <div class="quick-icon">03<br></div>
+      恭</div>
+    <div class="quick-item editable" data-field="q2" contenteditable="false">
+      <div class="quick-icon">47<br></div>
+      喜</div>
+    <div class="quick-item editable" data-field="q3" contenteditable="false">
+      <div class="quick-icon">26<br></div>
       <span>产品</span>
     </div>
-    <div class="quick-item editable" data-field="q4">
-      <div class="quick-icon">🏢</div>
+    <div class="quick-item editable" data-field="q4" contenteditable="false">
+      <div class="quick-icon">33<br></div>
       <span>关于</span>
     </div>
-    <div class="quick-item editable" data-field="q5">
-      <div class="quick-icon">📞</div>
+    <div class="quick-item editable" data-field="q5" contenteditable="false">
+      <div class="quick-icon">18<br></div>
       <span>联系</span>
     </div>
-    <div class="quick-item editable" data-field="q6">
-      <div class="quick-icon">💬</div>
+    <div class="quick-item editable" data-field="q6" contenteditable="false">
+      <div class="quick-icon">36<br></div>
       <span>留言</span>
     </div>
-    <div class="quick-item editable" data-field="q7">
-      <div class="quick-icon">👤</div>
+    <div class="quick-item editable" data-field="q7" contenteditable="false">
+      <div class="quick-icon">40<br></div>
       <span>我的</span>
     </div>
   </div>
@@ -525,16 +522,16 @@
   <!-- 导航 -->
   <nav class="main-nav">
     <ul class="nav-list">
-      <li><a href="#" class="active editable" data-field="nav1">首页</a></li>
-      <li><a href="#" class="editable" data-field="nav2">新闻</a></li>
-      <li><a href="#" class="editable" data-field="nav3">产品</a></li>
-      <li><a href="#" class="editable" data-field="nav4">关于</a></li>
-      <li><a href="#" class="editable" data-field="nav5">联系</a></li>
+      <li><a href="#" class="active editable" data-field="nav1" contenteditable="false">首页</a></li>
+      <li><a href="#" class="editable" data-field="nav2" contenteditable="false">喜</a></li>
+      <li><a href="#" class="editable" data-field="nav3" contenteditable="false">发</a></li>
+      <li><a href="#" class="editable" data-field="nav4" contenteditable="false">关于</a></li>
+      <li><a href="#" class="editable" data-field="nav5" contenteditable="false">联系</a></li>
     </ul>
   </nav>
 
   <!-- 轮播 -->
-  <div class="banner editable" data-field="banner">
+  <div class="banner editable" data-field="banner" contenteditable="false">
     <div>
       <h2>专业品质 值得信赖</h2>
       <p>为您提供优质的产品与服务</p>
@@ -547,19 +544,19 @@
       <span>📰 新闻中心</span>
       <a href="#">更多&gt;&gt;</a>
     </div>
-    <div class="news-item editable" data-field="news1">
+    <div class="news-item editable" data-field="news1" contenteditable="false">
       <a href="#">新闻标题一：公司最新动态发布</a>
       <span class="date">04-03</span>
     </div>
-    <div class="news-item editable" data-field="news2">
+    <div class="news-item editable" data-field="news2" contenteditable="false">
       <a href="#">新闻标题二：产品升级通知</a>
       <span class="date">04-02</span>
     </div>
-    <div class="news-item editable" data-field="news3">
+    <div class="news-item editable" data-field="news3" contenteditable="false">
       <a href="#">新闻标题三：行业资讯分享</a>
       <span class="date">04-01</span>
     </div>
-    <div class="news-item editable" data-field="news4">
+    <div class="news-item editable" data-field="news4" contenteditable="false">
       <a href="#">新闻标题四：企业活动报道</a>
       <span class="date">03-31</span>
     </div>
@@ -572,28 +569,28 @@
       <a href="#">更多&gt;&gt;</a>
     </div>
     <div class="products-grid">
-      <div class="product-card editable" data-field="p1">
+      <div class="product-card editable" data-field="p1" contenteditable="false">
         <div class="product-img">图片</div>
         <div class="product-info">
           <h4>产品名称一</h4>
           <p>产品简介</p>
         </div>
       </div>
-      <div class="product-card editable" data-field="p2">
+      <div class="product-card editable" data-field="p2" contenteditable="false">
         <div class="product-img" style="background: linear-gradient(135deg, #f5a623 0%, #d4920f 100%);">图片</div>
         <div class="product-info">
           <h4>产品名称二</h4>
           <p>产品简介</p>
         </div>
       </div>
-      <div class="product-card editable" data-field="p3">
+      <div class="product-card editable" data-field="p3" contenteditable="false">
         <div class="product-img" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">图片</div>
         <div class="product-info">
           <h4>产品名称三</h4>
           <p>产品简介</p>
         </div>
       </div>
-      <div class="product-card editable" data-field="p4">
+      <div class="product-card editable" data-field="p4" contenteditable="false">
         <div class="product-img" style="background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);">图片</div>
         <div class="product-info">
           <h4>产品名称四</h4>
@@ -606,7 +603,7 @@
   <!-- 公告栏 -->
   <div class="notice-section">
     <div class="section-title">📢 公告通知</div>
-    <div class="notice-content editable" data-field="notice">
+    <div class="notice-content editable" data-field="notice" contenteditable="false">
       <div class="notice-item">• 公告一：网站正式上线</div>
       <div class="notice-item">• 公告二：服务时间调整通知</div>
       <div class="notice-item">• 公告三：新产品发布预告</div>
@@ -616,7 +613,7 @@
   <!-- 联系方式 -->
   <div class="contact-section">
     <div class="section-title">📞 联系我们</div>
-    <div class="contact-content editable" data-field="contact">
+    <div class="contact-content editable" data-field="contact" contenteditable="false">
       <div class="contact-item">
         <div class="icon">📱</div>
         <span>电话：400-XXX-XXXX</span>
@@ -633,7 +630,7 @@
   </div>
 
   <!-- 友情链接 -->
-  <div class="links-section editable" data-field="links">
+  <div class="links-section editable" data-field="links" contenteditable="false">
     <h4>友情链接</h4>
     <div>
       <a href="#">合作伙伴A</a>
@@ -645,7 +642,7 @@
 
   <!-- 页脚 -->
   <footer class="footer">
-    <p>&copy; 2026 l12388h.com</p>
+    <p>© 2026 l12388h.com</p>
     <p>保留所有权利</p>
   </footer>
 
@@ -778,6 +775,6 @@
     loadData();
   </script>
 
-  <div id="saveMsg" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:white;padding:20px 30px;border-radius:10px;z-index:99999;font-size:16px;text-align:center;white-space:nowrap;">⏳ 正在同步...</div>
-</body>
-</html>
+  <div id="saveMsg" style="display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); color: white; padding: 20px 30px; border-radius: 10px; z-index: 99999; font-size: 16px; text-align: center; white-space: nowrap;">⏳ 正在同步...</div>
+
+</body></html>
