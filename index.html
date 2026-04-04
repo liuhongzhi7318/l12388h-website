@@ -94,24 +94,36 @@
       color: #999;
     }
 
-    /* 编辑按钮 */
+    /* 编辑按钮 - 藏在页脚 */
     .edit-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background: var(--blue);
-      color: white;
+      bottom: 5px;
+      right: 5px;
+      width: 18px;
+      height: 18px;
+      background: transparent;
+      color: transparent;
       border: none;
-      border-radius: 50%;
-      font-size: 12px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.3);
-      z-index: 9999;
+      font-size: 1px;
       cursor: pointer;
+      z-index: 9999;
+      opacity: 0;
     }
 
-    .edit-btn.active { background: #28a745; }
+    .edit-btn:hover {
+      opacity: 1;
+    }
+
+    .edit-btn.active { 
+      background: #28a745;
+      color: white;
+      font-size: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      bottom: 20px;
+      right: 20px;
+    }
 
     /* 七格快捷入口 */
     .quick-grid {
@@ -457,8 +469,8 @@
     </div>
   </div>
 
-  <!-- 编辑按钮 -->
-  <button class="edit-btn" id="editBtn" onclick="showLogin()">编辑</button>
+  <!-- 编辑按钮 - 隐藏 -->
+  <button class="edit-btn" id="editBtn" onclick="showLogin()"></button>
 
   <!-- 顶部黄色条 -->
   <div class="top-bar">
