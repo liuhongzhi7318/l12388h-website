@@ -424,10 +424,8 @@
       margin-bottom: 5px;
     }
 
-    /* 编辑模式样式 */
-    .editable {
-      position: relative;
-    }
+    /* 编辑模式样式 - 浏览者完全不可见 */
+    .editable { position: relative; }
 
     .editable.edit-mode {
       outline: 2px dashed var(--red);
@@ -435,24 +433,18 @@
     }
 
     .edit-hint {
-      display: none;
-      position: absolute;
-      top: -20px;
-      left: 0;
-      background: var(--red);
-      color: white;
-      padding: 2px 6px;
-      font-size: 10px;
-      border-radius: 2px;
-      white-space: nowrap;
+      display: none !important;
     }
 
     .edit-mode .edit-hint {
       display: block;
     }
 
-    .edit-mode a {
-      pointer-events: none;
+    .edit-mode a { pointer-events: none; }
+
+    /* 浏览者端隐藏编辑按钮 */
+    [contenteditable="true"] {
+      outline: none;
     }
   </style>
 </head>
@@ -684,9 +676,9 @@
       isEdit = true;
       btn.textContent = '保存';
       btn.classList.add('active');
-      document.querySelectorAll('.editable').forEach(el => {
+      document.querySelectorAll('.editable').forEach(function(el) {
         el.classList.add('edit-mode');
-        el.contentEditable = 'true';
+        el.setAttribute('contenteditable', 'true');
       });
     }
 
@@ -694,9 +686,9 @@
       isEdit = false;
       btn.textContent = '⚙';
       btn.classList.remove('active');
-      document.querySelectorAll('.editable').forEach(el => {
+      document.querySelectorAll('.editable').forEach(function(el) {
         el.classList.remove('edit-mode');
-        el.contentEditable = 'false';
+        el.removeAttribute('contenteditable');
       });
     }
 
