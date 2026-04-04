@@ -652,6 +652,9 @@
   <script>
     const ADMIN_PASSWORD = 'Lhz732435';
     let isEdit = false;
+    let ghToken = '';
+    const GH_OWNER = 'liuhongzhi7318';
+    const GH_REPO = 'l12388h-website';
     const btn = document.getElementById('editBtn');
     const modal = document.getElementById('loginModal');
     const passwordInput = document.getElementById('passwordInput');
@@ -664,9 +667,7 @@
       loginError.style.display = 'none';
     }
 
-    function hideLogin() {
-      modal.classList.remove('show');
-    }
+    function hideLogin() { modal.classList.remove('show'); }
 
     function checkPassword() {
       if (passwordInput.value === ADMIN_PASSWORD) {
@@ -679,17 +680,14 @@
     }
 
     passwordInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        checkPassword();
-      }
+      if (e.key === 'Enter') checkPassword();
     });
 
     function enableEdit() {
       isEdit = true;
       btn.textContent = '保存';
       btn.classList.add('active');
-      const items = document.querySelectorAll('.editable');
-      items.forEach(el => {
+      document.querySelectorAll('.editable').forEach(el => {
         el.classList.add('edit-mode');
         el.contentEditable = 'true';
       });
@@ -697,10 +695,9 @@
 
     function disableEdit() {
       isEdit = false;
-      btn.textContent = '编辑';
+      btn.textContent = '⚙';
       btn.classList.remove('active');
-      const items = document.querySelectorAll('.editable');
-      items.forEach(el => {
+      document.querySelectorAll('.editable').forEach(el => {
         el.classList.remove('edit-mode');
         el.contentEditable = 'false';
       });
@@ -709,27 +706,70 @@
     btn.addEventListener('click', function() {
       if (isEdit) {
         disableEdit();
-        saveData();
-        alert('已保存！');
+        saveAndSync();
+      } else {
+        showLogin();
       }
     });
 
-    function saveData() {
-      const data = {};
-      document.querySelectorAll('.editable').forEach(el => {
-        if (el.dataset.field) {
-          data[el.dataset.field] = el.innerHTML;
-        }
+    function saveAndSync() {
+      var data = {};
+      document.querySelectorAll('.editable').forEach(function(el) {
+        if (el.dataset.field) data[el.dataset.field] = el.innerHTML;
       });
       localStorage.setItem('mobile-web', JSON.stringify(data));
+
+      // 读取保存的Token
+      var savedToken = localStorage.getItem('gh_token');
+      if (savedToken) {
+        ghToken = savedToken;
+        uploadToGitHub();
+      } else {
+        // 首次使用，弹出Token输入框
+        var tk = prompt('首次使用需输入GitHub Token（只需输入一次）：');
+        if (tk && tk.length > 10) {
+          ghToken = tk;
+          localStorage.setItem('gh_token', tk);
+          uploadToGitHub();
+        } else {
+          alert('已保存到本地，未同步到服务器');
+        }
+      }
+    }
+
+    function uploadToGitHub() {
+      var msg = document.getElementById('saveMsg');
+      if (msg) msg.style.display = 'block';
+
+      fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
+        headers: { 'Authorization': 'token ' + ghToken }
+      }).then(function(r) { return r.json(); }).then(function(fileData) {
+        var sha = fileData.sha;
+        var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        var content = btoa(unescape(encodeURIComponent(html)));
+
+        return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
+          method: 'PUT',
+          headers: { 'Authorization': 'token ' + ghToken, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: 'Update website', content: content, sha: sha })
+        });
+      }).then(function(r) {
+        if (r.ok) {
+          if (msg) { msg.textContent = '✅ 已同步到服务器！'; setTimeout(function(){ msg.style.display='none'; msg.textContent='⏳ 正在同步...'; }, 3000); }
+        } else {
+          if (msg) { msg.textContent = '❌ 同步失败'; setTimeout(function(){ msg.style.display='none'; msg.textContent='⏳ 正在同步...'; }, 3000); }
+        }
+      }).catch(function() {
+        if (msg) { msg.textContent = '❌ 网络错误'; setTimeout(function(){ msg.style.display='none'; msg.textContent='⏳ 正在同步...'; }, 3000); }
+      });
     }
 
     function loadData() {
-      const saved = localStorage.getItem('mobile-web');
+      var saved = localStorage.getItem('mobile-web');
       if (saved) {
-        const data = JSON.parse(saved);
-        Object.keys(data).forEach(k => {
-          const el = document.querySelector(`[data-field="${k}"]`);
+        var data = JSON.parse(saved);
+        Object.keys(data).forEach(function(k) {
+          var el = document.querySelector('[data-field="' + k + '"]');
           if (el) el.innerHTML = data[k];
         });
       }
@@ -737,5 +777,7 @@
 
     loadData();
   </script>
+
+  <div id="saveMsg" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:white;padding:20px 30px;border-radius:10px;z-index:99999;font-size:16px;text-align:center;white-space:nowrap;">⏳ 正在同步...</div>
 </body>
 </html>
