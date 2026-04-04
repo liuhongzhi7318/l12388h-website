@@ -451,7 +451,7 @@
 <body>
 
   <!-- 登录弹窗 -->
-  <div class="login-modal show" id="loginModal">
+  <div class="login-modal" id="loginModal">
     <div class="login-box">
       <h3>🔐 管理登录</h3>
       <input type="password" id="passwordInput" placeholder="请输入管理密码">
@@ -714,7 +714,6 @@
         ghToken = savedToken;
         uploadToGitHub();
       } else {
-        // 首次使用，弹出Token输入框
         var tk = prompt('首次使用需输入GitHub Token（只需输入一次）：');
         if (tk && tk.length > 10) {
           ghToken = tk;
@@ -728,12 +727,21 @@
 
     function uploadToGitHub() {
       var msg = document.getElementById('saveMsg');
-      if (msg) msg.style.display = 'block';
+      // 确保弹窗关闭再上传
+      hideLogin();
+      if (msg) { msg.textContent = '⏳ 正在同步...'; msg.style.display = 'block'; }
 
       fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
         headers: { 'Authorization': 'token ' + ghToken }
       }).then(function(r) { return r.json(); }).then(function(fileData) {
         var sha = fileData.sha;
+        // 关闭所有编辑状态，清理干净再上传
+        document.querySelectorAll('.editable').forEach(function(el) {
+          el.classList.remove('edit-mode');
+          el.removeAttribute('contenteditable');
+        });
+        btn.classList.remove('active');
+        btn.textContent = '⚙';
         var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
         var content = btoa(unescape(encodeURIComponent(html)));
 
@@ -744,12 +752,12 @@
         });
       }).then(function(r) {
         if (r.ok) {
-          if (msg) { msg.textContent = '✅ 已同步到服务器！'; setTimeout(function(){ msg.style.display='none'; msg.textContent='⏳ 正在同步...'; }, 3000); }
+          if (msg) { msg.textContent = '✅ 已同步到服务器！'; setTimeout(function(){ msg.style.display='none'; }, 3000); }
         } else {
-          if (msg) { msg.textContent = '❌ 同步失败'; setTimeout(function(){ msg.style.display='none'; msg.textContent='⏳ 正在同步...'; }, 3000); }
+          if (msg) { msg.textContent = '❌ 同步失败'; setTimeout(function(){ msg.style.display='none'; }, 3000); }
         }
       }).catch(function() {
-        if (msg) { msg.textContent = '❌ 网络错误'; setTimeout(function(){ msg.style.display='none'; msg.textContent='⏳ 正在同步...'; }, 3000); }
+        if (msg) { msg.textContent = '❌ 网络错误'; setTimeout(function(){ msg.style.display='none'; }, 3000); }
       });
     }
 
@@ -767,6 +775,6 @@
     loadData();
   </script>
 
-  <div id="saveMsg" style="display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); color: white; padding: 20px 30px; border-radius: 10px; z-index: 99999; font-size: 16px; text-align: center; white-space: nowrap;">⏳ 正在同步...</div>
+  <div id="saveMsg" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:white;padding:20px 30px;border-radius:10px;z-index:99999;font-size:16px;text-align:center;white-space:nowrap;">⏳ 正在同步...</div>
 
 </body></html>
