@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>l12388h.com - 手机版</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --yellow: #f5a623;
+      --yellow-dark: #d4920f;
+      --blue: #2d5a8a;
+      --blue-dark: #1e4a6e;
+      --red: #c41230;
+      --light: #f5f5f5;
+      --text: #333;
+      --text-light: #666;
+      --border: #ddd;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    /* 编辑按钮 */
+    .edit-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+      z-index: 9999;
+      cursor: pointer;
+    }
+
+    .edit-btn.active { background: #28a745; }
+
+    /* 七格快捷入口 */
+    .quick-grid {
+      background: #c41230;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      padding: 15px 5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quick-item {
+      text-align: center;
+      padding: 5px;
+    }
+
+    .quick-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 5px;
+      font-size: 20px;
+    }
+
+    .quick-item span {
+      font-size: 11px;
+      color: white;
+    }
+
+    /* 顶部黄色条 */
+    .top-bar {
+      background: var(--yellow);
+      padding: 8px 12px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar a { color: var(--text); text-decoration: none; margin-left: 10px; }
+
+    /* Logo区域 */
+    .logo-area {
+      background: white;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--blue);
+    }
+
+    .logo span { color: var(--yellow); }
+
+    .search-box {
+      display: flex;
+      gap: 5px;
+    }
+
+    .search-box input {
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      width: 120px;
+      font-size: 12px;
+    }
+
+    .search-box button {
+      padding: 6px 12px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    /* 导航 */
+    .main-nav {
+      background: var(--blue);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    .nav-list li a {
+      display: inline-block;
+      padding: 12px 18px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-list li a.active,
+    .nav-list li a:active {
+      background: var(--blue-dark);
+    }
+
+    /* 轮播 */
+    .banner {
+      height: 150px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .banner h2 { font-size: 20px; margin-bottom: 8px; }
+    .banner p { font-size: 13px; opacity: 0.9; }
+
+    /* 区块标题 */
+    .section-title {
+      background: var(--yellow);
+      padding: 10px 12px;
+      font-weight: bold;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title a {
+      font-size: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    /* 新闻列表 */
+    .news-section {
+      background: white;
+      margin-bottom: 10px;
+    }
+
+    .news-item {
+      padding: 12px;
+      border-bottom: 1px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .news-item:last-child { border-bottom: none; }
+
+    .news-item a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .news-item .date {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-left: 10px;
+    }
+
+    /* 产品展示 */
+    .products-section {
+      background: white;
+      margin-bottom: 10px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .product-img {
+      height: 100px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+    }
+
+    .product-info {
+      padding: 8px;
+      text-align: center;
+    }
+
+    .product-info h4 {
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .product-info p {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* 公告栏 */
+    .notice-section {
+      background: white;
+      margin-bottom: 10px;
+    }
+
+    .notice-content {
+      padding: 12px;
+    }
+
+    .notice-item {
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+    }
+
+    .notice-item:last-child { border-bottom: none; }
+
+    /* 联系方式 */
+    .contact-section {
+      background: white;
+      margin-bottom: 10px;
+    }
+
+    .contact-content {
+      padding: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    .contact-item .icon {
+      width: 30px;
+      height: 30px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+
+    /* 友情链接 */
+    .links-section {
+      background: white;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .links-section h4 {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+
+    .links-section a {
+      display: inline-block;
+      margin: 3px 8px 3px 0;
+      font-size: 12px;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: var(--blue-dark);
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 5px;
+    }
+
+    /* 编辑模式样式 */
+    .editable {
+      position: relative;
+    }
+
+    .editable.edit-mode {
+      outline: 2px dashed var(--red);
+      outline-offset: 2px;
+    }
+
+    .edit-hint {
+      display: none;
+      position: absolute;
+      top: -20px;
+      left: 0;
+      background: var(--red);
+      color: white;
+      padding: 2px 6px;
+      font-size: 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .edit-mode .edit-hint {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 编辑按钮 -->
+  <button class="edit-btn" onclick="toggleEdit()">编辑</button>
+
+  <!-- 顶部黄色条 -->
+  <div class="top-bar">
+    <span class="editable" data-field="date">2026年4月4日 星期六</span>
+    <div>
+      <a href="#">设为首页</a>
+      <a href="#">收藏</a>
+    </div>
+  </div>
+
+  <!-- Logo区域 -->
+  <div class="logo-area">
+    <div class="logo editable" data-field="logo">l12388h<span>.com</span></div>
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button>搜索</button>
+    </div>
+  </div>
+
+  <!-- 七格快捷入口 -->
+  <div class="quick-grid">
+    <div class="quick-item editable" data-field="q1">
+      <div class="quick-icon">🏠</div>
+      <span>首页</span>
+    </div>
+    <div class="quick-item editable" data-field="q2">
+      <div class="quick-icon">📰</div>
+      <span>新闻</span>
+    </div>
+    <div class="quick-item editable" data-field="q3">
+      <div class="quick-icon">📦</div>
+      <span>产品</span>
+    </div>
+    <div class="quick-item editable" data-field="q4">
+      <div class="quick-icon">🏢</div>
+      <span>关于</span>
+    </div>
+    <div class="quick-item editable" data-field="q5">
+      <div class="quick-icon">📞</div>
+      <span>联系</span>
+    </div>
+    <div class="quick-item editable" data-field="q6">
+      <div class="quick-icon">💬</div>
+      <span>留言</span>
+    </div>
+    <div class="quick-item editable" data-field="q7">
+      <div class="quick-icon">👤</div>
+      <span>我的</span>
+    </div>
+  </div>
+
+  <!-- 导航 -->
+  <nav class="main-nav">
+    <ul class="nav-list">
+      <li><a href="#" class="active editable" data-field="nav1">首页</a></li>
+      <li><a href="#" class="editable" data-field="nav2">新闻</a></li>
+      <li><a href="#" class="editable" data-field="nav3">产品</a></li>
+      <li><a href="#" class="editable" data-field="nav4">关于</a></li>
+      <li><a href="#" class="editable" data-field="nav5">联系</a></li>
+    </ul>
+  </nav>
+
+  <!-- 轮播 -->
+  <div class="banner editable" data-field="banner">
+    <div>
+      <h2>专业品质 值得信赖</h2>
+      <p>为您提供优质的产品与服务</p>
+    </div>
+  </div>
+
+  <!-- 新闻中心 -->
+  <div class="news-section">
+    <div class="section-title">
+      <span>📰 新闻中心</span>
+      <a href="#">更多&gt;&gt;</a>
+    </div>
+    <div class="news-item editable" data-field="news1">
+      <a href="#">新闻标题一：公司最新动态发布</a>
+      <span class="date">04-03</span>
+    </div>
+    <div class="news-item editable" data-field="news2">
+      <a href="#">新闻标题二：产品升级通知</a>
+      <span class="date">04-02</span>
+    </div>
+    <div class="news-item editable" data-field="news3">
+      <a href="#">新闻标题三：行业资讯分享</a>
+      <span class="date">04-01</span>
+    </div>
+    <div class="news-item editable" data-field="news4">
+      <a href="#">新闻标题四：企业活动报道</a>
+      <span class="date">03-31</span>
+    </div>
+  </div>
+
+  <!-- 产品展示 -->
+  <div class="products-section">
+    <div class="section-title">
+      <span>📦 产品展示</span>
+      <a href="#">更多&gt;&gt;</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card editable" data-field="p1">
+        <div class="product-img">图片</div>
+        <div class="product-info">
+          <h4>产品名称一</h4>
+          <p>产品简介</p>
+        </div>
+      </div>
+      <div class="product-card editable" data-field="p2">
+        <div class="product-img" style="background: linear-gradient(135deg, #f5a623 0%, #d4920f 100%);">图片</div>
+        <div class="product-info">
+          <h4>产品名称二</h4>
+          <p>产品简介</p>
+        </div>
+      </div>
+      <div class="product-card editable" data-field="p3">
+        <div class="product-img" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">图片</div>
+        <div class="product-info">
+          <h4>产品名称三</h4>
+          <p>产品简介</p>
+        </div>
+      </div>
+      <div class="product-card editable" data-field="p4">
+        <div class="product-img" style="background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);">图片</div>
+        <div class="product-info">
+          <h4>产品名称四</h4>
+          <p>产品简介</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 公告栏 -->
+  <div class="notice-section">
+    <div class="section-title">📢 公告通知</div>
+    <div class="notice-content editable" data-field="notice">
+      <div class="notice-item">• 公告一：网站正式上线</div>
+      <div class="notice-item">• 公告二：服务时间调整通知</div>
+      <div class="notice-item">• 公告三：新产品发布预告</div>
+    </div>
+  </div>
+
+  <!-- 联系方式 -->
+  <div class="contact-section">
+    <div class="section-title">📞 联系我们</div>
+    <div class="contact-content editable" data-field="contact">
+      <div class="contact-item">
+        <div class="icon">📱</div>
+        <span>电话：400-XXX-XXXX</span>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📧</div>
+        <span>邮箱：contact@l12388h.com</span>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📍</div>
+        <span>地址：广西XX市XX区</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 友情链接 -->
+  <div class="links-section editable" data-field="links">
+    <h4>友情链接</h4>
+    <div>
+      <a href="#">合作伙伴A</a>
+      <a href="#">合作伙伴B</a>
+      <a href="#">合作伙伴C</a>
+      <a href="#">合作伙伴D</a>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>&copy; 2026 l12388h.com</p>
+    <p>保留所有权利</p>
+  </footer>
+
+  <script>
+    let isEdit = false;
+    const btn = document.querySelector('.edit-btn');
+
+    function toggleEdit() {
+      isEdit = !isEdit;
+      const items = document.querySelectorAll('.editable');
+      
+      if (isEdit) {
+        btn.textContent = '保存';
+        btn.classList.add('active');
+        items.forEach(el => {
+          el.classList.add('edit-mode');
+          el.contentEditable = 'true';
+        });
+      } else {
+        btn.textContent = '编辑';
+        btn.classList.remove('active');
+        items.forEach(el => {
+          el.classList.remove('edit-mode');
+          el.contentEditable = 'false';
+        });
+        saveData();
+        alert('已保存!');
+      }
+    }
+
+    function saveData() {
+      const data = {};
+      document.querySelectorAll('.editable').forEach(el => {
+        if (el.dataset.field) {
+          data[el.dataset.field] = el.innerHTML;
+        }
+      });
+      localStorage.setItem('mobile-web', JSON.stringify(data));
+    }
+
+    function loadData() {
+      const saved = localStorage.getItem('mobile-web');
+      if (saved) {
+        const data = JSON.parse(saved);
+        Object.keys(data).forEach(k => {
+          const el = document.querySelector(`[data-field="${k}"]`);
+          if (el) el.innerHTML = data[k];
+        });
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
