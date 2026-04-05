@@ -306,9 +306,9 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      padding: 8px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 10px;
     }
 
     .product-card {
@@ -318,27 +318,27 @@
     }
 
     .product-img {
-      height: 60px;
+      height: 80px;
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 10px;
+      font-size: 11px;
     }
 
     .product-info {
-      padding: 5px;
+      padding: 6px;
       text-align: center;
     }
 
     .product-info h4 {
-      font-size: 11px;
+      font-size: 12px;
       margin-bottom: 2px;
     }
 
     .product-info p {
-      font-size: 9px;
+      font-size: 10px;
       color: var(--text-light);
     }
 
@@ -560,35 +560,21 @@
       <span>📦 产品展示</span>
       <a href="#">更多&gt;&gt;</a>
     </div>
-    <div class="products-grid">
-      <div class="product-card editable" data-field="p1" contenteditable="false">
-        <div class="product-img">图片</div>
-        <div class="product-info">
-          <h4>产品名称一</h4>
-          <p>产品简介</p>
-        </div>
-      </div>
-      <div class="product-card editable" data-field="p2" contenteditable="false">
-        <div class="product-img" style="background: linear-gradient(135deg, #f5a623 0%, #d4920f 100%);">图片</div>
-        <div class="product-info">
-          <h4>产品名称二</h4>
-          <p>产品简介</p>
-        </div>
-      </div>
-      <div class="product-card editable" data-field="p3" contenteditable="false">
-        <div class="product-img" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">图片</div>
-        <div class="product-info">
-          <h4>产品名称三</h4>
-          <p>产品简介</p>
-        </div>
-      </div>
-      <div class="product-card editable" data-field="p4" contenteditable="false">
-        <div class="product-img" style="background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);">图片</div>
-        <div class="product-info">
-          <h4>产品名称四</h4>
-          <p>产品简介</p>
-        </div>
-      </div>
+    <div class="news-item editable" data-field="p1" contenteditable="false">
+      <a href="#">产品名称一：产品简介</a>
+      <span class="date">热销</span>
+    </div>
+    <div class="news-item editable" data-field="p2" contenteditable="false">
+      <a href="#">产品名称二：产品简介</a>
+      <span class="date">新品</span>
+    </div>
+    <div class="news-item editable" data-field="p3" contenteditable="false">
+      <a href="#">产品名称三：产品简介</a>
+      <span class="date">推荐</span>
+    </div>
+    <div class="news-item editable" data-field="p4" contenteditable="false">
+      <a href="#">产品名称四：产品简介</a>
+      <span class="date">特价</span>
     </div>
   </div>
 
