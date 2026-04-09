@@ -584,8 +584,9 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Footer -->
-<footer class="footer editable" data-field="footer" style="position:relative;">
- <button id="footerEditBtn" ondblclick="showLogin()" style="position:absolute;top:5px;right:8px;width:30px;height:30px;background:transparent;border:0;outline:none;opacity:0;color:transparent;cursor:default;font-size:1px;line-height:1px;overflow:hidden;z-index:100;" aria-hidden="true"></button>
+<footer class="footer editable" data-field="footer">
+ <button id="editPageBtn" onclick="showLogin()" style="background:#3e98f0;color:white;border:none;padding:8px 16px;border-radius:20px;font-size:14px;cursor:pointer;">⚙ 编辑此页面</button>
+ <button id="saveBtn" onclick="saveAndSync()" style="background:#28a745;color:white;border:none;padding:8px 16px;border-radius:20px;font-size:14px;cursor:pointer;display:none;margin-right:8px;">💾 保存</button>
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
 </footer>
@@ -596,7 +597,6 @@ let isEdit = false;
 let ghToken = ''; // 自动上传Token
 const GH_OWNER = 'liuhongzhi7318';
 const GH_REPO = 'l12388h-website';
-const btn = document.getElementById('footerEditBtn');
 const modal = document.getElementById('loginModal');
 const passwordInput = document.getElementById('passwordInput');
 const loginError = document.getElementById('loginError');
@@ -627,15 +627,9 @@ passwordInput.addEventListener('keypress', function(e) {
 
 function enableEdit() {
  isEdit = true;
- btn.textContent = '💾保存';
- btn.style.background = '#28a745';
- btn.style.color = '#fff';
- btn.style.fontSize = '12px';
- btn.style.borderRadius = '4px';
- btn.style.cursor = 'pointer';
- btn.style.padding = '2px 6px';
- btn.style.opacity = '1';
- btn.style.lineHeight = 'normal';
+ document.getElementById('editPageBtn').style.display = 'none';
+ var saveBtn = document.getElementById('saveBtn');
+ saveBtn.style.display = 'inline-block';
  document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
@@ -754,14 +748,8 @@ function uploadAndInsertImage(file, targetEl) {
 
 function disableEdit() {
  isEdit = false;
- btn.textContent = '';
- btn.style.background = 'transparent';
- btn.style.color = 'transparent';
- btn.style.fontSize = '1px';
- btn.style.cursor = 'default';
- btn.style.padding = '';
- btn.style.borderRadius = '';
- btn.classList.remove('active');
+ document.getElementById('editPageBtn').style.display = 'inline-block';
+ document.getElementById('saveBtn').style.display = 'none';
  document.body.classList.remove('edit-mode-active');
  document.body.classList.remove('edit-mode');
  // 彻底移除所有编辑状态
@@ -784,19 +772,6 @@ function disableEdit() {
  document.body.scrollTop = 0;
  initLotteryBalls();
 }
-
-btn.addEventListener('click', function(e) {
- if (isEdit) {
-  saveAndSync();
- }
- e.stopPropagation();
-});
-btn.addEventListener('dblclick', function(e) {
- if (!isEdit) {
-  showLogin();
- }
- e.stopPropagation();
-});
 
 function saveAndSync() {
  var data = {};
@@ -830,8 +805,8 @@ function uploadToGitHub() {
   var sha = fileData.sha;
   // 彻底退出编辑模式
   isEdit = false;
-  btn.textContent = '⚙';
-  btn.classList.remove('active');
+  document.getElementById('editPageBtn').style.display = 'inline-block';
+  document.getElementById('saveBtn').style.display = 'none';
   document.body.classList.remove('edit-mode-active');
   document.body.classList.remove('edit-mode');
   var all = document.getElementsByTagName('*');
