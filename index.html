@@ -584,7 +584,8 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Footer -->
-<footer class="footer editable" data-field="footer">
+<footer class="footer editable" data-field="footer" style="position:relative;">
+ <button id="footerEditBtn" ondblclick="showLogin()" style="position:absolute;top:5px;right:8px;width:30px;height:30px;background:transparent;border:none;color:transparent;cursor:default;font-size:1px;z-index:100;" aria-hidden="true"></button>
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
 </footer>
@@ -595,7 +596,7 @@ let isEdit = false;
 let ghToken = ''; // 自动上传Token
 const GH_OWNER = 'liuhongzhi7318';
 const GH_REPO = 'l12388h-website';
-const btn = document.getElementById('editBtn');
+const btn = document.getElementById('footerEditBtn');
 const modal = document.getElementById('loginModal');
 const passwordInput = document.getElementById('passwordInput');
 const loginError = document.getElementById('loginError');
@@ -626,8 +627,13 @@ passwordInput.addEventListener('keypress', function(e) {
 
 function enableEdit() {
  isEdit = true;
- btn.textContent = '保存';
- btn.classList.add('active');
+ btn.textContent = '💾保存';
+ btn.style.background = '#28a745';
+ btn.style.color = '#fff';
+ btn.style.fontSize = '12px';
+ btn.style.borderRadius = '4px';
+ btn.style.cursor = 'pointer';
+ btn.style.padding = '2px 6px';
  document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
@@ -746,7 +752,13 @@ function uploadAndInsertImage(file, targetEl) {
 
 function disableEdit() {
  isEdit = false;
- btn.textContent = '⚙';
+ btn.textContent = '';
+ btn.style.background = 'transparent';
+ btn.style.color = 'transparent';
+ btn.style.fontSize = '1px';
+ btn.style.cursor = 'default';
+ btn.style.padding = '';
+ btn.style.borderRadius = '';
  btn.classList.remove('active');
  document.body.classList.remove('edit-mode-active');
  document.body.classList.remove('edit-mode');
@@ -774,7 +786,11 @@ function disableEdit() {
 btn.addEventListener('click', function(e) {
  if (isEdit) {
   saveAndSync();
- } else {
+ }
+ e.stopPropagation();
+});
+btn.addEventListener('dblclick', function(e) {
+ if (!isEdit) {
   showLogin();
  }
  e.stopPropagation();
