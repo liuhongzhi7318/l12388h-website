@@ -584,9 +584,10 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Footer -->
-<footer class="footer editable" data-field="footer">
+<footer class="footer editable" data-field="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
+ <button id="footerEditBtn" ondblclick="showLogin()" style="position:absolute;bottom:8px;right:10px;width:40px;height:40px;background:transparent;border:0;outline:none;opacity:0;cursor:default;z-index:10;" aria-hidden="true"></button>
 </footer>
 
 <script>
@@ -595,6 +596,7 @@ let isEdit = false;
 let ghToken = ''; // 自动上传Token
 const GH_OWNER = 'liuhongzhi7318';
 const GH_REPO = 'l12388h-website';
+const btn = document.getElementById('footerEditBtn');
 const modal = document.getElementById('loginModal');
 const passwordInput = document.getElementById('passwordInput');
 const loginError = document.getElementById('loginError');
@@ -625,6 +627,13 @@ passwordInput.addEventListener('keypress', function(e) {
 
 function enableEdit() {
  isEdit = true;
+ btn.textContent = '💾';
+ btn.style.background = '#28a745';
+ btn.style.color = 'white';
+ btn.style.fontSize = '12px';
+ btn.style.borderRadius = '4px';
+ btn.style.opacity = '0.85';
+ btn.style.cursor = 'pointer';
  document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
@@ -743,6 +752,13 @@ function uploadAndInsertImage(file, targetEl) {
 
 function disableEdit() {
  isEdit = false;
+ btn.textContent = '';
+ btn.style.background = 'transparent';
+ btn.style.color = 'transparent';
+ btn.style.fontSize = '';
+ btn.style.borderRadius = '';
+ btn.style.opacity = '0';
+ btn.style.cursor = 'default';
  document.body.classList.remove('edit-mode-active');
  document.body.classList.remove('edit-mode');
  // 彻底移除所有编辑状态
@@ -765,6 +781,13 @@ function disableEdit() {
  document.body.scrollTop = 0;
  initLotteryBalls();
 }
+
+btn.addEventListener('click', function() {
+ if (isEdit) { saveAndSync(); }
+});
+btn.addEventListener('dblclick', function() {
+ if (!isEdit) { showLogin(); }
+});
 
 function saveAndSync() {
  var data = {};
@@ -798,6 +821,13 @@ function uploadToGitHub() {
   var sha = fileData.sha;
   // 彻底退出编辑模式
   isEdit = false;
+  btn.textContent = '';
+  btn.style.background = 'transparent';
+  btn.style.color = 'transparent';
+  btn.style.fontSize = '';
+  btn.style.borderRadius = '';
+  btn.style.opacity = '0';
+  btn.style.cursor = 'default';
   document.body.classList.remove('edit-mode-active');
   document.body.classList.remove('edit-mode');
   var all = document.getElementsByTagName('*');
