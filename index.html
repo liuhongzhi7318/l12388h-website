@@ -424,6 +424,50 @@ img { max-width: 100%; height: auto; display: block; }
 .edit-mode a { pointer-events: none; }
 [contenteditable="true"] { outline: none; }
 [contenteditable="true"]:empty::before { content: '点击输入内容'; color: #aaa; font-style: italic; }
+
+/* ============ Link Toolbar (edit mode) ============ */
+#linkToolbar {
+ display: none;
+ position: fixed;
+ background: #333;
+ border-radius: 6px;
+ padding: 6px 8px;
+ z-index: 99999;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+ font-size: 13px;
+ white-space: nowrap;
+}
+#linkToolbar input {
+ border: none;
+ border-radius: 4px;
+ padding: 4px 8px;
+ font-size: 12px;
+ width: 220px;
+ margin-right: 5px;
+ color: #333;
+}
+#linkToolbar button {
+ border: none;
+ border-radius: 4px;
+ padding: 4px 10px;
+ font-size: 12px;
+ cursor: pointer;
+ font-family: inherit;
+}
+#linkToolbar .btn-insert {
+ background: #28a745;
+ color: white;
+ margin-right: 3px;
+}
+#linkToolbar .btn-cancel {
+ background: #666;
+ color: white;
+}
+#linkToolbar .btn-remove {
+ background: #c41230;
+ color: white;
+ margin-right: 3px;
+}
 </style>
 </head>
 <body>
@@ -696,6 +740,14 @@ img { max-width: 100%; height: auto; display: block; }
  </ul>
 </div>
 
+<!-- Link Toolbar (edit mode) -->
+<div id="linkToolbar">
+ <input type="text" id="linkUrlInput" placeholder="输入网址 https://...">
+ <button class="btn-insert" onclick="insertLink()">插入链接</button>
+ <button class="btn-remove" onclick="removeLink()">移除链接</button>
+ <button class="btn-cancel" onclick="hideLinkToolbar()">取消</button>
+</div>
+
 <!-- Footer -->
 <footer class="footer editable" data-field="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
@@ -737,6 +789,117 @@ function checkPassword() {
 passwordInput.addEventListener('keypress', function(e) {
  if (e.key === 'Enter') checkPassword();
 });
+
+// ============ Link Toolbar (edit mode) ============
+function showLinkToolbar() {
+ var sel = window.getSelection();
+ if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+ var range = sel.getRangeAt(0);
+ if (range.collapsed) return;
+ var anchor = sel.anchorNode;
+ // Only show in edit mode, on editable elements
+ var editable = anchor.parentElement.closest('.editable');
+ if (!editable || !editable.classList.contains('edit-mode')) return;
+ // Check if already inside a link
+ var inLink = anchor.parentElement.tagName === 'A' || anchor.parentElement.closest('a');
+ var toolbar = document.getElementById('linkToolbar');
+ var input = document.getElementById('linkUrlInput');
+ var url = '';
+ if (inLink) {
+  url = inLink.href || '';
+ }
+ input.value = url;
+ toolbar.style.display = 'block';
+ var rect = range.getBoundingClientRect();
+ var tbTop = rect.bottom + window.scrollY + 8;
+ var tbLeft = rect.left + window.scrollX;
+ toolbar.style.top = tbTop + 'px';
+ toolbar.style.left = tbLeft + 'px';
+ // Make sure it doesn't go off screen
+ var tbRect = toolbar.getBoundingClientRect();
+ if (tbLeft + tbRect.width > window.innerWidth) {
+  toolbar.style.left = (window.innerWidth - tbRect.width - 10) + 'px';
+ }
+ if (tbTop + tbRect.height > window.innerHeight + window.scrollY) {
+  toolbar.style.top = (rect.top + window.scrollY - tbRect.height - 8) + 'px';
+ }
+ setTimeout(function(){ input.focus(); }, 50);
+}
+
+function hideLinkToolbar() {
+ var toolbar = document.getElementById('linkToolbar');
+ if (toolbar) toolbar.style.display = 'none';
+ var sel = window.getSelection();
+ if (sel) sel.removeAllRanges();
+}
+
+function insertLink() {
+ var input = document.getElementById('linkUrlInput');
+ var url = input.value.trim();
+ if (!url) { alert('请输入网址'); return; }
+ if (!/^https?:\/\//i.test(url)) { url = 'https://' + url; }
+ var sel = window.getSelection();
+ if (!sel || sel.rangeCount === 0) return;
+ var range = sel.getRangeAt(0);
+ if (range.collapsed) return;
+ // If already in a link, update it
+ var anchor = sel.anchorNode;
+ var existingLink = anchor.parentElement.tagName === 'A' ? anchor.parentElement : anchor.parentElement.closest('a');
+ if (existingLink) {
+  existingLink.href = url;
+ } else {
+  var a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.style.color = '#2d5a8a';
+  a.style.textDecoration = 'underline';
+  range.surroundContents(a);
+ }
+ hideLinkToolbar();
+}
+
+function removeLink() {
+ var sel = window.getSelection();
+ if (!sel || sel.rangeCount === 0) return;
+ var anchor = sel.anchorNode;
+ var link = anchor.parentElement.tagName === 'A' ? anchor.parentElement : anchor.parentElement.closest('a');
+ if (link && link.tagName === 'A') {
+  var text = document.createTextNode(link.textContent);
+  link.parentNode.replaceChild(text, link);
+ }
+ hideLinkToolbar();
+}
+
+function initLinkToolbar() {
+ document.addEventListener('mouseup', function(e) {
+  setTimeout(showLinkToolbar, 100);
+ });
+ document.addEventListener('keyup', function(e) {
+  if (e.ctrlKey && e.key === 'k') {
+   var sel = window.getSelection();
+   if (sel && !sel.isCollapsed) {
+    var range = sel.getRangeAt(0);
+    var anchor = sel.anchorNode;
+    var editable = anchor.parentElement.closest('.editable');
+    if (editable && editable.classList.contains('edit-mode')) {
+     showLinkToolbar();
+    }
+   }
+  }
+ });
+ // Click outside to hide
+ document.addEventListener('mousedown', function(e) {
+  var toolbar = document.getElementById('linkToolbar');
+  if (toolbar && toolbar.style.display !== 'none' && !toolbar.contains(e.target)) {
+   hideLinkToolbar();
+  }
+ });
+ // Enter key in input
+ document.getElementById('linkUrlInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); insertLink(); }
+  if (e.key === 'Escape') hideLinkToolbar();
+ });
+}
 
 function enableEdit() {
  isEdit = true;
@@ -862,6 +1025,7 @@ function uploadAndInsertImage(file, targetEl) {
  };
  reader.readAsDataURL(file);
 }
+ initLinkToolbar();
 
 function disableEdit() {
  isEdit = false;
