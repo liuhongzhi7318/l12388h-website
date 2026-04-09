@@ -585,7 +585,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- Footer -->
 <footer class="footer editable" data-field="footer" style="position:relative;">
- <button id="footerEditBtn" ondblclick="showLogin()" style="position:absolute;top:5px;right:8px;width:30px;height:30px;background:transparent;border:none;color:transparent;cursor:default;font-size:1px;z-index:100;" aria-hidden="true"></button>
+ <button id="footerEditBtn" ondblclick="showLogin()" style="position:absolute;top:5px;right:8px;width:30px;height:30px;background:transparent;border:0;outline:none;opacity:0;color:transparent;cursor:default;font-size:1px;line-height:1px;overflow:hidden;z-index:100;" aria-hidden="true"></button>
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
 </footer>
@@ -634,6 +634,8 @@ function enableEdit() {
  btn.style.borderRadius = '4px';
  btn.style.cursor = 'pointer';
  btn.style.padding = '2px 6px';
+ btn.style.opacity = '1';
+ btn.style.lineHeight = 'normal';
  document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
