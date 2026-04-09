@@ -585,8 +585,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- Footer -->
 <footer class="footer editable" data-field="footer">
- <button id="editPageBtn" onclick="showLogin()" style="background:#3e98f0;color:white;border:none;padding:8px 16px;border-radius:20px;font-size:14px;cursor:pointer;">⚙ 编辑此页面</button>
- <button id="saveBtn" onclick="saveAndSync()" style="background:#28a745;color:white;border:none;padding:8px 16px;border-radius:20px;font-size:14px;cursor:pointer;display:none;margin-right:8px;">💾 保存</button>
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
 </footer>
@@ -627,9 +625,6 @@ passwordInput.addEventListener('keypress', function(e) {
 
 function enableEdit() {
  isEdit = true;
- document.getElementById('editPageBtn').style.display = 'none';
- var saveBtn = document.getElementById('saveBtn');
- saveBtn.style.display = 'inline-block';
  document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
@@ -748,8 +743,6 @@ function uploadAndInsertImage(file, targetEl) {
 
 function disableEdit() {
  isEdit = false;
- document.getElementById('editPageBtn').style.display = 'inline-block';
- document.getElementById('saveBtn').style.display = 'none';
  document.body.classList.remove('edit-mode-active');
  document.body.classList.remove('edit-mode');
  // 彻底移除所有编辑状态
@@ -805,8 +798,6 @@ function uploadToGitHub() {
   var sha = fileData.sha;
   // 彻底退出编辑模式
   isEdit = false;
-  document.getElementById('editPageBtn').style.display = 'inline-block';
-  document.getElementById('saveBtn').style.display = 'none';
   document.body.classList.remove('edit-mode-active');
   document.body.classList.remove('edit-mode');
   var all = document.getElementsByTagName('*');
