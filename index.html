@@ -912,7 +912,7 @@ function updateLotteryBall(numId, zodiacId) {
  if (inArr(n, ball_red)) color = "#FF0000";
  else if (inArr(n, ball_blue)) color = "#0000FF";
  else if (inArr(n, ball_green)) color = "#009900";
- // ballEl.style.backgroundColor = color;
+ ballEl.style.backgroundColor = color;
  ballEl.style.color = "#FFFFFF";
  var wx = "";
  for (var b = 1; b <= 5; b++) { if (inArr(n, ball_wx[b])) wx = ball_wx[0][b-1]; }
