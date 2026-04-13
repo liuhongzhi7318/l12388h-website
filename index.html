@@ -752,8 +752,14 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Footer -->
-<!-- 临时调试按钮 - 点击测试 -->
-<button onclick="alert('按钮有响应！isEdit='+isEdit+', btn='+typeof btn)" style="position:fixed;bottom:65px;left:10px;z-index:99999;background:red;color:white;padding:8px 16px;border:none;border-radius:5px;font-size:14px;cursor:pointer;">测试按钮</button>
+<!-- 编辑模式保存按钮 -->
+<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:12px;z-index:99990;box-shadow:0 -2px 10px rgba(0,0,0,0.3);">
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:12px 40px;border-radius:25px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);">💾 保存到服务器</button>
+ <div style="color:rgba(255,255,255,0.8);font-size:12px;margin-top:6px;">编辑完成后点击上方按钮保存</div>
+</div>
+
+<!-- 临时调试按钮 -->
+<button onclick="alert('isEdit='+isEdit)" style="position:fixed;bottom:80px;left:10px;z-index:99999;background:#ff6600;color:white;padding:8px 16px;border:none;border-radius:5px;font-size:13px;cursor:pointer;">调试</button>
 
 <footer class="footer editable" data-field="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
@@ -910,7 +916,11 @@ function initLinkToolbar() {
 function enableEdit() {
  isEdit = true;
  btn.textContent = '💾 保存';
+ btn.setAttribute('onclick', 'saveAndSync()');
  btn.style.background = '#28a745';
+ // 显示浮动保存条
+ var saveBar = document.getElementById('editSaveBar');
+ if (saveBar) saveBar.style.display = 'block';
  btn.style.color = 'white';
  btn.style.fontSize = '12px';
  btn.style.borderRadius = '6px';
@@ -1042,6 +1052,9 @@ function disableEdit() {
  btn.style.borderRadius = '';
  btn.style.opacity = '0';
  btn.style.cursor = 'default';
+ // 隐藏浮动保存条
+ var saveBar = document.getElementById('editSaveBar');
+ if (saveBar) saveBar.style.display = 'none';
  document.body.classList.remove('edit-mode-active');
  document.body.classList.remove('edit-mode');
  // 彻底移除所有编辑状态
@@ -1098,6 +1111,9 @@ function saveAndSync() {
  var showMsg = function(txt) {
   if (msgEl) { msgEl.textContent = txt; msgEl.style.display = 'block'; msgEl.style.color = '#fff'; }
   console.log('[MSG] ' + txt);
+  // 同时更新浮动保存条按钮文字
+  var saveBtn = document.querySelector('#editSaveBar button');
+  if (saveBtn) saveBtn.textContent = txt;
  };
 
  hideLogin();
