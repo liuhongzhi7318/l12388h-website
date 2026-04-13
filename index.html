@@ -472,7 +472,7 @@ img { max-width: 100%; height: auto; display: block; }
 <body class="edit-mode-active">
 
 <!-- 登录弹窗 -->
-<div class="login-modal" id="loginModal">
+<div class="login-modal show" id="loginModal">
  <div class="login-box">
   <h3>🔐 管理登录</h3>
   <input type="password" id="passwordInput" placeholder="请输入管理密码">
@@ -482,7 +482,7 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- 同步状态提示 -->
-<div id="saveMsg" style="display: block; position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: rgb(255, 255, 255); padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 99999; white-space: nowrap; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;">⏳ 正在上传...</div>
+<div id="saveMsg" style="display: block; position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: rgb(255, 255, 255); padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 99999; white-space: nowrap; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;">⏳ 正在同步到GitHub...</div>
 
 
 <!-- Header -->
@@ -558,20 +558,20 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Feeds List -->
-<div class="feeds-item hasImg editable edit-mode" data-field="news1" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news2" contenteditable="true"><br></div>
-<div class="feeds-item hasImg editable edit-mode" data-field="news3" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news4" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news5" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news6" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news7" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news8" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news9" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news10" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news11" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news12" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news13" contenteditable="true"><br></div>
-<div class="feeds-item editable edit-mode" data-field="news14" contenteditable="true"><br></div>
+<div class="feeds-item hasImg editable edit-mode" data-field="news1" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news2" contenteditable="true"></div>
+<div class="feeds-item hasImg editable edit-mode" data-field="news3" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news4" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news5" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news6" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news7" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news8" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news9" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news10" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news11" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news12" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news13" contenteditable="true"></div>
+<div class="feeds-item editable edit-mode" data-field="news14" contenteditable="true"></div>
 <div class="feeds-item editable edit-mode" data-field="news15" contenteditable="true">
  <h3><a href="#">新闻标题十五：企业文化活动</a></h3>
  <div class="feeds-item-info">
@@ -640,7 +640,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- 编辑模式浮动保存条 -->
 <div id="editSaveBar" style="display: block; position: fixed; bottom: 0px; left: 0px; right: 0px; background: linear-gradient(135deg, rgb(26, 138, 60), rgb(40, 167, 69)); text-align: center; padding: 14px 12px 18px; z-index: 99990; box-shadow: rgba(0, 0, 0, 0.3) 0px -4px 20px;">
- <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">⏳ 正在上传...</button>
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">⏳ 正在同步到GitHub...</button>
  <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div>
 </div>
 
