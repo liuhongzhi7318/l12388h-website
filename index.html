@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>l12388h.com - 新闻资讯</title>
@@ -469,7 +470,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 </style>
 </head>
-<body class="edit-mode-active">
+<body>
 
 <!-- 登录弹窗 -->
 <div class="login-modal" id="loginModal">
@@ -477,18 +478,18 @@ img { max-width: 100%; height: auto; display: block; }
   <h3>🔐 管理登录</h3>
   <input type="password" id="passwordInput" placeholder="请输入管理密码">
   <button onclick="checkPassword()">确认</button>
-  <div class="login-error" id="loginError" style="display: block;">密码错误</div>
+  <div class="login-error" id="loginError">密码错误</div>
  </div>
 </div>
 
 <!-- 同步状态提示 -->
-<div id="saveMsg" style="display: block; position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: rgb(255, 255, 255); padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 99999; white-space: nowrap; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;">⏳ 正在上传...</div>
+<div id="saveMsg" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;z-index:99999;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.3);"></div>
 
 
 <!-- Header -->
 <div class="header" id="mainHeader">
  <div class="content">
-  <div class="logo editable edit-mode" data-field="logo" contenteditable="true"><a href="#">l12388h<span>.com</span></a></div>
+  <div class="logo editable" data-field="logo"><a href="#">l12388h<span>.com</span></a></div>
   <div class="header-right" onclick="showLogin()" style="color:#ffe066;font-size:14px;cursor:pointer;padding:0 8px;">⚙ 编辑</div>
  </div>
 </div>
@@ -498,7 +499,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- Subnav -->
 <div class="subnav" style="padding:0;border-top:none;">
- <ul class="subnav-pills editable edit-mode" data-field="subnav" style="flex-wrap:wrap;height:auto;min-height:42px;padding:0 10px;" contenteditable="true">
+ <ul class="subnav-pills editable" data-field="subnav" style="flex-wrap:wrap;height:auto;min-height:42px;padding:0 10px;">
   <li><span class="cur">首页</span></li>
   <li><span>新闻</span></li>
   <li><span>产品</span></li>
@@ -510,51 +511,51 @@ img { max-width: 100%; height: auto; display: block; }
 <!-- ===== 开奖展示台 ===== -->
 <div id="lottery-section" style="background:#f8f8f8;border-bottom:1px solid #ddd;">
  <!-- 标题栏 -->
- <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable edit-mode" data-field="lottery-title" contenteditable="true">
+ <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-title">
   澳彩 <font color="#FF0000"><span id="q">095</span></font> 期开奖结果 <a href="#" onclick="return false;" style="text-decoration:none;"><font color="red">【开奖记录】</font></a>
  </div>
  <!-- 号码球区域 -->
  <div style="padding:5px 0;border-top:solid 1px #ddd;border-bottom:solid 1px #eee;clear:both;">
   <div style="float:left;width:83%;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m1" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">07</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m2" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">15</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m3" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">24</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m4" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">31</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#009900;color:#FFFFFF;"><div id="m5" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">38</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">42</div></div></th>
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m1" class="lottery-num" style="color:#FFFFFF;">07</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m2" class="lottery-num" style="color:#FFFFFF;">15</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m3" class="lottery-num" style="color:#FFFFFF;">24</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m4" class="lottery-num" style="color:#FFFFFF;">31</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#009900;color:#FFFFFF;"><div id="m5" class="lottery-num" style="color:#FFFFFF;">38</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num" style="color:#FFFFFF;">42</div></div></th>
     </tr>
     <tr>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable edit-mode" data-field="zodiac1" style="font-size:12px;color:#666;" contenteditable="true">鼠/土</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable edit-mode" data-field="zodiac2" style="font-size:12px;color:#666;" contenteditable="true">龙/水</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m3x" class="lottery-zodiac editable edit-mode" data-field="zodiac3" style="font-size:12px;color:#666;" contenteditable="true">羊/木</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable edit-mode" data-field="zodiac4" style="font-size:12px;color:#666;" contenteditable="true">鼠/水</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable edit-mode" data-field="zodiac5" style="font-size:12px;color:#666;" contenteditable="true">蛇/木</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable edit-mode" data-field="zodiac6" style="font-size:12px;color:#666;" contenteditable="true">牛/金</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable" data-field="zodiac1" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable" data-field="zodiac2" style="font-size:12px;color:#666;">牛/木</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m3x" class="lottery-zodiac editable" data-field="zodiac3" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable" data-field="zodiac4" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable" data-field="zodiac5" style="font-size:12px;color:#666;">猴/土</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable" data-field="zodiac6" style="font-size:12px;color:#666;">虎/金</div></td>
     </tr>
-   </tbody></table>
+   </table>
   </div>
   <div style="float:right;width:15%;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 42px; height: 42px; line-height: 42px; text-align: center; font-size: 20px; font-weight: bold; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><div id="s1" class="lottery-num edit-mode" style="color:#FFFFFF;" contenteditable="true">20</div></div></th>
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display:inline-block;border-radius:50%;width:42px;height:42px;line-height:42px;text-align:center;font-size:20px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="s1" class="lottery-num" style="color:#FFFFFF;">19</div></div></th>
     </tr>
     <tr>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable edit-mode" data-field="zodiac7" style="font-size:12px;color:#666;" contenteditable="true">猪/土</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable" data-field="zodiac7" style="font-size:12px;color:#666;">龙/水</div></td>
     </tr>
-   </tbody></table>
+   </table>
   </div>
  </div>
  <div style="clear:both;"></div>
  <!-- 下期信息 -->
- <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable edit-mode" data-field="lottery-next" contenteditable="true">
+ <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-next">
   第<span id="nextQiShu">096</span>期开奖时间：<span id="nextMonth">4</span>月<span id="nextDay">7</span>日 星期<span id="nextWeek">一</span> <span id="nextTime">21:30</span>
  </div>
 </div>
 
 <!-- Channels -->
-<div class="channels editable edit-mode" data-field="channels" contenteditable="true">
+<div class="channels editable" data-field="channels">
  <li><a href="#">推荐</a></li>
  <li><a href="#">热点</a></li>
  <li><a href="#">视频</a></li>
@@ -571,8 +572,8 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Feeds List -->
-<div class="feeds-item hasImg editable edit-mode" data-field="news1" contenteditable="true">
- <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%233e98f0' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt="" style="cursor: pointer;"></div>
+<div class="feeds-item hasImg editable" data-field="news1">
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%233e98f0' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
  <div class="feeds-item-info">
   <h3><a href="#">新闻标题一：公司最新动态发布</a></h3>
   <span>来源</span>
@@ -580,7 +581,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>2小时前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news2" contenteditable="true">
+<div class="feeds-item editable" data-field="news2">
  <h3><a href="#">新闻标题二：产品升级通知，新增多项功能</a></h3>
  <div class="feeds-item-info">
   <span>官方</span>
@@ -588,8 +589,8 @@ img { max-width: 100%; height: auto; display: block; }
   <span>3小时前</span>
  </div>
 </div>
-<div class="feeds-item hasImg editable edit-mode" data-field="news3" contenteditable="true">
- <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt="" style="cursor: pointer;"></div>
+<div class="feeds-item hasImg editable" data-field="news3">
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
  <div class="feeds-item-info">
   <h3><a href="#">新闻标题三：行业资讯分享</a></h3>
   <span>转载</span>
@@ -597,7 +598,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>5小时前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news4" contenteditable="true">
+<div class="feeds-item editable" data-field="news4">
  <h3><a href="#">新闻标题四：企业活动报道</a></h3>
  <div class="feeds-item-info">
   <span>原创</span>
@@ -605,7 +606,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>昨天</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news5" contenteditable="true">
+<div class="feeds-item editable" data-field="news5">
  <h3><a href="#">新闻标题五：市场动态分析</a></h3>
  <div class="feeds-item-info">
   <span>转载</span>
@@ -613,7 +614,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>昨天</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news6" contenteditable="true">
+<div class="feeds-item editable" data-field="news6">
  <h3><a href="#">新闻标题六：技术更新公告</a></h3>
  <div class="feeds-item-info">
   <span>官方</span>
@@ -621,7 +622,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>2天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news7" contenteditable="true">
+<div class="feeds-item editable" data-field="news7">
  <h3><a href="#">新闻标题七：合作伙伴签约</a></h3>
  <div class="feeds-item-info">
   <span>原创</span>
@@ -629,7 +630,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>2天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news8" contenteditable="true">
+<div class="feeds-item editable" data-field="news8">
  <h3><a href="#">新闻标题八：行业标准发布</a></h3>
  <div class="feeds-item-info">
   <span>转载</span>
@@ -637,7 +638,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>3天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news9" contenteditable="true">
+<div class="feeds-item editable" data-field="news9">
  <h3><a href="#">新闻标题九：新品发布会</a></h3>
  <div class="feeds-item-info">
   <span>官方</span>
@@ -645,7 +646,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>3天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news10" contenteditable="true">
+<div class="feeds-item editable" data-field="news10">
  <h3><a href="#">新闻标题十：年度总结报告</a></h3>
  <div class="feeds-item-info">
   <span>原创</span>
@@ -653,7 +654,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>4天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news11" contenteditable="true">
+<div class="feeds-item editable" data-field="news11">
  <h3><a href="#">新闻标题十一：获奖喜讯</a></h3>
  <div class="feeds-item-info">
   <span>官方</span>
@@ -661,7 +662,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>5天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news12" contenteditable="true">
+<div class="feeds-item editable" data-field="news12">
  <h3><a href="#">新闻标题十二：投资者大会</a></h3>
  <div class="feeds-item-info">
   <span>转载</span>
@@ -669,7 +670,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>5天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news13" contenteditable="true">
+<div class="feeds-item editable" data-field="news13">
  <h3><a href="#">新闻标题十三：社会责任报告</a></h3>
  <div class="feeds-item-info">
   <span>原创</span>
@@ -677,7 +678,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>6天前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news14" contenteditable="true">
+<div class="feeds-item editable" data-field="news14">
  <h3><a href="#">新闻标题十四：战略规划发布</a></h3>
  <div class="feeds-item-info">
   <span>官方</span>
@@ -685,7 +686,7 @@ img { max-width: 100%; height: auto; display: block; }
   <span>一周前</span>
  </div>
 </div>
-<div class="feeds-item editable edit-mode" data-field="news15" contenteditable="true">
+<div class="feeds-item editable" data-field="news15">
  <h3><a href="#">新闻标题十五：企业文化活动</a></h3>
  <div class="feeds-item-info">
   <span>原创</span>
@@ -696,54 +697,54 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- Section: 热榜 -->
 <div style="margin-top:15px;">
- <div class="section-title editable edit-mode" data-field="hot-title" contenteditable="true">
+ <div class="section-title editable" data-field="hot-title">
   <span>🔥 热榜</span>
   <a href="#">更多&gt;&gt;</a>
  </div>
  <ul class="article-hot">
-  <li class="editable edit-mode" data-field="hot1" contenteditable="true"><span class="mun">1</span><a href="#">热点新闻一</a></li>
-  <li class="editable edit-mode" data-field="hot2" contenteditable="true"><span class="mun">2</span><a href="#">热点新闻二</a></li>
-  <li class="editable edit-mode" data-field="hot3" contenteditable="true"><span class="mun">3</span><a href="#">热点新闻三</a></li>
-  <li class="editable edit-mode" data-field="hot4" contenteditable="true"><span class="mun">4</span><a href="#">热点新闻四</a></li>
-  <li class="editable edit-mode" data-field="hot5" contenteditable="true"><span class="mun">5</span><a href="#">热点新闻五</a></li>
-  <li class="editable edit-mode" data-field="hot6" contenteditable="true"><span class="mun">6</span><a href="#">热点新闻六</a></li>
-  <li class="editable edit-mode" data-field="hot7" contenteditable="true"><span class="mun">7</span><a href="#">热点新闻七</a></li>
-  <li class="editable edit-mode" data-field="hot8" contenteditable="true"><span class="mun">8</span><a href="#">热点新闻八</a></li>
-  <li class="editable edit-mode" data-field="hot9" contenteditable="true"><span class="mun">9</span><a href="#">热点新闻九</a></li>
-  <li class="editable edit-mode" data-field="hot10" contenteditable="true"><span class="mun">10</span><a href="#">热点新闻十</a></li>
-  <li class="editable edit-mode" data-field="hot11" contenteditable="true"><span class="mun">11</span><a href="#">热点新闻十一</a></li>
-  <li class="editable edit-mode" data-field="hot12" contenteditable="true"><span class="mun">12</span><a href="#">热点新闻十二</a></li>
-  <li class="editable edit-mode" data-field="hot13" contenteditable="true"><span class="mun">13</span><a href="#">热点新闻十三</a></li>
-  <li class="editable edit-mode" data-field="hot14" contenteditable="true"><span class="mun">14</span><a href="#">热点新闻十四</a></li>
-  <li class="editable edit-mode" data-field="hot15" contenteditable="true"><span class="mun">15</span><a href="#">热点新闻十五</a></li>
-  <li class="editable edit-mode" data-field="hot16" contenteditable="true"><span class="mun">16</span><a href="#">热点新闻16</a></li>
-  <li class="editable edit-mode" data-field="hot17" contenteditable="true"><span class="mun">17</span><a href="#">热点新闻17</a></li>
-  <li class="editable edit-mode" data-field="hot18" contenteditable="true"><span class="mun">18</span><a href="#">热点新闻18</a></li>
-  <li class="editable edit-mode" data-field="hot19" contenteditable="true"><span class="mun">19</span><a href="#">热点新闻19</a></li>
-  <li class="editable edit-mode" data-field="hot20" contenteditable="true"><span class="mun">20</span><a href="#">热点新闻20</a></li>
-  <li class="editable edit-mode" data-field="hot21" contenteditable="true"><span class="mun">21</span><a href="#">热点新闻21</a></li>
-  <li class="editable edit-mode" data-field="hot22" contenteditable="true"><span class="mun">22</span><a href="#">热点新闻22</a></li>
-  <li class="editable edit-mode" data-field="hot23" contenteditable="true"><span class="mun">23</span><a href="#">热点新闻23</a></li>
-  <li class="editable edit-mode" data-field="hot24" contenteditable="true"><span class="mun">24</span><a href="#">热点新闻24</a></li>
-  <li class="editable edit-mode" data-field="hot25" contenteditable="true"><span class="mun">25</span><a href="#">热点新闻25</a></li>
-  <li class="editable edit-mode" data-field="hot26" contenteditable="true"><span class="mun">26</span><a href="#">热点新闻26</a></li>
-  <li class="editable edit-mode" data-field="hot27" contenteditable="true"><span class="mun">27</span><a href="#">热点新闻27</a></li>
-  <li class="editable edit-mode" data-field="hot28" contenteditable="true"><span class="mun">28</span><a href="#">热点新闻28</a></li>
-  <li class="editable edit-mode" data-field="hot29" contenteditable="true"><span class="mun">29</span><a href="#">热点新闻29</a></li>
-  <li class="editable edit-mode" data-field="hot30" contenteditable="true"><span class="mun">30</span><a href="#">热点新闻30</a></li>
-  <li class="editable edit-mode" data-field="hot31" contenteditable="true"><span class="mun">31</span><a href="#">热点新闻31</a></li>
-  <li class="editable edit-mode" data-field="hot32" contenteditable="true"><span class="mun">32</span><a href="#">热点新闻32</a></li>
-  <li class="editable edit-mode" data-field="hot33" contenteditable="true"><span class="mun">33</span><a href="#">热点新闻33</a></li>
-  <li class="editable edit-mode" data-field="hot34" contenteditable="true"><span class="mun">34</span><a href="#">热点新闻34</a></li>
-  <li class="editable edit-mode" data-field="hot35" contenteditable="true"><span class="mun">35</span><a href="#">热点新闻35</a></li>
-  <li class="editable edit-mode" data-field="hot36" contenteditable="true"><span class="mun">36</span><a href="#">热点新闻36</a></li>
-  <li class="editable edit-mode" data-field="hot37" contenteditable="true"><span class="mun">37</span><a href="#">热点新闻37</a></li>
-  <li class="editable edit-mode" data-field="hot38" contenteditable="true"><span class="mun">38</span><a href="#">热点新闻38</a></li>
+  <li class="editable" data-field="hot1"><span class="mun">1</span><a href="#">热点新闻一</a></li>
+  <li class="editable" data-field="hot2"><span class="mun">2</span><a href="#">热点新闻二</a></li>
+  <li class="editable" data-field="hot3"><span class="mun">3</span><a href="#">热点新闻三</a></li>
+  <li class="editable" data-field="hot4"><span class="mun">4</span><a href="#">热点新闻四</a></li>
+  <li class="editable" data-field="hot5"><span class="mun">5</span><a href="#">热点新闻五</a></li>
+  <li class="editable" data-field="hot6"><span class="mun">6</span><a href="#">热点新闻六</a></li>
+  <li class="editable" data-field="hot7"><span class="mun">7</span><a href="#">热点新闻七</a></li>
+  <li class="editable" data-field="hot8"><span class="mun">8</span><a href="#">热点新闻八</a></li>
+  <li class="editable" data-field="hot9"><span class="mun">9</span><a href="#">热点新闻九</a></li>
+  <li class="editable" data-field="hot10"><span class="mun">10</span><a href="#">热点新闻十</a></li>
+  <li class="editable" data-field="hot11"><span class="mun">11</span><a href="#">热点新闻十一</a></li>
+  <li class="editable" data-field="hot12"><span class="mun">12</span><a href="#">热点新闻十二</a></li>
+  <li class="editable" data-field="hot13"><span class="mun">13</span><a href="#">热点新闻十三</a></li>
+  <li class="editable" data-field="hot14"><span class="mun">14</span><a href="#">热点新闻十四</a></li>
+  <li class="editable" data-field="hot15"><span class="mun">15</span><a href="#">热点新闻十五</a></li>
+  <li class="editable" data-field="hot16"><span class="mun">16</span><a href="#">热点新闻16</a></li>
+  <li class="editable" data-field="hot17"><span class="mun">17</span><a href="#">热点新闻17</a></li>
+  <li class="editable" data-field="hot18"><span class="mun">18</span><a href="#">热点新闻18</a></li>
+  <li class="editable" data-field="hot19"><span class="mun">19</span><a href="#">热点新闻19</a></li>
+  <li class="editable" data-field="hot20"><span class="mun">20</span><a href="#">热点新闻20</a></li>
+  <li class="editable" data-field="hot21"><span class="mun">21</span><a href="#">热点新闻21</a></li>
+  <li class="editable" data-field="hot22"><span class="mun">22</span><a href="#">热点新闻22</a></li>
+  <li class="editable" data-field="hot23"><span class="mun">23</span><a href="#">热点新闻23</a></li>
+  <li class="editable" data-field="hot24"><span class="mun">24</span><a href="#">热点新闻24</a></li>
+  <li class="editable" data-field="hot25"><span class="mun">25</span><a href="#">热点新闻25</a></li>
+  <li class="editable" data-field="hot26"><span class="mun">26</span><a href="#">热点新闻26</a></li>
+  <li class="editable" data-field="hot27"><span class="mun">27</span><a href="#">热点新闻27</a></li>
+  <li class="editable" data-field="hot28"><span class="mun">28</span><a href="#">热点新闻28</a></li>
+  <li class="editable" data-field="hot29"><span class="mun">29</span><a href="#">热点新闻29</a></li>
+  <li class="editable" data-field="hot30"><span class="mun">30</span><a href="#">热点新闻30</a></li>
+  <li class="editable" data-field="hot31"><span class="mun">31</span><a href="#">热点新闻31</a></li>
+  <li class="editable" data-field="hot32"><span class="mun">32</span><a href="#">热点新闻32</a></li>
+  <li class="editable" data-field="hot33"><span class="mun">33</span><a href="#">热点新闻33</a></li>
+  <li class="editable" data-field="hot34"><span class="mun">34</span><a href="#">热点新闻34</a></li>
+  <li class="editable" data-field="hot35"><span class="mun">35</span><a href="#">热点新闻35</a></li>
+  <li class="editable" data-field="hot36"><span class="mun">36</span><a href="#">热点新闻36</a></li>
+  <li class="editable" data-field="hot37"><span class="mun">37</span><a href="#">热点新闻37</a></li>
+  <li class="editable" data-field="hot38"><span class="mun">38</span><a href="#">热点新闻38</a></li>
  </ul>
 </div>
 
 <!-- Link Toolbar (edit mode) -->
-<div id="linkToolbar" style="display: none;">
+<div id="linkToolbar">
  <input type="text" id="linkUrlInput" placeholder="输入网址 https://...">
  <button class="btn-insert" onclick="insertLink()">插入链接</button>
  <button class="btn-remove" onclick="removeLink()">移除链接</button>
@@ -754,15 +755,15 @@ img { max-width: 100%; height: auto; display: block; }
 <button onclick="alert('isEdit='+isEdit)" style="position:fixed;bottom:80px;left:10px;z-index:99999;background:#ff6600;color:white;padding:8px 16px;border:none;border-radius:5px;font-size:13px;cursor:pointer;">调试</button>
 
 <!-- 编辑模式浮动保存条 -->
-<div id="editSaveBar" style="display: block; position: fixed; bottom: 0px; left: 0px; right: 0px; background: linear-gradient(135deg, rgb(26, 138, 60), rgb(40, 167, 69)); text-align: center; padding: 14px 12px 18px; z-index: 99990; box-shadow: rgba(0, 0, 0, 0.3) 0px -4px 20px;">
- <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">⏳ 正在上传...</button>
+<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:14px 12px 18px;z-index:99990;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">💾 保存到服务器</button>
  <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div>
 </div>
 
 <footer class="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
- <button id="footerEditBtn" onclick="saveAndSync()" style="position: absolute; bottom: 8px; right: 10px; width: 50px; height: 28px; background: rgb(40, 167, 69); border: 1px solid rgba(255, 255, 255, 0.3); opacity: 0.9; cursor: pointer; color: white; z-index: 99998; font-size: 12px; border-radius: 6px;">💾 保存</button>
+ <button id="footerEditBtn" onclick="window._editBtnClicked=1; if(!isEdit){showLogin();}else{saveAndSync();}" style="position:absolute;bottom:8px;right:10px;width:50px;height:28px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);border-radius:6px;opacity:0.5;cursor:pointer;font-size:11px;color:rgba(255,255,255,0.6);z-index:99998;">编辑</button>
 </footer>
 
 <script>
@@ -1255,5 +1256,5 @@ loadData();
 initLotteryBalls();
 </script>
 
-
-</body></html>
+</body>
+</html>
