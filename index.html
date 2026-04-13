@@ -1061,13 +1061,6 @@ function disableEdit() {
  initLotteryBalls();
 }
 
-// 双击页面空白处弹出登录框
-document.addEventListener('dblclick', function(e) {
- if (isEdit) return; // 编辑模式不触发
- if (e.target.closest('.editable, a, button, input')) return; // 点在内容上不触发
- showLogin();
-});
-
 var _saving = false;
 function saveAndSync() {
  if (_saving) { console.log('[DEBUG] saveAndSync skipped: already saving'); return; }
