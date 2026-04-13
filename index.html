@@ -1,1 +1,1380 @@
-<!DOCTYPEhtml><htmllang="zh-CN"><head><metacharset="UTF-8"><metaname="viewport"content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"><title>l12388h.com-新闻资讯</title><style>/*============================================CSSVariables—全局设计令牌============================================*/:root{--color-primary:#3e98f0;--color-accent:#ff6666;--color-secondary:#4763b2;--color-success:#339933;--color-text:#1b1b1b;--color-text-secondary:#666;--color-text-muted:#888;--color-text-light:#999;--color-link-hover:#3ca5f6;--color-bg:#f0f5f9;--color-bg-white:#fff;--color-border:#eee;--max-width:720px;--header-height:48px;--radius-sm:2px;--radius-md:10px;--transition-fast:200msease;--font-family:"微软雅黑","MicrosoftYaHei",Helvetica,Arial,sans-serif;--font-size-base:14px;--font-size-sm:12px;--font-size-md:14px;--font-size-lg:16px;--font-size-xl:18px;}*{box-sizing:border-box;margin:0;padding:0;}html{font-size:62.5%;scroll-behavior:smooth;}body{min-width:320px;font:400var(--font-size-base)/1.5var(--font-family);background:var(--color-bg);color:var(--color-text);max-width:var(--max-width);margin:0auto;-webkit-font-smoothing:antialiased;}ul,ol,li{list-style:none;}a{color:var(--color-text);text-decoration:none;transition:colorvar(--transition-fast);}a:hover{color:var(--color-link-hover);}img{max-width:100%;height:auto;display:block;}/*登录弹窗*/.login-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;justify-content:center;align-items:center;}.login-modal.show{display:flex;}.login-box{background:white;padding:30px;border-radius:10px;width:300px;text-align:center;}.login-boxh3{margin-bottom:20px;color:var(--color-primary);}.login-boxinput{width:100%;padding:12px;margin-bottom:15px;border:1pxsolidvar(--color-border);border-radius:5px;font-size:14px;}.login-boxbutton{width:100%;padding:12px;background:var(--color-primary);color:white;border:none;border-radius:5px;font-size:14px;cursor:pointer;}.login-boxbutton:hover{background:var(--color-secondary);}.login-error{color:red;font-size:12px;margin-top:10px;display:none;}/*============================================Header============================================*/.header{position:fixed;z-index:100;width:100%;max-width:var(--max-width);height:var(--header-height);background:var(--color-primary);}.header.content{width:100%;height:100%;display:flex;align-items:center;justify-content:space-between;padding:010px;}height:100%;display:flex;align-items:center;justify-content:space-between;padding:010px;}.header.logoa{color:#fff;font-size:18px;font-weight:bold;}.header.logospan{color:#ffe066;}.header.header-right{color:#ffe066;font-size:14px;}/*============================================Subnav============================================*/.subnav{padding:010px;background:var(--color-bg-white);-webkit-user-select:none;user-select:none;}.subnav-pills{display:flex;align-items:center;height:42px;gap:20px;overflow-x:auto;scrollbar-width:none;}.subnav-pills::-webkit-scrollbar{display:none;}.subnav-pillsli{flex-shrink:0;height:39px;display:flex;align-items:center;min-width:40px;}.subnav-pillslia,.subnav-pillslispan{display:inline-block;padding:8px0;font-size:var(--font-size-md);white-space:nowrap;min-width:30px;min-height:20px;}.edit-mode.subnav-pills{min-height:42px;height:auto;overflow:visible;}.edit-mode.subnav-pillsli{min-height:24px;height:auto;white-space:normal;}display:inline-block;padding:8px0;font-size:var(--font-size-md);white-space:nowrap;}.subnav-pillslia.cur{color:var(--color-primary);font-weight:500;}/*============================================Channels============================================*/.channels{background:var(--color-bg-white);padding:8px5px;border-top:1pxsolid#d7d7d7;display:flex;flex-wrap:wrap;}.channelsli{flex:1;min-width:0;text-align:center;line-height:32px;height:32px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}.channelslia{display:block;overflow:hidden;text-overflow:ellipsis;}.channelsli.edit-mode,.edit-mode.channelsli{height:auto;min-height:32px;overflow:visible;white-space:normal;}/*============================================FeedsList============================================*/.feeds-tab{height:42px;border:1pxsolid#dfdfdf;border-top:2pxsolidvar(--color-primary);display:flex;}.feeds-taba{flex:1;height:43px;line-height:41px;display:flex;align-items:center;justify-content:center;}.feeds-taba.curspan{color:var(--color-primary);}.feeds-item{border-top:1pxsolidvar(--color-border);position:relative;padding:12px10px;display:flex;flex-direction:column;gap:3px;}.feeds-item:first-child{border-top:0;}.feeds-item:hover{background:#f8f8f8;}.feeds-itemh3{line-height:21px;overflow:hidden;display:block;word-wrap:break-word;white-space:normal;}.feeds-item.edit-modeh3,.feeds-itemh3.edit-mode{overflow:visible;display:block;word-wrap:break-word;white-space:normal;}.feeds-itemh3a{color:#262627;}.feeds-itemh3a:hover{color:#3ba0f2;}.feeds-item.hasImg{flex-direction:row;align-items:flex-start;}.feeds-item.hasImg.feeds-item-pic{flex:0094px;width:94px;padding:1px;border:1pxsolid#ededed;}.feeds-item.hasImg.feeds-item-picimg{width:90px;height:60px;object-fit:cover;}.feeds-item.hasImg.feeds-item-info{flex:1;min-width:0;}.feeds-item-info{display:flex;flex-wrap:wrap;gap:4px8px;line-height:18px;color:var(--color-text-light);}.feeds-item-infospan,.feeds-item-infoa{color:var(--color-text-light);}/*============================================SectionTitle============================================*/.section-title{background:var(--color-bg-white);padding:10px12px;font-weight:bold;font-size:15px;border-bottom:1pxsolidvar(--color-border);display:flex;justify-content:space-between;align-items:center;}.section-titlea{font-size:12px;color:var(--color-text-secondary);text-decoration:none;font-weight:normal;}/*============================================ArticleLists============================================*/.article-img{display:flex;flex-direction:column;}.article-imgli{display:flex;align-items:flex-start;gap:6px;padding:10px12px;border-bottom:1pxsolidvar(--color-border);min-height:76px;}.article-imgli:last-child{border-bottom:none;}.article-imgh3{flex:1;line-height:21px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-weight:normal;font-size:var(--font-size-base);}.article-imgh3.edit-mode,.edit-mode.article-imgh3{overflow:visible;display:block;-webkit-line-clamp:unset;}.article-img.thumb{flex:0060px;width:60px;}.article-img.thumbimg{border-radius:var(--radius-md);padding:1px;border:1pxsolid#ededed;}/*============================================HotList============================================*/.article-hot{display:flex;flex-direction:column;}.article-hotli{height:auto;min-height:46px;line-height:1.6;border-bottom:1pxsolidvar(--color-border);display:flex;align-items:flex-start;gap:6px;overflow:visible;padding:10px12px;word-break:break-all;}.article-hotli:last-child{border-bottom:none;}.article-hotli.edit-mode,.edit-mode.article-hotli{height:auto;min-height:46px;overflow:visible;}.article-hotli.mun{flex-shrink:0;color:#d52b2b;font-style:italic;font-family:Georgia,serif;min-width:20px;text-align:center;}.article-hotli:nth-child(n+4).mun{color:#888;}/*============================================Tags============================================*/.h-tags{background:var(--color-bg-white);display:flex;align-items:stretch;overflow:hidden;}.h-tags-title{flex:0070px;background:var(--color-accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;}.h-tags-list{display:flex;flex-wrap:wrap;gap:8px;padding:10px;}.h-tags-listli{flex:01calc(33.333%-8px);}/*============================================Footer============================================*/.footer{background:var(--color-secondary);color:white;padding:15px12px;text-align:center;}.footerp{font-size:12px;opacity:0.8;margin-bottom:5px;}/*============================================LotteryBall============================================*/.lottery-ball{border-radius:50%;}.lottery-num{color:#FFFFFF;}/*============================================Editable============================================*/.editable{position:relative;min-height:20px;cursor:text;}.editable:empty::before{content:'点击编辑';color:#ccc;font-style:italic;cursor:text;}.editable.edit-mode{outline:2pxdashedvar(--color-accent);outline-offset:2px;overflow:visible!important;max-height:none!important;height:auto!important;min-height:30px;cursor:text;}.edit-mode*{overflow:visible!important;max-height:none!important;height:auto!important;-webkit-line-clamp:unset!important;}.edit-mode.feeds-item{height:auto!important;min-height:80px;}.edit-mode.feeds-item-info{height:auto!important;}.edit-mode.section-title{height:auto!important;}.edit-mode.article-hotli{height:auto!important;min-height:46px;line-height:1.5;padding:10px12px;}.edit-mode.article-imgli{height:auto!important;min-height:76px;}.edit-mode.channelsli{height:auto!important;min-height:32px;line-height:1.5;padding:5px0;}.edit-mode.subnav-pillsli{height:auto!important;}.edit-mode.footer{height:auto!important;}.edit-hint{display:none!important;}.edit-mode.edit-hint{display:block;}.edit-modea{pointer-events:none;}[]{outline:none;}[]:empty::before{content:'点击输入内容';color:#aaa;font-style:italic;}/*============LinkToolbar(editmode)============*/#linkToolbar{display:none;position:fixed;background:#333;border-radius:6px;padding:6px8px;z-index:99999;box-shadow:04px12pxrgba(0,0,0,0.3);font-size:13px;white-space:nowrap;}#linkToolbarinput{border:none;border-radius:4px;padding:4px8px;font-size:12px;width:220px;margin-right:5px;color:#333;}#linkToolbarbutton{border:none;border-radius:4px;padding:4px10px;font-size:12px;cursor:pointer;font-family:inherit;}#linkToolbar.btn-insert{background:#28a745;color:white;margin-right:3px;}#linkToolbar.btn-cancel{background:#666;color:white;}#linkToolbar.btn-remove{background:#c41230;color:white;margin-right:3px;}</style></head><bodyclass=""><!--登录弹窗--><divclass="login-modal"id="loginModal"><divclass="login-box"><h3>🔐管理登录</h3><inputtype="password"id="passwordInput"placeholder="请输入管理密码"><buttononclick="checkPassword()">确认</button><divclass="login-error"id="loginError"style="display:none;">密码错误</div></div></div><!--同步状态提示--><divid="saveMsg"style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:rgb(255,255,255);padding:10px24px;border-radius:20px;font-size:14px;z-index:99999;white-space:nowrap;box-shadow:rgba(0,0,0,0.3)0px2px10px;">⏳正在同步到GitHub...</div><!--Header--><divclass="header"id="mainHeader"><divclass="content"><divclass="logoeditable"data-field="logo"><ahref="#">l12388h<span>.com</span></a></div><divclass="header-right"style="color:#ffe066;font-size:14px;padding:08px;"></div></div></div><!--占位--><divstyle="height:48px;"></div><!--Subnav--><divclass="subnav"style="padding:0;border-top:none;"><ulclass="subnav-pillseditable"data-field="subnav"style="flex-wrap:wrap;height:auto;min-height:42px;padding:010px;"><li><spanclass="cur">首页</span></li><li><span>新闻</span></li><li><span>产品</span></li><li><span>关于</span></li><li><span>联系</span></li></ul></div><!--=====开奖展示台=====--><divid="lottery-section"style="background:#f8f8f8;border-bottom:1pxsolid#ddd;"><!--标题栏--><divstyle="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid1px#ddd;"class="editable"data-field="lottery-title">澳彩<fontcolor="#ff0000">103</font>&nbsp;期开奖结果<ahref="#"onclick="returnfalse;"style="text-decoration:none;"><fontcolor="red">【开奖记录】</font></a></div><!--号码球区域--><divstyle="padding:5px0;border-top:solid1px#ddd;border-bottom:solid1px#eee;clear:both;"><divstyle="float:left;width:83%;"><tablewidth="100%"border="0"cellspacing="0"cellpadding="0"><tbody><tr><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w1"class="lottery-ball"style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><divid="m1"class="lottery-num"style="color:#FFFFFF;"><br></div></div></th><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w2"class="lottery-ball"style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:rgb(255,0,0);color:rgb(255,255,255);"><divid="m2"class="lottery-num"style="color:#FFFFFF;"><br></div></div></th><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w3"class="lottery-ball"style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:rgb(0,0,255);color:rgb(255,255,255);"><divid="m3"class="lottery-num"style="color:#FFFFFF;"><br></div></div></th><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w4"class="lottery-ball"style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><divid="m4"class="lottery-num"style="color:#FFFFFF;"><br></div></div></th><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w5"class="lottery-ball"style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:rgb(0,0,255);color:rgb(255,255,255);"><divid="m5"class="lottery-num"style="color:#FFFFFF;"><br></div></div></th><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w6"class="lottery-ball"style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><divid="m6"class="lottery-num"style="color:#FFFFFF;"><br></div></div></th></tr><tr><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="m1x"class="lottery-zodiaceditable"data-field="zodiac1"style="font-size:12px;color:#666;">鼠/土</div></td><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="m2x"class="lottery-zodiaceditable"data-field="zodiac2"style="font-size:12px;color:#666;">马/水</div></td><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="m3x"class="lottery-zodiaceditable"data-field="zodiac3"style="font-size:12px;color:#666;">兔/金</div></td><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="m4x"class="lottery-zodiaceditable"data-field="zodiac4"style="font-size:12px;color:#666;">龙/火</div></td><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="m5x"class="lottery-zodiaceditable"data-field="zodiac5"style="font-size:12px;color:#666;">龙/火</div></td><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="m6x"class="lottery-zodiaceditable"data-field="zodiac6"style="font-size:12px;color:#666;">兔/金</div></td></tr></tbody></table></div><divstyle="float:right;width:15%;"><tablewidth="100%"border="0"cellspacing="0"cellpadding="0"><tbody><tr><thstyle="height:40px;line-height:40px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="w7"class="lottery-ball"style="display:inline-block;border-radius:50%;width:42px;height:42px;line-height:42px;text-align:center;font-size:20px;font-weight:bold;background-color:rgb(0,0,255);color:rgb(255,255,255);"><divid="s1"class="lottery-num"style="color:#FFFFFF;">20</div></div></th></tr><tr><tdstyle="height:24px;text-align:center;border:solid1px#ddd;background:#fff;"><divid="s1x"class="lottery-zodiaceditable"data-field="zodiac7"style="font-size:12px;color:#666;">猪/土</div></td></tr></tbody></table></div></div><divstyle="clear:both;"></div><!--下期信息--><divstyle="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid1px#ddd;"class="editable"data-field="lottery-next">第104期开奖时间：<spanid="nextMonth">4</span>月14日星期二<spanid="nextTime">21:30</span></div></div><!--Channels--><divclass="channelseditable"data-field="channels"><li><ahref="#">推荐</a></li><li><ahref="#">热点</a></li><li><ahref="#">视频</a></li><li><ahref="#">科技</a></li><li><ahref="#">财经</a></li><li><ahref="#">娱乐</a></li></div><!--FeedsTab--><divclass="feeds-tab"><ahref="#"class="cur"><span>最新</span></a><ahref="#"><span>热门</span></a><ahref="#"><span>精选</span></a></div><!--FeedsList--><divclass="feeds-itemhasImgeditable"data-field="news1"><divclass="feeds-item-pic"><imgsrc="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg'width='90'height='60'%3E%3Crectfill='%233e98f0'width='90'height='60'/%3E%3Ctextx='45'y='35'fill='white'text-anchor='middle'font-size='12'%3E图片%3C/text%3E%3C/svg%3E"alt=""style="cursor:pointer;"></div><divclass="feeds-item-info"><h3><ahref="#">新闻标题一：公司最新动态发布</a></h3><span>来源</span><span>评论128</span><span>2小时前</span></div></div><divclass="feeds-itemeditable"data-field="news2"><h3><ahref="#">新闻标题二：产品升级通知，新增多项功能</a></h3><divclass="feeds-item-info"><span>官方</span><span>评论56</span><span>3小时前</span></div></div><divclass="feeds-itemhasImgeditable"data-field="news3"><divclass="feeds-item-pic"><imgsrc="data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg'width='90'height='60'%3E%3Crectfill='%234763b2'width='90'height='60'/%3E%3Ctextx='45'y='35'fill='white'text-anchor='middle'font-size='12'%3E图片%3C/text%3E%3C/svg%3E"alt=""style="cursor:pointer;"></div><divclass="feeds-item-info"><h3><ahref="#">新闻标题三：行业资讯分享</a></h3><span>转载</span><span>评论89</span><span>5小时前</span></div></div><divclass="feeds-itemeditable"data-field="news4"><h3><ahref="#">新闻标题四：企业活动报道</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论34</span><span>昨天</span></div></div><divclass="feeds-itemeditable"data-field="news5"><h3><ahref="#">新闻标题五：市场动态分析</a></h3><divclass="feeds-item-info"><span>转载</span><span>评论21</span><span>昨天</span></div></div><divclass="feeds-itemeditable"data-field="news6"><h3><ahref="#">新闻标题六：技术更新公告</a></h3><divclass="feeds-item-info"><span>官方</span><span>评论45</span><span>2天前</span></div></div><divclass="feeds-itemeditable"data-field="news7"><h3><ahref="#">新闻标题七：合作伙伴签约</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论18</span><span>2天前</span></div></div><divclass="feeds-itemeditable"data-field="news8"><h3><ahref="#">新闻标题八：行业标准发布</a></h3><divclass="feeds-item-info"><span>转载</span><span>评论56</span><span>3天前</span></div></div><divclass="feeds-itemeditable"data-field="news9"><h3><ahref="#">新闻标题九：新品发布会</a></h3><divclass="feeds-item-info"><span>官方</span><span>评论89</span><span>3天前</span></div></div><divclass="feeds-itemeditable"data-field="news10"><h3><ahref="#">新闻标题十：年度总结报告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论67</span><span>4天前</span></div></div><divclass="feeds-itemeditable"data-field="news11"><h3><ahref="#">新闻标题十一：获奖喜讯</a></h3><divclass="feeds-item-info"><span>官方</span><span>评论102</span><span>5天前</span></div></div><divclass="feeds-itemeditable"data-field="news12"><h3><ahref="#">新闻标题十二：投资者大会</a></h3><divclass="feeds-item-info"><span>转载</span><span>评论33</span><span>5天前</span></div></div><divclass="feeds-itemeditable"data-field="news13"><h3><ahref="#">新闻标题十三：社会责任报告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论28</span><span>6天前</span></div></div><divclass="feeds-itemeditable"data-field="news14"><h3><ahref="#">新闻标题十四：战略规划发布</a></h3><divclass="feeds-item-info"><span>官方</span><span>评论76</span><span>一周前</span></div></div><divclass="feeds-itemeditable"data-field="news16"><h3><ahref="#">新闻标题十六：行业最新动态</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论38</span><span>6天前</span></div></div><divclass="feeds-itemeditable"data-field="news17"><h3><ahref="#">新闻标题十七：产品升级公告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论31</span><span>5天前</span></div></div><divclass="feeds-itemeditable"data-field="news18"><h3><ahref="#">新闻标题十八：市场趋势分析</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论27</span><span>4天前</span></div></div><divclass="feeds-itemeditable"data-field="news19"><h3><ahref="#">新闻标题十九：技术创新发布</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论22</span><span>3天前</span></div></div><divclass="feeds-itemeditable"data-field="news20"><h3><ahref="#">新闻标题二十：年度总结报告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论45</span><span>2天前</span></div></div><divclass="feeds-itemeditable"data-field="news21"><h3><ahref="#">新闻标题二十一：合作伙伴签约</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论33</span><span>1天前</span></div></div><divclass="feeds-itemeditable"data-field="news22"><h3><ahref="#">新闻标题二十二：新品发布预告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论29</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news23"><h3><ahref="#">新闻标题二十三：用户反馈收集</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论18</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news24"><h3><ahref="#">新闻标题二十四：服务升级通知</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论25</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news25"><h3><ahref="#">新闻标题二十五：活动预告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论15</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news26"><h3><ahref="#">新闻标题二十六：行业峰会报道</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论20</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news27"><h3><ahref="#">新闻标题二十七：专访报道</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论12</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news28"><h3><ahref="#">新闻标题二十八：数据报告发布</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论9</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news29"><h3><ahref="#">新闻标题二十九：社区公告</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论7</span><span>今天</span></div></div><divclass="feeds-itemeditable"data-field="news30"><h3><ahref="#">新闻标题三十：联系方式更新</a></h3><divclass="feeds-item-info"><span>原创</span><span>评论5</span><span>今天</span></div></div><!--Section:热榜--><divstyle="margin-top:15px;"><divclass="section-titleeditable"data-field="hot-title"><span>🔥热榜</span><ahref="#">更多&gt;&gt;</a></div><ulclass="article-hot"><liclass="editable"data-field="hot1"><spanclass="mun">1</span><ahref="#">热点新闻一</a></li><liclass="editable"data-field="hot2"><spanclass="mun">2</span><ahref="#">热点新闻二</a></li><liclass="editable"data-field="hot3"><spanclass="mun">3</span><ahref="#">热点新闻三</a></li><liclass="editable"data-field="hot4"><spanclass="mun">4</span><ahref="#">热点新闻四</a></li><liclass="editable"data-field="hot5"><spanclass="mun">5</span><ahref="#">热点新闻五</a></li><liclass="editable"data-field="hot6"><spanclass="mun">6</span><ahref="#">热点新闻六</a></li><liclass="editable"data-field="hot7"><spanclass="mun">7</span><ahref="#">热点新闻七</a></li><liclass="editable"data-field="hot8"><spanclass="mun">8</span><ahref="#">热点新闻八</a></li><liclass="editable"data-field="hot9"><spanclass="mun">9</span><ahref="#">热点新闻九</a></li><liclass="editable"data-field="hot10"><spanclass="mun">10</span><ahref="#">热点新闻十</a></li><liclass="editable"data-field="hot11"><spanclass="mun">11</span><ahref="#">热点新闻十一</a></li><liclass="editable"data-field="hot12"><spanclass="mun">12</span><ahref="#">热点新闻十二</a></li><liclass="editable"data-field="hot13"><spanclass="mun">13</span><ahref="#">热点新闻十三</a></li><liclass="editable"data-field="hot14"><spanclass="mun">14</span><ahref="#">热点新闻十四</a></li><liclass="editable"data-field="hot15"><spanclass="mun">15</span><ahref="#">热点新闻十五</a></li><liclass="editable"data-field="hot16"><spanclass="mun">16</span><ahref="#">热点新闻16</a></li><liclass="editable"data-field="hot17"><spanclass="mun">17</span><ahref="#">热点新闻17</a></li><liclass="editable"data-field="hot18"><spanclass="mun">18</span><ahref="#">热点新闻18</a></li><liclass="editable"data-field="hot19"><spanclass="mun">19</span><ahref="#">热点新闻19</a></li><liclass="editable"data-field="hot20"><spanclass="mun">20</span><ahref="#">热点新闻20</a></li><liclass="editable"data-field="hot21"><spanclass="mun">21</span><ahref="#">热点新闻21</a></li><liclass="editable"data-field="hot22"><spanclass="mun">22</span><ahref="#">热点新闻22</a></li><liclass="editable"data-field="hot23"><spanclass="mun">23</span><ahref="#">热点新闻23</a></li><liclass="editable"data-field="hot24"><spanclass="mun">24</span><ahref="#">热点新闻24</a></li><liclass="editable"data-field="hot25"><spanclass="mun">25</span><ahref="#">热点新闻25</a></li><liclass="editable"data-field="hot26"><spanclass="mun">26</span><ahref="#">热点新闻26</a></li><liclass="editable"data-field="hot27"><spanclass="mun">27</span><ahref="#">热点新闻27</a></li><liclass="editable"data-field="hot28"><spanclass="mun">28</span><ahref="#">热点新闻28</a></li><liclass="editable"data-field="hot29"><spanclass="mun">29</span><ahref="#">热点新闻29</a></li><liclass="editable"data-field="hot30"><spanclass="mun">30</span><ahref="#">热点新闻30</a></li><liclass="editable"data-field="hot31"><spanclass="mun">31</span><ahref="#">热点新闻31</a></li><liclass="editable"data-field="hot32"><spanclass="mun">32</span><ahref="#">热点新闻32</a></li><liclass="editable"data-field="hot33"><spanclass="mun">33</span><ahref="#">热点新闻33</a></li><liclass="editable"data-field="hot34"><spanclass="mun">34</span><ahref="#">热点新闻34</a></li><liclass="editable"data-field="hot35"><spanclass="mun">35</span><ahref="#">热点新闻35</a></li><liclass="editable"data-field="hot36"><spanclass="mun">36</span><ahref="#">热点新闻36</a></li><liclass="editable"data-field="hot37"><spanclass="mun">37</span><ahref="#">热点新闻37</a></li><liclass="editable"data-field="hot38"><spanclass="mun">38</span><ahref="#">热点新闻38</a></li></ul></div><!--LinkToolbar(editmode)--><divid="linkToolbar"style="display:none;"><inputtype="text"id="linkUrlInput"placeholder="输入网址https://..."><buttonclass="btn-insert"onclick="insertLink()">插入链接</button><buttonclass="btn-remove"onclick="removeLink()">移除链接</button><buttonclass="btn-cancel"onclick="hideLinkToolbar()">取消</button></div><!--编辑模式浮动保存条--><divid="editSaveBar"style="display:none;position:fixed;bottom:0px;left:0px;right:0px;background:linear-gradient(135deg,rgb(26,138,60),rgb(40,167,69));text-align:center;padding:14px12px18px;z-index:99990;box-shadow:rgba(0,0,0,0.3)0px-4px20px;"><buttononclick="saveAndSync()"style="background:#fff;color:#1a8a3c;border:none;padding:14px50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:02px10pxrgba(0,0,0,0.2);letter-spacing:1px;">⏳正在同步到GitHub...</button><divstyle="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div></div><!--右下角编辑触发区--><divondblclick="showLogin()"style="position:fixed;bottom:0;right:0;width:30px;height:30px;z-index:99999;cursor:pointer;"></div><footerclass="footer"style="position:relative;"><p>©2026l12388h.com</p><p>保留所有权利</p></footer><script>constADMIN_PASSWORD='Lhz732435';letisEdit=false;letghToken='';constGH_OWNER='liuhongzhi7318';constGH_REPO='l12388h-website';constmodal=document.getElementById('loginModal');constpasswordInput=document.getElementById('passwordInput');constloginError=document.getElementById('loginError');functionshowLogin(){console.log('showLoginclicked');modal.classList.add('show');passwordInput.value='';passwordInput.focus();loginError.style.display='none';}functionhideLogin(){modal.classList.remove('show');}functioncheckPassword(){if(passwordInput.value===ADMIN_PASSWORD){hideLogin();enableEdit();}else{loginError.style.display='block';passwordInput.value='';}}passwordInput.addEventListener('keypress',function(e){if(e.key==='Enter')checkPassword();});//============LinkToolbar(editmode)============functionshowLinkToolbar(){varsel=window.getSelection();if(!sel||sel.rangeCount===0||sel.isCollapsed)return;varrange=sel.getRangeAt(0);if(range.collapsed)return;varanchor=sel.anchorNode;vareditable=anchor.parentElement.closest('.editable');if(!editable||!editable.classList.contains('edit-mode'))return;varinLink=anchor.parentElement.tagName==='A'||anchor.parentElement.closest('a');vartoolbar=document.getElementById('linkToolbar');varinput=document.getElementById('linkUrlInput');varurl='';if(inLink){url=inLink.href||'';}input.value=url;toolbar.style.display='block';varrect=range.getBoundingClientRect();vartbTop=rect.bottom+window.scrollY+8;vartbLeft=rect.left+window.scrollX;toolbar.style.top=tbTop+'px';toolbar.style.left=tbLeft+'px';vartbRect=toolbar.getBoundingClientRect();if(tbLeft+tbRect.width>window.innerWidth){toolbar.style.left=(window.innerWidth-tbRect.width-10)+'px';}if(tbTop+tbRect.height>window.innerHeight+window.scrollY){toolbar.style.top=(rect.top+window.scrollY-tbRect.height-8)+'px';}setTimeout(function(){input.focus();},50);}functionhideLinkToolbar(){vartoolbar=document.getElementById('linkToolbar');if(toolbar)toolbar.style.display='none';varsel=window.getSelection();if(sel)sel.removeAllRanges();}functioninsertLink(){varinput=document.getElementById('linkUrlInput');varurl=input.value.trim();if(!url){alert('请输入网址');return;}if(!/^https?:\/\//i.test(url)){url='https://'+url;}varsel=window.getSelection();if(!sel||sel.rangeCount===0)return;varrange=sel.getRangeAt(0);if(range.collapsed)return;varanchor=sel.anchorNode;varexistingLink=anchor.parentElement.tagName==='A'?anchor.parentElement:anchor.parentElement.closest('a');if(existingLink){existingLink.href=url;}else{vara=document.createElement('a');a.href=url;a.target='_blank';a.style.color='#2d5a8a';a.style.textDecoration='underline';range.surroundContents(a);}hideLinkToolbar();}functionremoveLink(){varsel=window.getSelection();if(!sel||sel.rangeCount===0)return;varanchor=sel.anchorNode;varlink=anchor.parentElement.tagName==='A'?anchor.parentElement:anchor.parentElement.closest('a');if(link&&link.tagName==='A'){vartext=document.createTextNode(link.textContent);link.parentNode.replaceChild(text,link);}hideLinkToolbar();}functioninitLinkToolbar(){document.addEventListener('mouseup',function(e){setTimeout(showLinkToolbar,100);});document.addEventListener('keyup',function(e){if(e.ctrlKey&&e.key==='k'){varsel=window.getSelection();if(sel&&!sel.isCollapsed){varrange=sel.getRangeAt(0);varanchor=sel.anchorNode;vareditable=anchor.parentElement.closest('.editable');if(editable&&editable.classList.contains('edit-mode')){showLinkToolbar();}}}});document.addEventListener('mousedown',function(e){vartoolbar=document.getElementById('linkToolbar');if(toolbar&&toolbar.style.display!=='none'&&!toolbar.contains(e.target)){hideLinkToolbar();}});document.getElementById('linkUrlInput').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();insertLink();}if(e.key==='Escape')hideLinkToolbar();});}functionenableEdit(){isEdit=true;varsaveBar=document.getElementById('editSaveBar');if(saveBar)saveBar.style.display='block';document.body.classList.add('edit-mode-active');document.querySelectorAll('.editable').forEach(function(el){el.classList.add('edit-mode');el.setAttribute('contenteditable','true');if(el.innerHTML.trim()===''||el.innerHTML.trim()==='<br>'){el.innerHTML='<br>';}el.addEventListener('click',setFocusEl);el.addEventListener('paste',handlePaste);el.addEventListener('drop',handleDrop);el.addEventListener('dragover',function(e){e.preventDefault();e.stopPropagation();});el.addEventListener('focus',function(e){if(el.innerHTML==='<br>'){varrange=document.createRange();range.selectNodeContents(el);varsel=window.getSelection();sel.removeAllRanges();sel.addRange(range);}});});document.body.addEventListener('input',function(e){varid=e.target.id;if(id==='m1'){updateLotteryBall('m1','m1x');initLotteryBalls();}elseif(id==='m2'){updateLotteryBall('m2','m2x');initLotteryBalls();}elseif(id==='m3'){updateLotteryBall('m3','m3x');initLotteryBalls();}elseif(id==='m4'){updateLotteryBall('m4','m4x');initLotteryBalls();}elseif(id==='m5'){updateLotteryBall('m5','m5x');initLotteryBalls();}elseif(id==='m6'){updateLotteryBall('m6','m6x');initLotteryBalls();}elseif(id==='s1'){updateLotteryBall('s1','s1x');initLotteryBalls();}});document.querySelectorAll('.lottery-num').forEach(function(el){el.classList.add('edit-mode');el.setAttribute('contenteditable','true');});document.querySelectorAll('.lottery-zodiac').forEach(function(el){el.classList.add('edit-mode');el.setAttribute('contenteditable','true');});document.querySelectorAll('.editableimg').forEach(function(img){img.style.cursor='pointer';img.addEventListener('dblclick',function(e){if(confirm('删除这张图片？')){e.stopPropagation();img.remove();}});});}functionblockDefault(e){e.preventDefault();}functionhideImageToolbar(){vartoolbar=document.getElementById('img-toolbar');if(toolbar)toolbar.remove();document.removeEventListener('dragover',blockDefault);document.removeEventListener('drop',blockDefault);}functionsetFocusEl(e){window._currentEditEl=e.currentTarget;}functionhandlePaste(e){varitems=e.clipboardData.items;for(vari=0;i<items.length;i++){if(items[i].type.indexOf('image')!==-1){varfile=items[i].getAsFile();uploadAndInsertImage(file,e.target);e.preventDefault();return;}}}functionhandleDrop(e){e.preventDefault();e.stopPropagation();varfiles=e.dataTransfer.files;for(vari=0;i<files.length;i++){if(files[i].type.indexOf('image')!==-1){uploadAndInsertImage(files[i],e.target);return;}}returnfalse;}functionuploadAndInsertImage(file,targetEl){varreader=newFileReader();reader.onload=function(e){varbase64=e.target.result;varimg=document.createElement('img');img.src=base64;img.style.maxWidth='100%';img.style.height='auto';img.style.cursor='pointer';img.addEventListener('dblclick',function(ev){if(confirm('删除这张图片？')){ev.stopPropagation();img.remove();}});if(window._currentEditEl){window._currentEditEl.appendChild(img);}elseif(targetEl&&targetEl.classList&&targetEl.classList.contains('editable')){targetEl.appendChild(img);}};reader.readAsDataURL(file);}initLinkToolbar();functiondisableEdit(){isEdit=false;varsaveBar=document.getElementById('editSaveBar');if(saveBar)saveBar.style.display='none';document.body.classList.remove('edit-mode-active');document.body.classList.remove('edit-mode');varall=document.getElementsByTagName('*');for(vari=0;i<all.length;i++){all[i].removeAttribute('contenteditable');all[i].classList.remove('edit-mode');if(all[i].blur)all[i].blur();}varhints=document.querySelectorAll('.edit-hint');for(varj=0;j<hints.length;j++){hints[j].style.display='none';}hideImageToolbar();vartoolbar=document.getElementById('img-toolbar');if(toolbar)toolbar.remove();varsaveMsg=document.getElementById('saveMsg');if(saveMsg)saveMsg.style.display='none';window.getSelection().removeAllRanges();document.body.scrollTop=0;initLotteryBalls();}var_saving=false;functionsaveAndSync(){if(_saving){console.log('[DEBUG]saveAndSyncskipped:alreadysaving');return;}_saving=true;console.log('[DEBUG]saveAndSync()called,isEdit='+isEdit);vardata={};document.querySelectorAll('.editable').forEach(function(el){if(el.dataset.field)data[el.dataset.field]=el.innerHTML;});localStorage.setItem('mobile-web',JSON.stringify(data));console.log('[DEBUG]DatasavedtolocalStorage,fields:',Object.keys(data).length);vart=localStorage.getItem('gh_token');if(t)ghToken=t;console.log('[DEBUG]TokenfromlocalStorage:',ghToken?'yes('+ghToken.length+'chars)':'NO');if(!ghToken||ghToken===''){vartk=prompt('请输入GitHubPersonalAccessToken:\n(在GitHubSettings>Developersettings>Personalaccesstokens生成)');if(tk&&tk.length>10){ghToken=tk;localStorage.setItem('gh_token',tk);console.log('[DEBUG]TokensavedtolocalStorage');}else{alert('未输入Token，内容已保存到本地，但无法同步到服务器');_saving=false;return;}}varmsgEl=document.getElementById('saveMsg');varshowMsg=function(txt,isError){if(msgEl){msgEl.textContent=txt;msgEl.style.display='block';msgEl.style.color=isError?'#ff6b6b':'#fff';}console.log('[MSG]'+txt);varsaveBtn=document.querySelector('#editSaveBarbutton');if(saveBtn)saveBtn.textContent=txt;};hideLogin();showMsg('⏳正在同步到GitHub...');fetch('https://api.github.com/repos/'+GH_OWNER+'/'+GH_REPO+'/contents/index.html',{headers:{'Authorization':'token'+ghToken,'Accept':'application/vnd.github.v3+json'}}).then(function(r){console.log('[DEBUG]GETsha,status:',r.status);if(r.status===401){thrownewError('TOKEN_INVALID');}if(r.status===404){thrownewError('REPO_NOT_FOUND');}returnr.json();}).then(function(fileData){varsha=fileData.sha;console.log('[DEBUG]GotSHA:',sha);disableEdit();varhtml='<!DOCTYPEhtml>\n'+document.documentElement.outerHTML;enableEdit();html=html.replace(/\s*/g,'');html=html.replace(/\s*class="([^"]*?)edit-mode([^"]*?)"/g,function(m,before,after){varcls=(before+after).trim().replace(/\s+/g,'');returncls?'class="'+cls+'"':'';});html=html.replace(/\s*class="([^"]*?)edit-mode-active([^"]*?)"/g,function(m,before,after){varcls=(before+after).trim().replace(/\s+/g,'');returncls?'class="'+cls+'"':'';});html=html.replace(/\s*\s*/g,'');html=html.replace(/\s*class="\s+"/g,'');varcontent=btoa(unescape(encodeURIComponent(html)));console.log('[DEBUG]HTMLlength:',html.length,'base64length:',content.length);functiondoUpload(currentSha){console.log('[DEBUG]UploadingwithSHA:',currentSha);showMsg('⏳正在上传...');returnfetch('https://api.github.com/repos/'+GH_OWNER+'/'+GH_REPO+'/contents/index.html',{method:'PUT',headers:{'Authorization':'token'+ghToken,'Content-Type':'application/json'},body:JSON.stringify({message:'Updatewebsite',content:content,sha:currentSha,branch:'master'})}).then(function(r){console.log('[DEBUG]PUTstatus:',r.status);if(r.status===401){thrownewError('TOKEN_INVALID');}if(r.status===404){thrownewError('REPO_NOT_FOUND');}if(r.status===409){console.log('[DEBUG]Got409,fetchinglatestSHA...');returnfetch('https://api.github.com/repos/'+GH_OWNER+'/'+GH_REPO+'/contents/index.html',{headers:{'Authorization':'token'+ghToken,'Accept':'application/vnd.github.v3+json'}}).then(function(gr){returngr.json();}).then(function(newData){returndoUpload(newData.sha);});}if(!r.ok){returnr.text().then(function(text){thrownewError('UPLOAD_FAILED_'+r.status+':'+text);});}returnr.json();});}returndoUpload(sha);}).then(function(r){_saving=false;console.log('[DEBUG]Uploadresult:',JSON.stringify(r).substring(0,100));showMsg('✅已同步到服务器！');disableEdit();initLotteryBalls();setTimeout(function(){if(msgEl)msgEl.style.display='none';},3000);}).catch(function(err){_saving=false;varmsg=err.message||String(err);console.log('[DEBUG]Error:',msg);if(msg.indexOf('TOKEN_INVALID')!==-1||msg.indexOf('401')!==-1){showMsg('❌Token无效！请重新输入',true);localStorage.removeItem('gh_token');ghToken='';setTimeout(showLogin,1000);}elseif(msg.indexOf('REPO_NOT_FOUND')!==-1){showMsg('❌仓库不存在！',true);}else{showMsg('❌同步失败:'+msg.substring(0,50),true);}});}functionloadData(){varsaved=localStorage.getItem('mobile-web');if(saved){vardata=JSON.parse(saved);Object.keys(data).forEach(function(k){varel=document.querySelector('[data-field="'+k+'"]');if(el&&!k.match(/^ball[0-9]/)&&!k.match(/^zodiac[0-9]/)){el.innerHTML=data[k];}});}initLotteryBalls();}/*=====开奖球体上色=====*/varball_red=[1,2,7,8,12,13,18,19,23,24,29,30,34,35,40,45,46];varball_blue=[3,4,9,10,14,15,20,25,26,31,36,37,41,42,47,48];varball_green=[5,6,11,16,17,21,22,27,28,32,33,38,39,43,44,49];varball_xiao=[];ball_xiao[0]=["马","蛇","龙","兔","虎","牛","鼠","猪","狗","鸡","猴","羊"];ball_xiao[1]=[1,13,25,37,49];ball_xiao[2]=[2,14,26,38];ball_xiao[3]=[3,15,27,39];ball_xiao[4]=[4,16,28,40];ball_xiao[5]=[5,17,29,41];ball_xiao[6]=[6,18,30,42];ball_xiao[7]=[7,19,31,43];ball_xiao[8]=[8,20,32,44];ball_xiao[9]=[9,21,33,45];ball_xiao[10]=[10,22,34,46];ball_xiao[11]=[11,23,35,47];ball_xiao[12]=[12,24,36,48];varball_wx=[];ball_wx[0]=["水","金","木","土","火"];ball_wx[1]=[1,14,15,22,23,30,31,44,45];ball_wx[2]=[4,5,12,13,26,27,34,35,42,43];ball_wx[3]=[8,9,16,17,24,25,38,39,46,47];ball_wx[4]=[6,7,20,21,28,29,36,37];ball_wx[5]=[2,3,10,11,18,19,32,33,40,41,46,49];functioninArr(c,b){for(varainb){if(b[a]==c)returntrue}returnfalse}functionupdateLotteryBall(numId,zodiacId){varnumEl=document.getElementById(numId);varballId=numId==='s1'?'w7':'w'+numId.replace('m','');varballEl=document.getElementById(ballId);varzodiacEl=document.getElementById(zodiacId);if(!numEl||!ballEl||!zodiacEl)return;varn=parseInt(numEl.textContent.trim(),10);if(isNaN(n)||n<1||n>49)return;varcolor="#999";if(inArr(n,ball_red))color="#FF0000";elseif(inArr(n,ball_blue))color="#0000FF";elseif(inArr(n,ball_green))color="#009900";ballEl.style.backgroundColor=color;ballEl.style.color="#FFFFFF";varwx="";for(varb=1;b<=5;b++){if(inArr(n,ball_wx[b]))wx=ball_wx[0][b-1];}varx="";for(varb=1;b<=12;b++){if(inArr(n,ball_xiao[b]))x=ball_xiao[0][b-1];}zodiacEl.textContent=x+"/"+wx;}functioninitLotteryBalls(){updateLotteryBall('m1','m1x');updateLotteryBall('m2','m2x');updateLotteryBall('m3','m3x');updateLotteryBall('m4','m4x');updateLotteryBall('m5','m5x');updateLotteryBall('m6','m6x');updateLotteryBall('s1','s1x');}loadData();initLotteryBalls();</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>l12388h.com - 新闻资讯</title>
+<style>
+/* ============================================
+ CSS Variables — 全局设计令牌
+ ============================================ */
+:root {
+ --color-primary: #3e98f0;
+ --color-accent: #ff6666;
+ --color-secondary: #4763b2;
+ --color-success: #339933;
+ --color-text: #1b1b1b;
+ --color-text-secondary: #666;
+ --color-text-muted: #888;
+ --color-text-light: #999;
+ --color-link-hover: #3ca5f6;
+ --color-bg: #f0f5f9;
+ --color-bg-white: #fff;
+ --color-border: #eee;
+ --max-width: 720px;
+ --header-height: 48px;
+ --radius-sm: 2px;
+ --radius-md: 10px;
+ --transition-fast: 200ms ease;
+ --font-family: "微软雅黑", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+ --font-size-base: 14px;
+ --font-size-sm: 12px;
+ --font-size-md: 14px;
+ --font-size-lg: 16px;
+ --font-size-xl: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 62.5%; scroll-behavior: smooth; }
+
+body {
+ min-width: 320px;
+ font: 400 var(--font-size-base) / 1.5 var(--font-family);
+ background: var(--color-bg);
+ color: var(--color-text);
+ max-width: var(--max-width);
+ margin: 0 auto;
+ -webkit-font-smoothing: antialiased;
+}
+
+ul, ol, li { list-style: none; }
+
+a {
+ color: var(--color-text);
+ text-decoration: none;
+ transition: color var(--transition-fast);
+}
+
+a:hover { color: var(--color-link-hover); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* 登录弹窗 */
+.login-modal {
+ display: none;
+ position: fixed;
+ top: 0; left: 0; width: 100%; height: 100%;
+ background: rgba(0,0,0,0.7);
+ z-index: 10000;
+ justify-content: center;
+ align-items: center;
+}
+.login-modal.show { display: flex; }
+.login-box {
+ background: white;
+ padding: 30px;
+ border-radius: 10px;
+ width: 300px;
+ text-align: center;
+}
+.login-box h3 { margin-bottom: 20px; color: var(--color-primary); }
+.login-box input {
+ width: 100%;
+ padding: 12px;
+ margin-bottom: 15px;
+ border: 1px solid var(--color-border);
+ border-radius: 5px;
+ font-size: 14px;
+}
+.login-box button {
+ width: 100%;
+ padding: 12px;
+ background: var(--color-primary);
+ color: white;
+ border: none;
+ border-radius: 5px;
+ font-size: 14px;
+ cursor: pointer;
+}
+.login-box button:hover { background: var(--color-secondary); }
+.login-error { color: red; font-size: 12px; margin-top: 10px; display: none; }
+
+/* ============================================
+ Header
+ ============================================ */
+.header {
+ position: fixed;
+ z-index: 100;
+ width: 100%;
+ max-width: var(--max-width);
+ height: var(--header-height);
+ background: var(--color-primary);
+}
+.header .content {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 10px;
+}
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 10px;
+}
+.header .logo a { color: #fff; font-size: 18px; font-weight: bold; }
+.header .logo span { color: #ffe066; }
+.header .header-right { color: #ffe066; font-size: 14px; }
+
+/* ============================================
+ Subnav
+ ============================================ */
+.subnav {
+ padding: 0 10px;
+ background: var(--color-bg-white);
+ -webkit-user-select: none;
+ user-select: none;
+}
+.subnav-pills {
+ display: flex;
+ align-items: center;
+ height: 42px;
+ gap: 20px;
+ overflow-x: auto;
+ scrollbar-width: none;
+}
+.subnav-pills::-webkit-scrollbar { display: none; }
+.subnav-pills li { flex-shrink: 0; height: 39px; display: flex; align-items: center; min-width: 40px; }
+.subnav-pills li a, .subnav-pills li span {
+ display: inline-block;
+ padding: 8px 0;
+ font-size: var(--font-size-md);
+ white-space: nowrap;
+ min-width: 30px;
+ min-height: 20px;
+}
+.edit-mode .subnav-pills {
+ min-height: 42px;
+ height: auto;
+ overflow: visible;
+}
+.edit-mode .subnav-pills li {
+ min-height: 24px;
+ height: auto;
+ white-space: normal;
+}
+ display: inline-block;
+ padding: 8px 0;
+ font-size: var(--font-size-md);
+ white-space: nowrap;
+}
+.subnav-pills li a.cur { color: var(--color-primary); font-weight: 500; }
+
+/* ============================================
+ Channels
+ ============================================ */
+.channels {
+ background: var(--color-bg-white);
+ padding: 8px 5px;
+ border-top: 1px solid #d7d7d7;
+ display: flex;
+ flex-wrap: wrap;
+}
+.channels li {
+ flex: 1;
+ min-width: 0;
+ text-align: center;
+ line-height: 32px;
+ height: 32px;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
+.channels li a { display: block; overflow: hidden; text-overflow: ellipsis; }
+.channels li.edit-mode, .edit-mode .channels li {
+ height: auto;
+ min-height: 32px;
+ overflow: visible;
+ white-space: normal;
+}
+
+/* ============================================
+ Feeds List
+ ============================================ */
+.feeds-tab {
+ height: 42px;
+ border: 1px solid #dfdfdf;
+ border-top: 2px solid var(--color-primary);
+ display: flex;
+}
+.feeds-tab a {
+ flex: 1;
+ height: 43px;
+ line-height: 41px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.feeds-tab a.cur span { color: var(--color-primary); }
+
+.feeds-item {
+ border-top: 1px solid var(--color-border);
+ position: relative;
+ padding: 12px 10px;
+ display: flex;
+ flex-direction: column;
+ gap: 3px;
+}
+.feeds-item:first-child { border-top: 0; }
+.feeds-item:hover { background: #f8f8f8; }
+.feeds-item h3 {
+ line-height: 21px;
+ overflow: hidden;
+ display: block;
+ word-wrap: break-word;
+ white-space: normal;
+}
+.feeds-item.edit-mode h3, .feeds-item h3.edit-mode {
+ overflow: visible;
+ display: block;
+ word-wrap: break-word;
+ white-space: normal;
+}
+.feeds-item h3 a { color: #262627; }
+.feeds-item h3 a:hover { color: #3ba0f2; }
+
+.feeds-item.hasImg {
+ flex-direction: row;
+ align-items: flex-start;
+}
+.feeds-item.hasImg .feeds-item-pic {
+ flex: 0 0 94px;
+ width: 94px;
+ padding: 1px;
+ border: 1px solid #ededed;
+}
+.feeds-item.hasImg .feeds-item-pic img {
+ width: 90px;
+ height: 60px;
+ object-fit: cover;
+}
+.feeds-item.hasImg .feeds-item-info { flex: 1; min-width: 0; }
+
+.feeds-item-info {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 4px 8px;
+ line-height: 18px;
+ color: var(--color-text-light);
+}
+.feeds-item-info span, .feeds-item-info a { color: var(--color-text-light); }
+
+/* ============================================
+ Section Title
+ ============================================ */
+.section-title {
+ background: var(--color-bg-white);
+ padding: 10px 12px;
+ font-weight: bold;
+ font-size: 15px;
+ border-bottom: 1px solid var(--color-border);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.section-title a { font-size: 12px; color: var(--color-text-secondary); text-decoration: none; font-weight: normal; }
+
+/* ============================================
+ Article Lists
+ ============================================ */
+.article-img { display: flex; flex-direction: column; }
+.article-img li {
+ display: flex;
+ align-items: flex-start;
+ gap: 6px;
+ padding: 10px 12px;
+ border-bottom: 1px solid var(--color-border);
+ min-height: 76px;
+}
+.article-img li:last-child { border-bottom: none; }
+.article-img h3 {
+ flex: 1;
+ line-height: 21px;
+ overflow: hidden;
+ display: -webkit-box;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+ font-weight: normal;
+ font-size: var(--font-size-base);
+}
+.article-img h3.edit-mode, .edit-mode .article-img h3 {
+ overflow: visible;
+ display: block;
+ -webkit-line-clamp: unset;
+}
+.article-img .thumb {
+ flex: 0 0 60px;
+ width: 60px;
+}
+.article-img .thumb img {
+ border-radius: var(--radius-md);
+ padding: 1px;
+ border: 1px solid #ededed;
+}
+
+/* ============================================
+ Hot List
+ ============================================ */
+.article-hot { display: flex; flex-direction: column; }
+.article-hot li {
+ height: auto;
+ min-height: 46px;
+ line-height: 1.6;
+ border-bottom: 1px solid var(--color-border);
+ display: flex;
+ align-items: flex-start;
+ gap: 6px;
+ overflow: visible;
+ padding: 10px 12px;
+ word-break: break-all;
+}
+.article-hot li:last-child { border-bottom: none; }
+.article-hot li.edit-mode, .edit-mode .article-hot li {
+ height: auto;
+ min-height: 46px;
+ overflow: visible;
+}
+.article-hot li .mun {
+ flex-shrink: 0;
+ color: #d52b2b;
+ font-style: italic;
+ font-family: Georgia, serif;
+ min-width: 20px;
+ text-align: center;
+}
+.article-hot li:nth-child(n+4) .mun { color: #888; }
+
+/* ============================================
+ Tags
+ ============================================ */
+.h-tags {
+ background: var(--color-bg-white);
+ display: flex;
+ align-items: stretch;
+ overflow: hidden;
+}
+.h-tags-title {
+ flex: 0 0 70px;
+ background: var(--color-accent);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ font-weight: bold;
+}
+.h-tags-list {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ padding: 10px;
+}
+.h-tags-list li { flex: 0 1 calc(33.333% - 8px); }
+
+/* ============================================
+ Footer
+ ============================================ */
+.footer {
+ background: var(--color-secondary);
+ color: white;
+ padding: 15px 12px;
+ text-align: center;
+}
+.footer p { font-size: 12px; opacity: 0.8; margin-bottom: 5px; }
+
+/* ============================================
+ Lottery Ball
+ ============================================ */
+.lottery-ball {
+ border-radius: 50%;
+}
+.lottery-num {
+ color: #FFFFFF;
+}
+
+/* ============================================
+ Editable
+ ============================================ */
+.editable { position: relative; min-height: 20px; cursor: text; }
+.editable:empty::before { content: '点击编辑'; color: #ccc; font-style: italic; cursor: text; }
+.editable.edit-mode { outline: 2px dashed var(--color-accent); outline-offset: 2px; overflow: visible !important; max-height: none !important; height: auto !important; min-height: 30px; cursor: text; }
+.edit-mode * { overflow: visible !important; max-height: none !important; height: auto !important; -webkit-line-clamp: unset !important; }
+.edit-mode .feeds-item { height: auto !important; min-height: 80px; }
+.edit-mode .feeds-item-info { height: auto !important; }
+.edit-mode .section-title { height: auto !important; }
+.edit-mode .article-hot li { height: auto !important; min-height: 46px; line-height: 1.5; padding: 10px 12px; }
+.edit-mode .article-img li { height: auto !important; min-height: 76px; }
+.edit-mode .channels li { height: auto !important; min-height: 32px; line-height: 1.5; padding: 5px 0; }
+.edit-mode .subnav-pills li { height: auto !important; }
+.edit-mode .footer { height: auto !important; }
+.edit-hint { display: none !important; }
+.edit-mode .edit-hint { display: block; }
+.edit-mode a { pointer-events: none; }
+[contenteditable="true"] { outline: none; }
+[contenteditable="true"]:empty::before { content: '点击输入内容'; color: #aaa; font-style: italic; }
+
+/* ============ Link Toolbar (edit mode) ============ */
+#linkToolbar {
+ display: none;
+ position: fixed;
+ background: #333;
+ border-radius: 6px;
+ padding: 6px 8px;
+ z-index: 99999;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+ font-size: 13px;
+ white-space: nowrap;
+}
+#linkToolbar input {
+ border: none;
+ border-radius: 4px;
+ padding: 4px 8px;
+ font-size: 12px;
+ width: 220px;
+ margin-right: 5px;
+ color: #333;
+}
+#linkToolbar button {
+ border: none;
+ border-radius: 4px;
+ padding: 4px 10px;
+ font-size: 12px;
+ cursor: pointer;
+ font-family: inherit;
+}
+#linkToolbar .btn-insert {
+ background: #28a745;
+ color: white;
+ margin-right: 3px;
+}
+#linkToolbar .btn-cancel {
+ background: #666;
+ color: white;
+}
+#linkToolbar .btn-remove {
+ background: #c41230;
+ color: white;
+ margin-right: 3px;
+}
+</style>
+</head>
+<body>
+
+<!-- 登录弹窗 -->
+<div class="login-modal" id="loginModal">
+ <div class="login-box">
+  <h3>🔐 管理登录</h3>
+  <input type="password" id="passwordInput" placeholder="请输入管理密码">
+  <button onclick="checkPassword()">确认</button>
+  <div class="login-error" id="loginError">密码错误</div>
+ </div>
+</div>
+
+<!-- 同步状态提示 -->
+<div id="saveMsg" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;z-index:99999;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.3);"></div>
+
+
+<!-- Header -->
+<div class="header" id="mainHeader">
+ <div class="content">
+  <div class="logo editable" data-field="logo"><a href="#">l12388h<span>.com</span></a></div>
+  <div class="header-right" style="color:#ffe066;font-size:14px;padding:0 8px;"></div>
+ </div>
+</div>
+
+<!-- 占位 -->
+<div style="height:48px;"></div>
+
+<!-- Subnav -->
+<div class="subnav" style="padding:0;border-top:none;">
+ <ul class="subnav-pills editable" data-field="subnav" style="flex-wrap:wrap;height:auto;min-height:42px;padding:0 10px;">
+  <li><span class="cur">首页</span></li>
+  <li><span>新闻</span></li>
+  <li><span>产品</span></li>
+  <li><span>关于</span></li>
+  <li><span>联系</span></li>
+ </ul>
+</div>
+
+<!-- ===== 开奖展示台 ===== -->
+<div id="lottery-section" style="background:#f8f8f8;border-bottom:1px solid #ddd;">
+ <!-- 标题栏 -->
+ <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-title">
+  澳彩 <font color="#FF0000"><span id="q">095</span></font> 期开奖结果 <a href="#" onclick="return false;" style="text-decoration:none;"><font color="red">【开奖记录】</font></a>
+ </div>
+ <!-- 号码球区域 -->
+ <div style="padding:5px 0;border-top:solid 1px #ddd;border-bottom:solid 1px #eee;clear:both;">
+  <div style="float:left;width:83%;">
+   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m1" class="lottery-num" style="color:#FFFFFF;">07</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m2" class="lottery-num" style="color:#FFFFFF;">15</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m3" class="lottery-num" style="color:#FFFFFF;">24</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m4" class="lottery-num" style="color:#FFFFFF;">31</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#009900;color:#FFFFFF;"><div id="m5" class="lottery-num" style="color:#FFFFFF;">38</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num" style="color:#FFFFFF;">42</div></div></th>
+    </tr>
+    <tr>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable" data-field="zodiac1" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable" data-field="zodiac2" style="font-size:12px;color:#666;">牛/木</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m3x" class="lottery-zodiac editable" data-field="zodiac3" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable" data-field="zodiac4" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable" data-field="zodiac5" style="font-size:12px;color:#666;">猴/土</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable" data-field="zodiac6" style="font-size:12px;color:#666;">虎/金</div></td>
+    </tr>
+   </table>
+  </div>
+  <div style="float:right;width:15%;">
+   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display:inline-block;border-radius:50%;width:42px;height:42px;line-height:42px;text-align:center;font-size:20px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="s1" class="lottery-num" style="color:#FFFFFF;">19</div></div></th>
+    </tr>
+    <tr>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable" data-field="zodiac7" style="font-size:12px;color:#666;">龙/水</div></td>
+    </tr>
+   </table>
+  </div>
+ </div>
+ <div style="clear:both;"></div>
+ <!-- 下期信息 -->
+ <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-next">
+  第<span id="nextQiShu">096</span>期开奖时间：<span id="nextMonth">4</span>月<span id="nextDay">7</span>日 星期<span id="nextWeek">一</span> <span id="nextTime">21:30</span>
+ </div>
+</div>
+
+<!-- Channels -->
+<div class="channels editable" data-field="channels">
+ <li><a href="#">推荐</a></li>
+ <li><a href="#">热点</a></li>
+ <li><a href="#">视频</a></li>
+ <li><a href="#">科技</a></li>
+ <li><a href="#">财经</a></li>
+ <li><a href="#">娱乐</a></li>
+</div>
+
+<!-- Feeds Tab -->
+<div class="feeds-tab">
+ <a href="#" class="cur"><span>最新</span></a>
+ <a href="#"><span>热门</span></a>
+ <a href="#"><span>精选</span></a>
+</div>
+
+<!-- Feeds List -->
+<div class="feeds-item hasImg editable" data-field="news1">
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%233e98f0' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
+ <div class="feeds-item-info">
+  <h3><a href="#">新闻标题一：公司最新动态发布</a></h3>
+  <span>来源</span>
+  <span>评论 128</span>
+  <span>2小时前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news2">
+ <h3><a href="#">新闻标题二：产品升级通知，新增多项功能</a></h3>
+ <div class="feeds-item-info">
+  <span>官方</span>
+  <span>评论 56</span>
+  <span>3小时前</span>
+ </div>
+</div>
+<div class="feeds-item hasImg editable" data-field="news3">
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
+ <div class="feeds-item-info">
+  <h3><a href="#">新闻标题三：行业资讯分享</a></h3>
+  <span>转载</span>
+  <span>评论 89</span>
+  <span>5小时前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news4">
+ <h3><a href="#">新闻标题四：企业活动报道</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 34</span>
+  <span>昨天</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news5">
+ <h3><a href="#">新闻标题五：市场动态分析</a></h3>
+ <div class="feeds-item-info">
+  <span>转载</span>
+  <span>评论 21</span>
+  <span>昨天</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news6">
+ <h3><a href="#">新闻标题六：技术更新公告</a></h3>
+ <div class="feeds-item-info">
+  <span>官方</span>
+  <span>评论 45</span>
+  <span>2天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news7">
+ <h3><a href="#">新闻标题七：合作伙伴签约</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 18</span>
+  <span>2天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news8">
+ <h3><a href="#">新闻标题八：行业标准发布</a></h3>
+ <div class="feeds-item-info">
+  <span>转载</span>
+  <span>评论 56</span>
+  <span>3天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news9">
+ <h3><a href="#">新闻标题九：新品发布会</a></h3>
+ <div class="feeds-item-info">
+  <span>官方</span>
+  <span>评论 89</span>
+  <span>3天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news10">
+ <h3><a href="#">新闻标题十：年度总结报告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 67</span>
+  <span>4天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news11">
+ <h3><a href="#">新闻标题十一：获奖喜讯</a></h3>
+ <div class="feeds-item-info">
+  <span>官方</span>
+  <span>评论 102</span>
+  <span>5天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news12">
+ <h3><a href="#">新闻标题十二：投资者大会</a></h3>
+ <div class="feeds-item-info">
+  <span>转载</span>
+  <span>评论 33</span>
+  <span>5天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news13">
+ <h3><a href="#">新闻标题十三：社会责任报告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 28</span>
+  <span>6天前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news14">
+ <h3><a href="#">新闻标题十四：战略规划发布</a></h3>
+ <div class="feeds-item-info">
+  <span>官方</span>
+  <span>评论 76</span>
+  <span>一周前</span>
+ </div>
+</div>
+<div class="feeds-item editable" data-field="news16">
+ <h3><a href="#">新闻标题十六：行业最新动态</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 38</span>
+  <span>6天前</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news17">
+ <h3><a href="#">新闻标题十七：产品升级公告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 31</span>
+  <span>5天前</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news18">
+ <h3><a href="#">新闻标题十八：市场趋势分析</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 27</span>
+  <span>4天前</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news19">
+ <h3><a href="#">新闻标题十九：技术创新发布</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 22</span>
+  <span>3天前</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news20">
+ <h3><a href="#">新闻标题二十：年度总结报告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 45</span>
+  <span>2天前</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news21">
+ <h3><a href="#">新闻标题二十一：合作伙伴签约</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 33</span>
+  <span>1天前</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news22">
+ <h3><a href="#">新闻标题二十二：新品发布预告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 29</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news23">
+ <h3><a href="#">新闻标题二十三：用户反馈收集</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 18</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news24">
+ <h3><a href="#">新闻标题二十四：服务升级通知</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 25</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news25">
+ <h3><a href="#">新闻标题二十五：活动预告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 15</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news26">
+ <h3><a href="#">新闻标题二十六：行业峰会报道</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 20</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news27">
+ <h3><a href="#">新闻标题二十七：专访报道</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 12</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news28">
+ <h3><a href="#">新闻标题二十八：数据报告发布</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 9</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news29">
+ <h3><a href="#">新闻标题二十九：社区公告</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 7</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<div class="feeds-item editable" data-field="news30">
+ <h3><a href="#">新闻标题三十：联系方式更新</a></h3>
+ <div class="feeds-item-info">
+  <span>原创</span>
+  <span>评论 5</span>
+  <span>今天</span>
+ </div>
+</div>
+
+<!-- Section: 热榜 -->
+<div style="margin-top:15px;">
+ <div class="section-title editable" data-field="hot-title">
+  <span>🔥 热榜</span>
+  <a href="#">更多&gt;&gt;</a>
+ </div>
+ <ul class="article-hot">
+  <li class="editable" data-field="hot1"><span class="mun">1</span><a href="#">热点新闻一</a></li>
+  <li class="editable" data-field="hot2"><span class="mun">2</span><a href="#">热点新闻二</a></li>
+  <li class="editable" data-field="hot3"><span class="mun">3</span><a href="#">热点新闻三</a></li>
+  <li class="editable" data-field="hot4"><span class="mun">4</span><a href="#">热点新闻四</a></li>
+  <li class="editable" data-field="hot5"><span class="mun">5</span><a href="#">热点新闻五</a></li>
+  <li class="editable" data-field="hot6"><span class="mun">6</span><a href="#">热点新闻六</a></li>
+  <li class="editable" data-field="hot7"><span class="mun">7</span><a href="#">热点新闻七</a></li>
+  <li class="editable" data-field="hot8"><span class="mun">8</span><a href="#">热点新闻八</a></li>
+  <li class="editable" data-field="hot9"><span class="mun">9</span><a href="#">热点新闻九</a></li>
+  <li class="editable" data-field="hot10"><span class="mun">10</span><a href="#">热点新闻十</a></li>
+  <li class="editable" data-field="hot11"><span class="mun">11</span><a href="#">热点新闻十一</a></li>
+  <li class="editable" data-field="hot12"><span class="mun">12</span><a href="#">热点新闻十二</a></li>
+  <li class="editable" data-field="hot13"><span class="mun">13</span><a href="#">热点新闻十三</a></li>
+  <li class="editable" data-field="hot14"><span class="mun">14</span><a href="#">热点新闻十四</a></li>
+  <li class="editable" data-field="hot15"><span class="mun">15</span><a href="#">热点新闻十五</a></li>
+  <li class="editable" data-field="hot16"><span class="mun">16</span><a href="#">热点新闻16</a></li>
+  <li class="editable" data-field="hot17"><span class="mun">17</span><a href="#">热点新闻17</a></li>
+  <li class="editable" data-field="hot18"><span class="mun">18</span><a href="#">热点新闻18</a></li>
+  <li class="editable" data-field="hot19"><span class="mun">19</span><a href="#">热点新闻19</a></li>
+  <li class="editable" data-field="hot20"><span class="mun">20</span><a href="#">热点新闻20</a></li>
+  <li class="editable" data-field="hot21"><span class="mun">21</span><a href="#">热点新闻21</a></li>
+  <li class="editable" data-field="hot22"><span class="mun">22</span><a href="#">热点新闻22</a></li>
+  <li class="editable" data-field="hot23"><span class="mun">23</span><a href="#">热点新闻23</a></li>
+  <li class="editable" data-field="hot24"><span class="mun">24</span><a href="#">热点新闻24</a></li>
+  <li class="editable" data-field="hot25"><span class="mun">25</span><a href="#">热点新闻25</a></li>
+  <li class="editable" data-field="hot26"><span class="mun">26</span><a href="#">热点新闻26</a></li>
+  <li class="editable" data-field="hot27"><span class="mun">27</span><a href="#">热点新闻27</a></li>
+  <li class="editable" data-field="hot28"><span class="mun">28</span><a href="#">热点新闻28</a></li>
+  <li class="editable" data-field="hot29"><span class="mun">29</span><a href="#">热点新闻29</a></li>
+  <li class="editable" data-field="hot30"><span class="mun">30</span><a href="#">热点新闻30</a></li>
+  <li class="editable" data-field="hot31"><span class="mun">31</span><a href="#">热点新闻31</a></li>
+  <li class="editable" data-field="hot32"><span class="mun">32</span><a href="#">热点新闻32</a></li>
+  <li class="editable" data-field="hot33"><span class="mun">33</span><a href="#">热点新闻33</a></li>
+  <li class="editable" data-field="hot34"><span class="mun">34</span><a href="#">热点新闻34</a></li>
+  <li class="editable" data-field="hot35"><span class="mun">35</span><a href="#">热点新闻35</a></li>
+  <li class="editable" data-field="hot36"><span class="mun">36</span><a href="#">热点新闻36</a></li>
+  <li class="editable" data-field="hot37"><span class="mun">37</span><a href="#">热点新闻37</a></li>
+  <li class="editable" data-field="hot38"><span class="mun">38</span><a href="#">热点新闻38</a></li>
+ </ul>
+</div>
+
+<!-- Link Toolbar (edit mode) -->
+<div id="linkToolbar">
+ <input type="text" id="linkUrlInput" placeholder="输入网址 https://...">
+ <button class="btn-insert" onclick="insertLink()">插入链接</button>
+ <button class="btn-remove" onclick="removeLink()">移除链接</button>
+ <button class="btn-cancel" onclick="hideLinkToolbar()">取消</button>
+</div>
+
+<!-- 编辑模式浮动保存条 -->
+<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:14px 12px 18px;z-index:99990;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">💾 保存到服务器</button>
+ <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div>
+</div>
+
+<!-- 右下角编辑触发区 -->
+<div ondblclick="showLogin()" style="position:fixed;bottom:0;right:0;width:30px;height:30px;z-index:99999;cursor:pointer;"></div>
+
+<footer class="footer" style="position:relative;">
+ <p>© 2026 l12388h.com</p>
+ <p>保留所有权利</p>
+</footer>
+
+<script>
+const ADMIN_PASSWORD = 'Lhz732435';
+let isEdit = false;
+let ghToken = '';
+const GH_OWNER = 'liuhongzhi7318';
+const GH_REPO = 'l12388h-website';
+const modal = document.getElementById('loginModal');
+const passwordInput = document.getElementById('passwordInput');
+const loginError = document.getElementById('loginError');
+
+function showLogin() {
+ console.log('showLogin clicked');
+ modal.classList.add('show');
+ passwordInput.value = '';
+ passwordInput.focus();
+ loginError.style.display = 'none';
+}
+
+function hideLogin() { modal.classList.remove('show'); }
+
+function checkPassword() {
+ if (passwordInput.value === ADMIN_PASSWORD) {
+  hideLogin();
+  enableEdit();
+ } else {
+  loginError.style.display = 'block';
+  passwordInput.value = '';
+ }
+}
+
+passwordInput.addEventListener('keypress', function(e) {
+ if (e.key === 'Enter') checkPassword();
+});
+
+// ============ Link Toolbar (edit mode) ============
+function showLinkToolbar() {
+ var sel = window.getSelection();
+ if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+ var range = sel.getRangeAt(0);
+ if (range.collapsed) return;
+ var anchor = sel.anchorNode;
+ var editable = anchor.parentElement.closest('.editable');
+ if (!editable || !editable.classList.contains('edit-mode')) return;
+ var inLink = anchor.parentElement.tagName === 'A' || anchor.parentElement.closest('a');
+ var toolbar = document.getElementById('linkToolbar');
+ var input = document.getElementById('linkUrlInput');
+ var url = '';
+ if (inLink) { url = inLink.href || ''; }
+ input.value = url;
+ toolbar.style.display = 'block';
+ var rect = range.getBoundingClientRect();
+ var tbTop = rect.bottom + window.scrollY + 8;
+ var tbLeft = rect.left + window.scrollX;
+ toolbar.style.top = tbTop + 'px';
+ toolbar.style.left = tbLeft + 'px';
+ var tbRect = toolbar.getBoundingClientRect();
+ if (tbLeft + tbRect.width > window.innerWidth) {
+  toolbar.style.left = (window.innerWidth - tbRect.width - 10) + 'px';
+ }
+ if (tbTop + tbRect.height > window.innerHeight + window.scrollY) {
+  toolbar.style.top = (rect.top + window.scrollY - tbRect.height - 8) + 'px';
+ }
+ setTimeout(function(){ input.focus(); }, 50);
+}
+
+function hideLinkToolbar() {
+ var toolbar = document.getElementById('linkToolbar');
+ if (toolbar) toolbar.style.display = 'none';
+ var sel = window.getSelection();
+ if (sel) sel.removeAllRanges();
+}
+
+function insertLink() {
+ var input = document.getElementById('linkUrlInput');
+ var url = input.value.trim();
+ if (!url) { alert('请输入网址'); return; }
+ if (!/^https?:\/\//i.test(url)) { url = 'https://' + url; }
+ var sel = window.getSelection();
+ if (!sel || sel.rangeCount === 0) return;
+ var range = sel.getRangeAt(0);
+ if (range.collapsed) return;
+ var anchor = sel.anchorNode;
+ var existingLink = anchor.parentElement.tagName === 'A' ? anchor.parentElement : anchor.parentElement.closest('a');
+ if (existingLink) {
+  existingLink.href = url;
+ } else {
+  var a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.style.color = '#2d5a8a';
+  a.style.textDecoration = 'underline';
+  range.surroundContents(a);
+ }
+ hideLinkToolbar();
+}
+
+function removeLink() {
+ var sel = window.getSelection();
+ if (!sel || sel.rangeCount === 0) return;
+ var anchor = sel.anchorNode;
+ var link = anchor.parentElement.tagName === 'A' ? anchor.parentElement : anchor.parentElement.closest('a');
+ if (link && link.tagName === 'A') {
+  var text = document.createTextNode(link.textContent);
+  link.parentNode.replaceChild(text, link);
+ }
+ hideLinkToolbar();
+}
+
+function initLinkToolbar() {
+ document.addEventListener('mouseup', function(e) {
+  setTimeout(showLinkToolbar, 100);
+ });
+ document.addEventListener('keyup', function(e) {
+  if (e.ctrlKey && e.key === 'k') {
+   var sel = window.getSelection();
+   if (sel && !sel.isCollapsed) {
+    var range = sel.getRangeAt(0);
+    var anchor = sel.anchorNode;
+    var editable = anchor.parentElement.closest('.editable');
+    if (editable && editable.classList.contains('edit-mode')) {
+     showLinkToolbar();
+    }
+   }
+  }
+ });
+ document.addEventListener('mousedown', function(e) {
+  var toolbar = document.getElementById('linkToolbar');
+  if (toolbar && toolbar.style.display !== 'none' && !toolbar.contains(e.target)) {
+   hideLinkToolbar();
+  }
+ });
+ document.getElementById('linkUrlInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); insertLink(); }
+  if (e.key === 'Escape') hideLinkToolbar();
+ });
+}
+
+function enableEdit() {
+ isEdit = true;
+ var saveBar = document.getElementById('editSaveBar');
+ if (saveBar) saveBar.style.display = 'block';
+ document.body.classList.add('edit-mode-active');
+ document.querySelectorAll('.editable').forEach(function(el) {
+  el.classList.add('edit-mode');
+  el.setAttribute('contenteditable', 'true');
+  if (el.innerHTML.trim() === '' || el.innerHTML.trim() === '<br>') {
+   el.innerHTML = '<br>';
+  }
+  el.addEventListener('click', setFocusEl);
+  el.addEventListener('paste', handlePaste);
+  el.addEventListener('drop', handleDrop);
+  el.addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); });
+  el.addEventListener('focus', function(e) {
+   if (el.innerHTML === '<br>') {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+   }
+  });
+ });
+ document.body.addEventListener('input', function(e) {
+  var id = e.target.id;
+  if (id === 'm1') { updateLotteryBall('m1', 'm1x'); initLotteryBalls(); }
+  else if (id === 'm2') { updateLotteryBall('m2', 'm2x'); initLotteryBalls(); }
+  else if (id === 'm3') { updateLotteryBall('m3', 'm3x'); initLotteryBalls(); }
+  else if (id === 'm4') { updateLotteryBall('m4', 'm4x'); initLotteryBalls(); }
+  else if (id === 'm5') { updateLotteryBall('m5', 'm5x'); initLotteryBalls(); }
+  else if (id === 'm6') { updateLotteryBall('m6', 'm6x'); initLotteryBalls(); }
+  else if (id === 's1') { updateLotteryBall('s1', 's1x'); initLotteryBalls(); }
+ });
+ document.querySelectorAll('.lottery-num').forEach(function(el) {
+  el.classList.add('edit-mode');
+  el.setAttribute('contenteditable', 'true');
+ });
+ document.querySelectorAll('.lottery-zodiac').forEach(function(el) {
+  el.classList.add('edit-mode');
+  el.setAttribute('contenteditable', 'true');
+ });
+ document.querySelectorAll('.editable img').forEach(function(img) {
+  img.style.cursor = 'pointer';
+  img.addEventListener('dblclick', function(e) {
+   if (confirm('删除这张图片？')) {
+    e.stopPropagation();
+    img.remove();
+   }
+  });
+ });
+}
+
+function blockDefault(e) { e.preventDefault(); }
+
+function hideImageToolbar() {
+ var toolbar = document.getElementById('img-toolbar');
+ if (toolbar) toolbar.remove();
+ document.removeEventListener('dragover', blockDefault);
+ document.removeEventListener('drop', blockDefault);
+}
+
+function setFocusEl(e) {
+ window._currentEditEl = e.currentTarget;
+}
+
+function handlePaste(e) {
+ var items = e.clipboardData.items;
+ for (var i = 0; i < items.length; i++) {
+  if (items[i].type.indexOf('image') !== -1) {
+   var file = items[i].getAsFile();
+   uploadAndInsertImage(file, e.target);
+   e.preventDefault();
+   return;
+  }
+ }
+}
+
+function handleDrop(e) {
+ e.preventDefault();
+ e.stopPropagation();
+ var files = e.dataTransfer.files;
+ for (var i = 0; i < files.length; i++) {
+  if (files[i].type.indexOf('image') !== -1) {
+   uploadAndInsertImage(files[i], e.target);
+   return;
+  }
+ }
+ return false;
+}
+
+function uploadAndInsertImage(file, targetEl) {
+ var reader = new FileReader();
+ reader.onload = function(e) {
+  var base64 = e.target.result;
+  var img = document.createElement('img');
+  img.src = base64;
+  img.style.maxWidth = '100%';
+  img.style.height = 'auto';
+  img.style.cursor = 'pointer';
+  img.addEventListener('dblclick', function(ev) {
+   if (confirm('删除这张图片？')) {
+    ev.stopPropagation();
+    img.remove();
+   }
+  });
+  if (window._currentEditEl) {
+   window._currentEditEl.appendChild(img);
+  } else if (targetEl && targetEl.classList && targetEl.classList.contains('editable')) {
+   targetEl.appendChild(img);
+  }
+ };
+ reader.readAsDataURL(file);
+}
+
+initLinkToolbar();
+
+function disableEdit() {
+ isEdit = false;
+ var saveBar = document.getElementById('editSaveBar');
+ if (saveBar) saveBar.style.display = 'none';
+ document.body.classList.remove('edit-mode-active');
+ document.body.classList.remove('edit-mode');
+ var all = document.getElementsByTagName('*');
+ for (var i = 0; i < all.length; i++) {
+  all[i].removeAttribute('contenteditable');
+  all[i].classList.remove('edit-mode');
+  if (all[i].blur) all[i].blur();
+ }
+ var hints = document.querySelectorAll('.edit-hint');
+ for (var j = 0; j < hints.length; j++) { hints[j].style.display = 'none'; }
+ hideImageToolbar();
+ var toolbar = document.getElementById('img-toolbar');
+ if (toolbar) toolbar.remove();
+ var saveMsg = document.getElementById('saveMsg');
+ if (saveMsg) saveMsg.style.display = 'none';
+ window.getSelection().removeAllRanges();
+ document.body.scrollTop = 0;
+ initLotteryBalls();
+}
+
+var _saving = false;
+
+function saveAndSync() {
+ if (_saving) { console.log('[DEBUG] saveAndSync skipped: already saving'); return; }
+ _saving = true;
+ console.log('[DEBUG] saveAndSync() called, isEdit=' + isEdit);
+ var data = {};
+ document.querySelectorAll('.editable').forEach(function(el) {
+  if (el.dataset.field) data[el.dataset.field] = el.innerHTML;
+ });
+ localStorage.setItem('mobile-web', JSON.stringify(data));
+ console.log('[DEBUG] Data saved to localStorage, fields:', Object.keys(data).length);
+
+ var t = localStorage.getItem('gh_token');
+ if (t) ghToken = t;
+ console.log('[DEBUG] Token from localStorage:', ghToken ? 'yes (' + ghToken.length + ' chars)' : 'NO');
+ if (!ghToken || ghToken === '') {
+  var tk = prompt('请输入GitHub Personal Access Token:\n(在 GitHub Settings > Developer settings > Personal access tokens 生成)');
+  if (tk && tk.length > 10) {
+   ghToken = tk;
+   localStorage.setItem('gh_token', tk);
+   console.log('[DEBUG] Token saved to localStorage');
+  } else {
+   alert('未输入Token，内容已保存到本地，但无法同步到服务器');
+   _saving = false;
+   return;
+  }
+ }
+
+ var msgEl = document.getElementById('saveMsg');
+ var showMsg = function(txt, isError) {
+  if (msgEl) {
+   msgEl.textContent = txt;
+   msgEl.style.display = 'block';
+   msgEl.style.color = isError ? '#ff6b6b' : '#fff';
+  }
+  console.log('[MSG] ' + txt);
+  var saveBtn = document.querySelector('#editSaveBar button');
+  if (saveBtn) saveBtn.textContent = txt;
+ };
+
+ hideLogin();
+ showMsg('⏳ 正在同步到GitHub...');
+
+ fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
+  headers: { 'Authorization': 'token ' + ghToken, 'Accept': 'application/vnd.github.v3+json' }
+ }).then(function(r) {
+  console.log('[DEBUG] GET sha, status:', r.status);
+  if (r.status === 401) {
+   throw new Error('TOKEN_INVALID');
+  }
+  if (r.status === 404) {
+   throw new Error('REPO_NOT_FOUND');
+  }
+  return r.json();
+ }).then(function(fileData) {
+  var sha = fileData.sha;
+  console.log('[DEBUG] Got SHA:', sha);
+
+  disableEdit();
+  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  enableEdit();
+  html = html.replace(/\s*contenteditable="true"/g, '');
+  html = html.replace(/\s*class="([^"]*?)edit-mode([^"]*?)"/g, function(m, before, after) {
+   var cls = (before + after).trim().replace(/\s+/g, ' ');
+   return cls ? ' class="' + cls + '"' : '';
+  });
+  html = html.replace(/\s*class="([^"]*?)edit-mode-active([^"]*?)"/g, function(m, before, after) {
+   var cls = (before + after).trim().replace(/\s+/g, ' ');
+   return cls ? ' class="' + cls + '"' : '';
+  });
+  
+  var content = btoa(unescape(encodeURIComponent(html)));
+  console.log('[DEBUG] HTML length:', html.length, 'base64 length:', content.length);
+
+  function doUpload(currentSha) {
+   console.log('[DEBUG] Uploading with SHA:', currentSha);
+   showMsg('⏳ 正在上传...');
+   return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
+    method: 'PUT',
+    headers: { 'Authorization': 'token ' + ghToken, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: 'Update website', content: content, sha: currentSha, branch: 'master' })
+   }).then(function(r) {
+    console.log('[DEBUG] PUT status:', r.status);
+    if (r.status === 401) {
+     throw new Error('TOKEN_INVALID');
+    }
+    if (r.status === 404) {
+     throw new Error('REPO_NOT_FOUND');
+    }
+    if (r.status === 409) {
+     console.log('[DEBUG] Got 409, fetching latest SHA...');
+     return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
+      headers: { 'Authorization': 'token ' + ghToken, 'Accept': 'application/vnd.github.v3+json' }
+     }).then(function(gr) { return gr.json(); }).then(function(newData) {
+      return doUpload(newData.sha);
+     });
+    }
+    if (!r.ok) {
+     return r.text().then(function(text) {
+      throw new Error('UPLOAD_FAILED_' + r.status + ': ' + text);
+     });
+    }
+    return r.json();
+   });
+  }
+  return doUpload(sha);
+ }).then(function(r) {
+  _saving = false;
+  console.log('[DEBUG] Upload result:', JSON.stringify(r).substring(0, 100));
+  showMsg('✅ 已同步到服务器！');
+  disableEdit();
+  initLotteryBalls();
+  setTimeout(function() { if (msgEl) msgEl.style.display = 'none'; }, 3000);
+ }).catch(function(err) {
+  _saving = false;
+  var msg = err.message || String(err);
+  console.log('[DEBUG] Error:', msg);
+  if (msg.indexOf('TOKEN_INVALID') !== -1 || msg.indexOf('401') !== -1) {
+   showMsg('❌ Token无效！请重新输入', true);
+   localStorage.removeItem('gh_token');
+   ghToken = '';
+   setTimeout(showLogin, 1000);
+  } else if (msg.indexOf('REPO_NOT_FOUND') !== -1) {
+   showMsg('❌ 仓库不存在！', true);
+  } else {
+   showMsg('❌ 同步失败: ' + msg.substring(0, 50), true);
+  }
+ });
+}
+
+
+function loadData() {
+ var saved = localStorage.getItem('mobile-web');
+ if (saved) {
+  var data = JSON.parse(saved);
+  Object.keys(data).forEach(function(k) {
+   var el = document.querySelector('[data-field="' + k + '"]');
+   if (el && !k.match(/^ball[0-9]/) && !k.match(/^zodiac[0-9]/)) {
+    el.innerHTML = data[k];
+   }
+  });
+ }
+ initLotteryBalls();
+}
+
+/* ===== 开奖球体上色 ===== */
+var ball_red = [1,2,7,8,12,13,18,19,23,24,29,30,34,35,40,45,46];
+var ball_blue = [3,4,9,10,14,15,20,25,26,31,36,37,41,42,47,48];
+var ball_green = [5,6,11,16,17,21,22,27,28,32,33,38,39,43,44,49];
+var ball_xiao = [];
+ball_xiao[0] = ["马","蛇","龙","兔","虎","牛","鼠","猪","狗","鸡","猴","羊"];
+ball_xiao[1] = [1,13,25,37,49];
+ball_xiao[2] = [2,14,26,38];
+ball_xiao[3] = [3,15,27,39];
+ball_xiao[4] = [4,16,28,40];
+ball_xiao[5] = [5,17,29,41];
+ball_xiao[6] = [6,18,30,42];
+ball_xiao[7] = [7,19,31,43];
+ball_xiao[8] = [8,20,32,44];
+ball_xiao[9] = [9,21,33,45];
+ball_xiao[10] = [10,22,34,46];
+ball_xiao[11] = [11,23,35,47];
+ball_xiao[12] = [12,24,36,48];
+var ball_wx = [];
+ball_wx[0] = ["水","金","木","土","火"];
+ball_wx[1] = [1,14,15,22,23,30,31,44,45];
+ball_wx[2] = [4,5,12,13,26,27,34,35,42,43];
+ball_wx[3] = [8,9,16,17,24,25,38,39,46,47];
+ball_wx[4] = [6,7,20,21,28,29,36,37];
+ball_wx[5] = [2,3,10,11,18,19,32,33,40,41,46,49];
+function inArr(c,b){for(var a in b){if(b[a]==c)return true}return false}
+function updateLotteryBall(numId, zodiacId) {
+ var numEl = document.getElementById(numId);
+ var ballId = numId === 's1' ? 'w7' : 'w' + numId.replace('m','');
+ var ballEl = document.getElementById(ballId);
+ var zodiacEl = document.getElementById(zodiacId);
+ if (!numEl || !ballEl || !zodiacEl) return;
+ var n = parseInt(numEl.textContent.trim(), 10);
+ if (isNaN(n) || n < 1 || n > 49) return;
+ var color = "#999";
+ if (inArr(n, ball_red)) color = "#FF0000";
+ else if (inArr(n, ball_blue)) color = "#0000FF";
+ else if (inArr(n, ball_green)) color = "#009900";
+ ballEl.style.backgroundColor = color;
+ ballEl.style.color = "#FFFFFF";
+ var wx = "";
+ for (var b = 1; b <= 5; b++) { if (inArr(n, ball_wx[b])) wx = ball_wx[0][b-1]; }
+ var x = "";
+ for (var b = 1; b <= 12; b++) { if (inArr(n, ball_xiao[b])) x = ball_xiao[0][b-1]; }
+ zodiacEl.textContent = x + "/" + wx;
+}
+function initLotteryBalls(){
+ updateLotteryBall('m1', 'm1x');
+ updateLotteryBall('m2', 'm2x');
+ updateLotteryBall('m3', 'm3x');
+ updateLotteryBall('m4', 'm4x');
+ updateLotteryBall('m5', 'm5x');
+ updateLotteryBall('m6', 'm6x');
+ updateLotteryBall('s1', 's1x');
+}
+
+loadData();
+initLotteryBalls();
+</script>
+
+</body>
+</html>
