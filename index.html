@@ -751,9 +751,6 @@ img { max-width: 100%; height: auto; display: block; }
  <button class="btn-cancel" onclick="hideLinkToolbar()">取消</button>
 </div>
 
-<!-- 临时调试按钮 -->
-<button onclick="alert('isEdit='+isEdit)" style="position:fixed;bottom:80px;left:10px;z-index:99999;background:#ff6600;color:white;padding:8px 16px;border:none;border-radius:5px;font-size:13px;cursor:pointer;">调试</button>
-
 <!-- 编辑模式浮动保存条 -->
 <div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:14px 12px 18px;z-index:99990;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
  <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">💾 保存到服务器</button>
@@ -763,7 +760,6 @@ img { max-width: 100%; height: auto; display: block; }
 <footer class="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
- <button id="footerEditBtn" onclick="window._editBtnClicked=1; if(!isEdit){showLogin();}else{saveAndSync();}" style="position:absolute;bottom:8px;right:10px;width:50px;height:28px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);border-radius:6px;opacity:0.5;cursor:pointer;font-size:11px;color:rgba(255,255,255,0.6);z-index:99998;">编辑</button>
 </footer>
 
 <script>
@@ -772,7 +768,6 @@ let isEdit = false;
 let ghToken = ''; // 上传Token（从localStorage读取或手动输入）
 const GH_OWNER = 'liuhongzhi7318';
 const GH_REPO = 'l12388h-website';
-const btn = document.getElementById('footerEditBtn');
 const modal = document.getElementById('loginModal');
 const passwordInput = document.getElementById('passwordInput');
 const loginError = document.getElementById('loginError');
@@ -914,17 +909,9 @@ function initLinkToolbar() {
 
 function enableEdit() {
  isEdit = true;
- btn.textContent = '💾 保存';
- btn.setAttribute('onclick', 'saveAndSync()');
- btn.style.background = '#28a745';
  // 显示浮动保存条
  var saveBar = document.getElementById('editSaveBar');
  if (saveBar) saveBar.style.display = 'block';
- btn.style.color = 'white';
- btn.style.fontSize = '12px';
- btn.style.borderRadius = '6px';
- btn.style.opacity = '0.9';
- btn.style.cursor = 'pointer';
  document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
@@ -1045,13 +1032,6 @@ function uploadAndInsertImage(file, targetEl) {
 
 function disableEdit() {
  isEdit = false;
- btn.textContent = '';
- btn.style.background = 'transparent';
- btn.style.color = 'transparent';
- btn.style.fontSize = '';
- btn.style.borderRadius = '';
- btn.style.opacity = '0';
- btn.style.cursor = 'default';
  // 隐藏浮动保存条
  var saveBar = document.getElementById('editSaveBar');
  if (saveBar) saveBar.style.display = 'none';
@@ -1078,8 +1058,11 @@ function disableEdit() {
  initLotteryBalls();
 }
 
-btn.addEventListener('click', function() {
- if (!isEdit) { showLogin(); } else { saveAndSync(); }
+// 双击页面空白处弹出登录框
+document.addEventListener('dblclick', function(e) {
+ if (isEdit) return; // 编辑模式不触发
+ if (e.target.closest('.editable, a, button, input')) return; // 点在内容上不触发
+ showLogin();
 });
 
 var _saving = false;
