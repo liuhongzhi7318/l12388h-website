@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>l12388h.com - 新闻资讯</title>
@@ -421,8 +422,8 @@ img { max-width: 100%; height: auto; display: block; }
 .edit-hint { display: none !important; }
 .edit-mode .edit-hint { display: block; }
 .edit-mode a { pointer-events: none; }
-[] { outline: none; }
-[]:empty::before { content: '点击输入内容'; color: #aaa; font-style: italic; }
+[contenteditable="true"] { outline: none; }
+[contenteditable="true"]:empty::before { content: '点击输入内容'; color: #aaa; font-style: italic; }
 
 /* ============ Link Toolbar (edit mode) ============ */
 #linkToolbar {
@@ -469,7 +470,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 </style>
 </head>
-<body class="">
+<body>
 
 <!-- 登录弹窗 -->
 <div class="login-modal" id="loginModal">
@@ -477,12 +478,12 @@ img { max-width: 100%; height: auto; display: block; }
   <h3>🔐 管理登录</h3>
   <input type="password" id="passwordInput" placeholder="请输入管理密码">
   <button onclick="checkPassword()">确认</button>
-  <div class="login-error" id="loginError" style="display: none;">密码错误</div>
+  <div class="login-error" id="loginError">密码错误</div>
  </div>
 </div>
 
 <!-- 同步状态提示 -->
-<div id="saveMsg" style="display: none; position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: rgb(255, 255, 255); padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 99999; white-space: nowrap; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;">⏳ 正在同步到GitHub...</div>
+<div id="saveMsg" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;z-index:99999;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.3);"></div>
 
 
 <!-- Header -->
@@ -511,45 +512,45 @@ img { max-width: 100%; height: auto; display: block; }
 <div id="lottery-section" style="background:#f8f8f8;border-bottom:1px solid #ddd;">
  <!-- 标题栏 -->
  <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-title">
-  澳彩 <font color="#ff0000">102</font>期开奖结果 <a href="#" onclick="return false;" style="text-decoration:none;"><font color="red">【开奖记录】</font></a>
+  澳彩 <font color="#FF0000"><span id="q">095</span></font> 期开奖结果 <a href="#" onclick="return false;" style="text-decoration:none;"><font color="red">【开奖记录】</font></a>
  </div>
  <!-- 号码球区域 -->
  <div style="padding:5px 0;border-top:solid 1px #ddd;border-bottom:solid 1px #eee;clear:both;">
   <div style="float:left;width:83%;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m1" class="lottery-num" style="color:#FFFFFF;"><br></div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(255, 0, 0); color: rgb(255, 255, 255);"><div id="m2" class="lottery-num" style="color:#FFFFFF;"><br></div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m3" class="lottery-num" style="color:#FFFFFF;"><br></div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m4" class="lottery-num" style="color:#FFFFFF;"><br></div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><div id="m5" class="lottery-num" style="color:#FFFFFF;"><br></div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num" style="color:#FFFFFF;"><br></div></div></th>
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m1" class="lottery-num" style="color:#FFFFFF;">07</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m2" class="lottery-num" style="color:#FFFFFF;">15</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m3" class="lottery-num" style="color:#FFFFFF;">24</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m4" class="lottery-num" style="color:#FFFFFF;">31</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#009900;color:#FFFFFF;"><div id="m5" class="lottery-num" style="color:#FFFFFF;">38</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num" style="color:#FFFFFF;">42</div></div></th>
     </tr>
     <tr>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable" data-field="zodiac1" style="font-size:12px;color:#666;">鼠/土</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable" data-field="zodiac2" style="font-size:12px;color:#666;">马/水</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable" data-field="zodiac1" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable" data-field="zodiac2" style="font-size:12px;color:#666;">牛/木</div></td>
      <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m3x" class="lottery-zodiac editable" data-field="zodiac3" style="font-size:12px;color:#666;">蛇/火</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable" data-field="zodiac4" style="font-size:12px;color:#666;">龙/火</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable" data-field="zodiac5" style="font-size:12px;color:#666;">龙/火</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable" data-field="zodiac6" style="font-size:12px;color:#666;">兔/金</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable" data-field="zodiac4" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable" data-field="zodiac5" style="font-size:12px;color:#666;">猴/土</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable" data-field="zodiac6" style="font-size:12px;color:#666;">虎/金</div></td>
     </tr>
-   </tbody></table>
+   </table>
   </div>
   <div style="float:right;width:15%;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 42px; height: 42px; line-height: 42px; text-align: center; font-size: 20px; font-weight: bold; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><div id="s1" class="lottery-num" style="color:#FFFFFF;">20</div></div></th>
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display:inline-block;border-radius:50%;width:42px;height:42px;line-height:42px;text-align:center;font-size:20px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="s1" class="lottery-num" style="color:#FFFFFF;">19</div></div></th>
     </tr>
     <tr>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable" data-field="zodiac7" style="font-size:12px;color:#666;">猪/土</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable" data-field="zodiac7" style="font-size:12px;color:#666;">龙/水</div></td>
     </tr>
-   </tbody></table>
+   </table>
   </div>
  </div>
  <div style="clear:both;"></div>
  <!-- 下期信息 -->
  <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-next">
-  第103期开奖时间：<span id="nextMonth">4</span>月13日 星期<span id="nextWeek">一</span> <span id="nextTime">21:30</span>
+  第<span id="nextQiShu">096</span>期开奖时间：<span id="nextMonth">4</span>月<span id="nextDay">7</span>日 星期<span id="nextWeek">一</span> <span id="nextTime">21:30</span>
  </div>
 </div>
 
@@ -572,7 +573,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- Feeds List -->
 <div class="feeds-item hasImg editable" data-field="news1">
- <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%233e98f0' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt="" style="cursor: pointer;"></div>
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%233e98f0' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
  <div class="feeds-item-info">
   <h3><a href="#">新闻标题一：公司最新动态发布</a></h3>
   <span>来源</span>
@@ -589,7 +590,7 @@ img { max-width: 100%; height: auto; display: block; }
  </div>
 </div>
 <div class="feeds-item hasImg editable" data-field="news3">
- <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt="" style="cursor: pointer;"></div>
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
  <div class="feeds-item-info">
   <h3><a href="#">新闻标题三：行业资讯分享</a></h3>
   <span>转载</span>
@@ -869,7 +870,7 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Link Toolbar (edit mode) -->
-<div id="linkToolbar" style="display: none;">
+<div id="linkToolbar">
  <input type="text" id="linkUrlInput" placeholder="输入网址 https://...">
  <button class="btn-insert" onclick="insertLink()">插入链接</button>
  <button class="btn-remove" onclick="removeLink()">移除链接</button>
@@ -877,8 +878,8 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- 编辑模式浮动保存条 -->
-<div id="editSaveBar" style="display: none; position: fixed; bottom: 0px; left: 0px; right: 0px; background: linear-gradient(135deg, rgb(26, 138, 60), rgb(40, 167, 69)); text-align: center; padding: 14px 12px 18px; z-index: 99990; box-shadow: rgba(0, 0, 0, 0.3) 0px -4px 20px;">
- <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">⏳ 正在同步到GitHub...</button>
+<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:14px 12px 18px;z-index:99990;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">💾 保存到服务器</button>
  <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div>
 </div>
 
@@ -1031,7 +1032,7 @@ function enableEdit() {
  isEdit = true;
  var saveBar = document.getElementById('editSaveBar');
  if (saveBar) saveBar.style.display = 'block';
- document.body.classList.add('');
+ document.body.classList.add('edit-mode-active');
  document.querySelectorAll('.editable').forEach(function(el) {
   el.classList.add('edit-mode');
   el.setAttribute('contenteditable', 'true');
@@ -1149,7 +1150,7 @@ function disableEdit() {
  isEdit = false;
  var saveBar = document.getElementById('editSaveBar');
  if (saveBar) saveBar.style.display = 'none';
- document.body.classList.remove('');
+ document.body.classList.remove('edit-mode-active');
  document.body.classList.remove('edit-mode');
  var all = document.getElementsByTagName('*');
  for (var i = 0; i < all.length; i++) {
@@ -1186,7 +1187,7 @@ function saveAndSync() {
  if (t) ghToken = t;
  console.log('[DEBUG] Token from localStorage:', ghToken ? 'yes (' + ghToken.length + ' chars)' : 'NO');
  if (!ghToken || ghToken === '') {
-  var tk = prompt('请输入GitHub Token:');
+  var tk = prompt('请输入GitHub Personal Access Token:\n(在 GitHub Settings > Developer settings > Personal access tokens 生成)');
   if (tk && tk.length > 10) {
    ghToken = tk;
    localStorage.setItem('gh_token', tk);
@@ -1199,8 +1200,12 @@ function saveAndSync() {
  }
 
  var msgEl = document.getElementById('saveMsg');
- var showMsg = function(txt) {
-  if (msgEl) { msgEl.textContent = txt; msgEl.style.display = 'block'; msgEl.style.color = '#fff'; }
+ var showMsg = function(txt, isError) {
+  if (msgEl) {
+   msgEl.textContent = txt;
+   msgEl.style.display = 'block';
+   msgEl.style.color = isError ? '#ff6b6b' : '#fff';
+  }
   console.log('[MSG] ' + txt);
   var saveBtn = document.querySelector('#editSaveBar button');
   if (saveBtn) saveBtn.textContent = txt;
@@ -1210,9 +1215,15 @@ function saveAndSync() {
  showMsg('⏳ 正在同步到GitHub...');
 
  fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
-  headers: { 'Authorization': 'token ' + ghToken }
+  headers: { 'Authorization': 'token ' + ghToken, 'Accept': 'application/vnd.github.v3+json' }
  }).then(function(r) {
   console.log('[DEBUG] GET sha, status:', r.status);
+  if (r.status === 401) {
+   throw new Error('TOKEN_INVALID');
+  }
+  if (r.status === 404) {
+   throw new Error('REPO_NOT_FOUND');
+  }
   return r.json();
  }).then(function(fileData) {
   var sha = fileData.sha;
@@ -1221,12 +1232,12 @@ function saveAndSync() {
   disableEdit();
   var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
   enableEdit();
-  html = html.replace(/\s*/g, '');
+  html = html.replace(/\s*contenteditable="true"/g, '');
   html = html.replace(/\s*class="([^"]*?)edit-mode([^"]*?)"/g, function(m, before, after) {
    var cls = (before + after).trim().replace(/\s+/g, ' ');
    return cls ? ' class="' + cls + '"' : '';
   });
-  html = html.replace(/\s*/g, '');
+  html = html.replace(/\s*edit-mode-active/g, '');
   var content = btoa(unescape(encodeURIComponent(html)));
   console.log('[DEBUG] HTML length:', html.length, 'base64 length:', content.length);
 
@@ -1239,42 +1250,53 @@ function saveAndSync() {
     body: JSON.stringify({ message: 'Update website', content: content, sha: currentSha, branch: 'master' })
    }).then(function(r) {
     console.log('[DEBUG] PUT status:', r.status);
-    if (!r.ok) {
-     if (r.status === 409) {
-      console.log('[DEBUG] Got 409, fetching latest SHA...');
-      return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
-       headers: { 'Authorization': 'token ' + ghToken }
-      }).then(function(gr) { return gr.json(); }).then(function(newData) {
-       return doUpload(newData.sha);
-      });
-     }
-     return r;
+    if (r.status === 401) {
+     throw new Error('TOKEN_INVALID');
     }
-    return r;
+    if (r.status === 404) {
+     throw new Error('REPO_NOT_FOUND');
+    }
+    if (r.status === 409) {
+     console.log('[DEBUG] Got 409, fetching latest SHA...');
+     return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
+      headers: { 'Authorization': 'token ' + ghToken, 'Accept': 'application/vnd.github.v3+json' }
+     }).then(function(gr) { return gr.json(); }).then(function(newData) {
+      return doUpload(newData.sha);
+     });
+    }
+    if (!r.ok) {
+     return r.text().then(function(text) {
+      throw new Error('UPLOAD_FAILED_' + r.status + ': ' + text);
+     });
+    }
+    return r.json();
    });
   }
   return doUpload(sha);
  }).then(function(r) {
   _saving = false;
-  if (r.ok) {
-   console.log('[DEBUG] Upload OK!');
-   showMsg('✅ 已同步到服务器！');
-   disableEdit();
-   initLotteryBalls();
-   setTimeout(function() { if (msgEl) msgMsg = msgEl.style.display = 'none'; }, 3000);
-  } else {
-   console.log('[DEBUG] Upload failed:', r.status);
-   r.text().then(function(text) {
-    showMsg('❌ 同步失败: ' + r.status + ' - 内容未丢失，可再次保存');
-    console.log('[ERROR] Response:', text);
-   });
-  }
+  console.log('[DEBUG] Upload result:', JSON.stringify(r).substring(0, 100));
+  showMsg('✅ 已同步到服务器！');
+  disableEdit();
+  initLotteryBalls();
+  setTimeout(function() { if (msgEl) msgEl.style.display = 'none'; }, 3000);
  }).catch(function(err) {
   _saving = false;
-  console.log('[DEBUG] Network error:', err.message);
-  showMsg('❌ 网络错误 - 内容未丢失，可再次保存');
+  var msg = err.message || String(err);
+  console.log('[DEBUG] Error:', msg);
+  if (msg.indexOf('TOKEN_INVALID') !== -1 || msg.indexOf('401') !== -1) {
+   showMsg('❌ Token无效！请重新输入', true);
+   localStorage.removeItem('gh_token');
+   ghToken = '';
+   setTimeout(showLogin, 1000);
+  } else if (msg.indexOf('REPO_NOT_FOUND') !== -1) {
+   showMsg('❌ 仓库不存在！', true);
+  } else {
+   showMsg('❌ 同步失败: ' + msg.substring(0, 50), true);
+  }
  });
 }
+
 
 function loadData() {
  var saved = localStorage.getItem('mobile-web');
@@ -1350,5 +1372,5 @@ loadData();
 initLotteryBalls();
 </script>
 
-
-</body></html>
+</body>
+</html>
