@@ -482,6 +482,9 @@ img { max-width: 100%; height: auto; display: block; }
  </div>
 </div>
 
+<!-- 同步状态提示 -->
+<div id="saveMsg" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;z-index:99999;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.3);"></div>
+
 
 <!-- Header -->
 <div class="header" id="mainHeader">
@@ -752,7 +755,7 @@ img { max-width: 100%; height: auto; display: block; }
 <footer class="footer editable" data-field="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
  <p>保留所有权利</p>
- <button id="footerEditBtn" ondblclick="showLogin()" style="position:absolute;bottom:8px;right:10px;width:50px;height:28px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);border-radius:6px;opacity:0.5;cursor:pointer;font-size:11px;color:rgba(255,255,255,0.6);z-index:10;">编辑</button>
+ <button id="footerEditBtn" style="position:absolute;bottom:8px;right:10px;width:50px;height:28px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);border-radius:6px;opacity:0.5;cursor:pointer;font-size:11px;color:rgba(255,255,255,0.6);z-index:10;">编辑</button>
 </footer>
 
 <script>
@@ -1064,66 +1067,68 @@ btn.addEventListener('click', function() {
 });
 
 function saveAndSync() {
+ console.log('[DEBUG] saveAndSync() called, isEdit=' + isEdit);
  var data = {};
  document.querySelectorAll('.editable').forEach(function(el) {
   if (el.dataset.field) data[el.dataset.field] = el.innerHTML;
  });
  localStorage.setItem('mobile-web', JSON.stringify(data));
- // Token: 优先从localStorage读取，没有则弹窗输入（只需输入一次）
+ console.log('[DEBUG] Data saved to localStorage, fields:', Object.keys(data).length);
+
+ // Token: 优先从localStorage读取，没有则弹窗输入
  var t = localStorage.getItem('gh_token');
  if (t) ghToken = t;
+ console.log('[DEBUG] Token from localStorage:', ghToken ? 'yes (' + ghToken.length + ' chars)' : 'NO');
  if (!ghToken || ghToken === '') {
-  var tk = prompt('请输入GitHub Token（只需输入一次，会自动记住）:');
+  var tk = prompt('请输入GitHub Token:');
   if (tk && tk.length > 10) {
    ghToken = tk;
    localStorage.setItem('gh_token', tk);
+   console.log('[DEBUG] Token saved to localStorage');
   } else {
-   alert('未输入Token，内容已保存到本地，但无法同步到网站');
+   alert('未输入Token，内容已保存到本地，但无法同步到服务器');
    return;
   }
  }
- uploadToGitHub();
-}
 
-function uploadToGitHub() {
- var msg = document.getElementById('saveMsg');
+ var msgEl = document.getElementById('saveMsg');
+ var showMsg = function(txt) {
+  if (msgEl) { msgEl.textContent = txt; msgEl.style.display = 'block'; msgEl.style.color = '#fff'; }
+  console.log('[MSG] ' + txt);
+ };
+
  hideLogin();
- if (msg) { msg.textContent = '⏳ 正在同步...'; msg.style.display = 'block'; }
+ showMsg('⏳ 正在同步到GitHub...');
 
+ // 先获取当前文件的SHA
  fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
   headers: { 'Authorization': 'token ' + ghToken }
- }).then(function(r) { return r.json(); }).then(function(fileData) {
+ }).then(function(r) {
+  console.log('[DEBUG] GET sha, status:', r.status);
+  return r.json();
+ }).then(function(fileData) {
   var sha = fileData.sha;
-  // 彻底退出编辑模式
-  isEdit = false;
-  btn.textContent = '';
-  btn.style.background = 'transparent';
-  btn.style.color = 'transparent';
-  btn.style.fontSize = '';
-  btn.style.borderRadius = '';
-  btn.style.opacity = '0';
-  btn.style.cursor = 'default';
-  document.body.classList.remove('edit-mode-active');
-  document.body.classList.remove('edit-mode');
-  var all = document.getElementsByTagName('*');
-  for (var i = 0; i < all.length; i++) {
-   all[i].removeAttribute('contenteditable');
-   all[i].classList.remove('edit-mode');
-  }
-  window.getSelection().removeAllRanges();
+  console.log('[DEBUG] Got SHA:', sha);
+
+  // 生成要上传的内容
   var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
   var content = btoa(unescape(encodeURIComponent(html)));
+  console.log('[DEBUG] HTML length:', html.length, 'base64 length:', content.length);
 
   // 上传到GitHub
   function doUpload(currentSha) {
+   console.log('[DEBUG] Uploading with SHA:', currentSha);
+   showMsg('⏳ 正在上传...');
    return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
     method: 'PUT',
     headers: { 'Authorization': 'token ' + ghToken, 'Content-Type': 'application/json' },
     body: JSON.stringify({ message: 'Update website', content: content, sha: currentSha, branch: 'master' })
    }).then(function(r) {
+    console.log('[DEBUG] PUT status:', r.status);
     if (!r.ok) {
-     // 如果是409错误，获取最新SHA重试
+     // 409: SHA冲突，获取最新SHA重试一次
      if (r.status === 409) {
+      console.log('[DEBUG] Got 409, fetching latest SHA...');
       return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/index.html', {
        headers: { 'Authorization': 'token ' + ghToken }
       }).then(function(gr) { return gr.json(); }).then(function(newData) {
@@ -1137,17 +1142,24 @@ function uploadToGitHub() {
   return doUpload(sha);
  }).then(function(r) {
   if (r.ok) {
+   console.log('[DEBUG] Upload OK!');
+   showMsg('✅ 已同步到服务器！');
+   // 成功后退出编辑模式
    disableEdit();
-   if (msg) { msg.textContent = '✅ 已同步到服务器！'; setTimeout(function(){ msg.style.display='none'; }, 3000); }
    initLotteryBalls();
+   setTimeout(function() { if (msgEl) msgEl.style.display = 'none'; }, 3000);
   } else {
-   disableEdit();
-   r.text().then(function(text) { if (msg) { msg.textContent = '❌ 同步失败:' + r.status; setTimeout(function(){ msg.style.display='none'; }, 5000); } console.log('Sync error:', text); });
+   console.log('[DEBUG] Upload failed:', r.status);
+   r.text().then(function(text) {
+    showMsg('❌ 同步失败: ' + r.status + ' - 内容未丢失，可再次保存');
+    console.log('[ERROR] Response:', text);
+   });
+   // 失败时不退出编辑模式，方便重试
   }
  }).catch(function(err) {
-  disableEdit();
-  if (msg) { msg.textContent = '❌ 网络错误'; setTimeout(function(){ msg.style.display='none'; }, 3000); }
-  console.log('Error:', err);
+  console.log('[DEBUG] Network error:', err.message);
+  showMsg('❌ 网络错误 - 内容未丢失，可再次保存');
+  // 网络错误时不退出编辑模式，方便重试
  });
 }
 
