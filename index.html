@@ -897,6 +897,18 @@ let isEdit = false;
 let ghToken = '';
 const GH_OWNER = 'liuhongzhi7318';
 const GH_REPO = 'l12388h-website';
+var _originalHTML = '';
+(function(){
+ var xhr = new XMLHttpRequest();
+ xhr.open('GET', location.href, false);
+ try { xhr.send(); } catch(e) {}
+ if (xhr.status === 200 && xhr.responseText.length > 10000) {
+  _originalHTML = xhr.responseText;
+  console.log('[DEBUG] Original HTML cached, length:', _originalHTML.length);
+ } else {
+  console.log('[WARN] Failed to cache original HTML, will use outerHTML fallback');
+ }
+})();
 const modal = document.getElementById('loginModal');
 const passwordInput = document.getElementById('passwordInput');
 const loginError = document.getElementById('loginError');
@@ -1230,7 +1242,25 @@ function saveAndSync() {
   console.log('[DEBUG] Got SHA:', sha);
 
   disableEdit();
-  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  var html;
+  if (_originalHTML && _originalHTML.length > 10000) {
+   html = _originalHTML;
+   document.querySelectorAll('.editable').forEach(function(el) {
+    if (el.dataset.field && !el.dataset.field.match(/^ball[0-9]/) && !el.dataset.field.match(/^zodiac[0-9]/)) {
+     var field = el.dataset.field;
+     var currentHTML = el.innerHTML.replace(/\s*contenteditable="true"/g, '').replace(/\s*class="([^"]*?)edit-mode-active?\2"/g, function(m,b,a){var c=(b+a).trim().replace(/\s+/g,' ');return c?' class="'+c+'"':'';});
+     var re = new RegExp('(<' + el.tagName.toLowerCase() + '[^>]*data-field="' + field.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '"[^>]*>)([\\s\\S]*?)(</' + el.tagName.toLowerCase() + '>)');
+     var m = html.match(re);
+     if (m) {
+      html = html.replace(re, '$1' + currentHTML + '$3');
+     }
+    }
+   });
+   console.log('[DEBUG] Used cached original HTML, updated editable fields');
+  } else {
+   html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+   console.log('[DEBUG] Used outerHTML fallback (no cached original)');
+  }
   enableEdit();
   html = html.replace(/\s*contenteditable="true"/g, '');
   html = html.replace(/\s*class="([^"]*?)edit-mode([^"]*?)"/g, function(m, before, after) {
