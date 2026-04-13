@@ -751,15 +751,14 @@ img { max-width: 100%; height: auto; display: block; }
  <button class="btn-cancel" onclick="hideLinkToolbar()">取消</button>
 </div>
 
-<!-- Footer -->
-<!-- 编辑模式保存按钮 -->
-<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:12px;z-index:99990;box-shadow:0 -2px 10px rgba(0,0,0,0.3);">
- <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:12px 40px;border-radius:25px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);">💾 保存到服务器</button>
- <div style="color:rgba(255,255,255,0.8);font-size:12px;margin-top:6px;">编辑完成后点击上方按钮保存</div>
-</div>
-
 <!-- 临时调试按钮 -->
 <button onclick="alert('isEdit='+isEdit)" style="position:fixed;bottom:80px;left:10px;z-index:99999;background:#ff6600;color:white;padding:8px 16px;border:none;border-radius:5px;font-size:13px;cursor:pointer;">调试</button>
+
+<!-- 编辑模式浮动保存条 -->
+<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:14px 12px 18px;z-index:99990;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">💾 保存到服务器</button>
+ <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div>
+</div>
 
 <footer class="footer editable" data-field="footer" style="position:relative;">
  <p>© 2026 l12388h.com</p>
