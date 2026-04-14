@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>l12388h.com - 新闻资讯</title>
@@ -414,48 +415,7 @@ img { max-width: 100%; height: auto; display: block; }
 [contenteditable="true"]:empty::before { content: '点击输入内容'; color: #aaa; font-style: italic; }
 
 /* ============ Link Toolbar (edit mode) ============ */
-#linkToolbar {
- display: none;
- position: fixed;
- background: #333;
- border-radius: 6px;
- padding: 6px 8px;
- z-index: 99999;
- box-shadow: 0 4px 12px rgba(0,0,0,0.3);
- font-size: 13px;
- white-space: nowrap;
-}
-#linkToolbar input {
- border: none;
- border-radius: 4px;
- padding: 4px 8px;
- font-size: 12px;
- width: 220px;
- margin-right: 5px;
- color: #333;
-}
-#linkToolbar button {
- border: none;
- border-radius: 4px;
- padding: 4px 10px;
- font-size: 12px;
- cursor: pointer;
- font-family: inherit;
-}
-#linkToolbar .btn-insert {
- background: #28a745;
- color: white;
- margin-right: 3px;
-}
-#linkToolbar .btn-cancel {
- background: #666;
- color: white;
-}
-#linkToolbar .btn-remove {
- background: #c41230;
- color: white;
- margin-right: 3px;
-}
+
 </style>
 </head>
 <body>
@@ -466,13 +426,12 @@ img { max-width: 100%; height: auto; display: block; }
   <h3>🔐 管理登录</h3>
   <input type="password" id="passwordInput" placeholder="请输入管理密码">
   <button onclick="checkPassword()">确认</button>
-  <div class="login-error" id="loginError" style="display: none;">密码错误</div>
+  <div class="login-error" id="loginError">密码错误</div>
  </div>
 </div>
 
 <!-- 同步状态提示 -->
-<div id="saveMsg" style="display: none; position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.85); color: rgb(255, 255, 255); padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 99999; white-space: nowrap; box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 10px;">⏳ 正在同步到GitHub...</div>
-
+<div id="saveMsg" style="display:none;position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;z-index:99999;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.3);"></div>
 
 <!-- Header -->
 <div class="header" id="mainHeader">
@@ -500,45 +459,45 @@ img { max-width: 100%; height: auto; display: block; }
 <div id="lottery-section" style="background:#f8f8f8;border-bottom:1px solid #ddd;">
  <!-- 标题栏 -->
  <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-title">
-  澳彩 <font color="#ff0000">104</font>&nbsp;期开奖结果 <a href="#" onclick="return false;" style="text-decoration:none;"><font color="red">【开奖记录】</font></a>
+  澳彩 <font color="#FF0000"><span id="q">095</span></font> 期开奖结果 <a href="#" onclick="return false;" style="text-decoration:none;"><font color="red">【开奖记录】</font></a>
  </div>
  <!-- 号码球区域 -->
  <div style="padding:5px 0;border-top:solid 1px #ddd;border-bottom:solid 1px #eee;clear:both;">
   <div style="float:left;width:83%;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><div id="m1" class="lottery-num" style="color:#FFFFFF;">20</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(255, 0, 0); color: rgb(255, 255, 255);"><div id="m2" class="lottery-num" style="color:#FFFFFF;">45</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(0, 153, 0); color: rgb(255, 255, 255);"><div id="m3" class="lottery-num" style="color:#FFFFFF;">39</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(0, 153, 0); color: rgb(255, 255, 255);"><div id="m4" class="lottery-num" style="color:#FFFFFF;">49</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display: inline-block; border-radius: 50%; width: 38px; height: 38px; line-height: 38px; text-align: center; font-size: 18px; font-weight: bold; background-color: rgb(0, 0, 255); color: rgb(255, 255, 255);"><div id="m5" class="lottery-num" style="color:#FFFFFF;">03</div></div></th>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num" style="color:#FFFFFF;">48</div></div></th>
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w1" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m1" class="lottery-num" style="color:#FFFFFF;">07</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w2" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m2" class="lottery-num" style="color:#FFFFFF;">15</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w3" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="m3" class="lottery-num" style="color:#FFFFFF;">24</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w4" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m4" class="lottery-num" style="color:#FFFFFF;">31</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w5" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#009900;color:#FFFFFF;"><div id="m5" class="lottery-num" style="color:#FFFFFF;">38</div></div></th>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w6" class="lottery-ball" style="display:inline-block;border-radius:50%;width:38px;height:38px;line-height:38px;text-align:center;font-size:18px;font-weight:bold;background-color:#0000FF;color:#FFFFFF;"><div id="m6" class="lottery-num" style="color:#FFFFFF;">42</div></div></th>
     </tr>
     <tr>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable" data-field="zodiac1" style="font-size:12px;color:#666;">猪/土</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable" data-field="zodiac2" style="font-size:12px;color:#666;">狗/水</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m3x" class="lottery-zodiac editable" data-field="zodiac3" style="font-size:12px;color:#666;">龙/木</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable" data-field="zodiac4" style="font-size:12px;color:#666;">马/火</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable" data-field="zodiac5" style="font-size:12px;color:#666;">龙/火</div></td>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable" data-field="zodiac6" style="font-size:12px;color:#666;">羊/</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m1x" class="lottery-zodiac editable" data-field="zodiac1" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m2x" class="lottery-zodiac editable" data-field="zodiac2" style="font-size:12px;color:#666;">牛/木</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m3x" class="lottery-zodiac editable" data-field="zodiac3" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m4x" class="lottery-zodiac editable" data-field="zodiac4" style="font-size:12px;color:#666;">蛇/火</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m5x" class="lottery-zodiac editable" data-field="zodiac5" style="font-size:12px;color:#666;">猴/土</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="m6x" class="lottery-zodiac editable" data-field="zodiac6" style="font-size:12px;color:#666;">虎/金</div></td>
     </tr>
-   </tbody></table>
+   </table>
   </div>
   <div style="float:right;width:15%;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display:inline-block;border-radius:50%;width:42px;height:42px;line-height:42px;text-align:center;font-size:20px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="s1" class="lottery-num" style="color:#FFFFFF;">01</div></div></th>
+    <tr>
+     <th style="height:40px;line-height:40px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="w7" class="lottery-ball" style="display:inline-block;border-radius:50%;width:42px;height:42px;line-height:42px;text-align:center;font-size:20px;font-weight:bold;background-color:#FF0000;color:#FFFFFF;"><div id="s1" class="lottery-num" style="color:#FFFFFF;">19</div></div></th>
     </tr>
     <tr>
-     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable" data-field="zodiac7" style="font-size:12px;color:#666;">马/水</div></td>
+     <td style="height:24px;text-align:center;border:solid 1px #ddd;background:#fff;"><div id="s1x" class="lottery-zodiac editable" data-field="zodiac7" style="font-size:12px;color:#666;">龙/水</div></td>
     </tr>
-   </tbody></table>
+   </table>
   </div>
  </div>
  <div style="clear:both;"></div>
  <!-- 下期信息 -->
  <div style="height:30px;line-height:30px;text-align:center;color:#999;font-size:14px;background:#eee;border-top:solid 1px #ddd;" class="editable" data-field="lottery-next">
-  第105期开奖时间：<span id="nextMonth">4</span>月15日 星期<span id="nextWeek">一</span> <span id="nextTime">21:30</span>
+  第<span id="nextQiShu">096</span>期开奖时间：<span id="nextMonth">4</span>月<span id="nextDay">7</span>日 星期<span id="nextWeek">一</span> <span id="nextTime">21:30</span>
  </div>
 </div>
 
@@ -560,7 +519,15 @@ img { max-width: 100%; height: auto; display: block; }
 </div>
 
 <!-- Feeds List -->
-<div class="feeds-item hasImg editable" data-field="news1">开奖记录</div>
+<div class="feeds-item hasImg editable" data-field="news1">
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%233e98f0' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
+ <div class="feeds-item-info">
+  <h3><a href="#">新闻标题一：公司最新动态发布</a></h3>
+  <span>来源</span>
+  <span>评论 128</span>
+  <span>2小时前</span>
+ </div>
+</div>
 <div class="feeds-item editable" data-field="news2">
  <h3><a href="#">新闻标题二：产品升级通知，新增多项功能</a></h3>
  <div class="feeds-item-info">
@@ -570,7 +537,7 @@ img { max-width: 100%; height: auto; display: block; }
  </div>
 </div>
 <div class="feeds-item hasImg editable" data-field="news3">
- <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt="" style="cursor: pointer;"></div>
+ <div class="feeds-item-pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='60'%3E%3Crect fill='%234763b2' width='90' height='60'/%3E%3Ctext x='45' y='35' fill='white' text-anchor='middle' font-size='12'%3E图片%3C/text%3E%3C/svg%3E" alt=""></div>
  <div class="feeds-item-info">
   <h3><a href="#">新闻标题三：行业资讯分享</a></h3>
   <span>转载</span>
@@ -849,17 +816,9 @@ img { max-width: 100%; height: auto; display: block; }
  </ul>
 </div>
 
-<!-- Link Toolbar (edit mode) -->
-<div id="linkToolbar" style="display: none; top: 123px; left: 360.422px;">
- <input type="text" id="linkUrlInput" placeholder="输入网址 https://...">
- <button class="btn-insert" onclick="insertLink()">插入链接</button>
- <button class="btn-remove" onclick="removeLink()">移除链接</button>
- <button class="btn-cancel" onclick="hideLinkToolbar()">取消</button>
-</div>
-
 <!-- 编辑模式浮动保存条 -->
-<div id="editSaveBar" style="display: none; position: fixed; bottom: 0px; left: 0px; right: 0px; background: linear-gradient(135deg, rgb(26, 138, 60), rgb(40, 167, 69)); text-align: center; padding: 14px 12px 18px; z-index: 99990; box-shadow: rgba(0, 0, 0, 0.3) 0px -4px 20px;">
- <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">⏳ 正在同步到GitHub...</button>
+<div id="editSaveBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a8a3c,#28a745);text-align:center;padding:14px 12px 18px;z-index:99990;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+ <button onclick="saveAndSync()" style="background:#fff;color:#1a8a3c;border:none;padding:14px 50px;border-radius:28px;font-size:17px;font-weight:bold;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.2);letter-spacing:1px;">💾 保存到服务器</button>
  <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:8px;">编辑完成后点击上方按钮保存</div>
 </div>
 
@@ -918,108 +877,6 @@ passwordInput.addEventListener('keypress', function(e) {
 });
 
 // ============ Link Toolbar (edit mode) ============
-function showLinkToolbar() {
- var sel = window.getSelection();
- if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
- var range = sel.getRangeAt(0);
- if (range.collapsed) return;
- var anchor = sel.anchorNode;
- var editable = anchor.parentElement.closest('.editable');
- if (!editable || !editable.classList.contains('edit-mode')) return;
- var inLink = anchor.parentElement.tagName === 'A' || anchor.parentElement.closest('a');
- var toolbar = document.getElementById('linkToolbar');
- var input = document.getElementById('linkUrlInput');
- var url = '';
- if (inLink) { url = inLink.href || ''; }
- input.value = url;
- toolbar.style.display = 'block';
- var rect = range.getBoundingClientRect();
- var tbTop = rect.bottom + window.scrollY + 8;
- var tbLeft = rect.left + window.scrollX;
- toolbar.style.top = tbTop + 'px';
- toolbar.style.left = tbLeft + 'px';
- var tbRect = toolbar.getBoundingClientRect();
- if (tbLeft + tbRect.width > window.innerWidth) {
-  toolbar.style.left = (window.innerWidth - tbRect.width - 10) + 'px';
- }
- if (tbTop + tbRect.height > window.innerHeight + window.scrollY) {
-  toolbar.style.top = (rect.top + window.scrollY - tbRect.height - 8) + 'px';
- }
- setTimeout(function(){ input.focus(); }, 50);
-}
-
-function hideLinkToolbar() {
- var toolbar = document.getElementById('linkToolbar');
- if (toolbar) toolbar.style.display = 'none';
- var sel = window.getSelection();
- if (sel) sel.removeAllRanges();
-}
-
-function insertLink() {
- var input = document.getElementById('linkUrlInput');
- var url = input.value.trim();
- if (!url) { alert('请输入网址'); return; }
- if (!/^https?:\/\//i.test(url)) { url = 'https://' + url; }
- var sel = window.getSelection();
- if (!sel || sel.rangeCount === 0) return;
- var range = sel.getRangeAt(0);
- if (range.collapsed) return;
- var anchor = sel.anchorNode;
- var existingLink = anchor.parentElement.tagName === 'A' ? anchor.parentElement : anchor.parentElement.closest('a');
- if (existingLink) {
-  existingLink.href = url;
- } else {
-  var a = document.createElement('a');
-  a.href = url;
-  a.target = '_blank';
-  a.style.color = '#2d5a8a';
-  a.style.textDecoration = 'underline';
-  range.surroundContents(a);
- }
- hideLinkToolbar();
-}
-
-function removeLink() {
- var sel = window.getSelection();
- if (!sel || sel.rangeCount === 0) return;
- var anchor = sel.anchorNode;
- var link = anchor.parentElement.tagName === 'A' ? anchor.parentElement : anchor.parentElement.closest('a');
- if (link && link.tagName === 'A') {
-  var text = document.createTextNode(link.textContent);
-  link.parentNode.replaceChild(text, link);
- }
- hideLinkToolbar();
-}
-
-function initLinkToolbar() {
- document.addEventListener('mouseup', function(e) {
-  setTimeout(showLinkToolbar, 100);
- });
- document.addEventListener('keyup', function(e) {
-  if (e.ctrlKey && e.key === 'k') {
-   var sel = window.getSelection();
-   if (sel && !sel.isCollapsed) {
-    var range = sel.getRangeAt(0);
-    var anchor = sel.anchorNode;
-    var editable = anchor.parentElement.closest('.editable');
-    if (editable && editable.classList.contains('edit-mode')) {
-     showLinkToolbar();
-    }
-   }
-  }
- });
- document.addEventListener('mousedown', function(e) {
-  var toolbar = document.getElementById('linkToolbar');
-  if (toolbar && toolbar.style.display !== 'none' && !toolbar.contains(e.target)) {
-   hideLinkToolbar();
-  }
- });
- document.getElementById('linkUrlInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { e.preventDefault(); insertLink(); }
-  if (e.key === 'Escape') hideLinkToolbar();
- });
-}
-
 function enableEdit() {
  isEdit = true;
  var saveBar = document.getElementById('editSaveBar');
@@ -1135,8 +992,6 @@ function uploadAndInsertImage(file, targetEl) {
  };
  reader.readAsDataURL(file);
 }
-
-initLinkToolbar();
 
 function disableEdit() {
  isEdit = false;
@@ -1307,7 +1162,6 @@ function saveAndSync() {
  });
 }
 
-
 function loadData() {
  var saved = localStorage.getItem('mobile-web');
  if (saved) {
@@ -1382,5 +1236,5 @@ loadData();
 initLotteryBalls();
 </script>
 
-
-</body></html>
+</body>
+</html>
