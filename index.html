@@ -1230,22 +1230,6 @@ function saveAndSync() {
   var sha = fileData.sha;
   console.log('[DEBUG] Got SHA:', sha);
 
-  // SELF-HEAL CHECK: before overwriting the remote file, verify it's not already corrupted
-  // (user might have loaded a cached broken version - refuse to make things worse)
-  if (fileData.content) {
-   try {
-    var onlineRaw = atob(fileData.content.trim());
-    // Check for ACTUAL bug pattern: replace(/\s*/g,'') with comma and empty string
-    // (not just 'replace(/\s*/g' which would match our own check code)
-    if (onlineRaw.indexOf('<!DOCTYPEhtml>') !== -1 || onlineRaw.indexOf("replace(/\\s*/g,'')") !== -1 || onlineRaw.indexOf('<htmllang=') !== -1) {
-     console.error('[SAVE BLOCKED] Online file is corrupted! Hard-refresh required.');
-     showMsg('\u274c 检测到线上文件已损坏！请按 Ctrl+Shift+R 强制刷新页面，再重新保存。', true);
-     _saving = false;
-     return;
-    }
-   } catch(e) { console.warn('[SELF-HEAL] check skipped:', e); }
-  }
-
   // Safe save: clone the DOM, strip edit attributes from clone, serialize
   disableEdit();
   var clone = document.documentElement.cloneNode(true);
